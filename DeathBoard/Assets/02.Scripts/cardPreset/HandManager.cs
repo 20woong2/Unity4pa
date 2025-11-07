@@ -25,7 +25,7 @@ public class HandManager : MonoBehaviour
     }
     public Vector3 PlaceNewCard()
     {
-        Vector3 newCardPosition = new Vector3(NumOfHand * (moveX*(-1))+Pos1.transform.position.x, PosY, PosZ-(0.01f*NumOfHand)); ; //카드의 가로 길이는 1
+        Vector3 newCardPosition = new Vector3(NumOfHand * (moveX*(-1))+Pos1.transform.position.x, PosY, PosZ-(0.001f*NumOfHand)); ; //카드의 가로 길이는 1
         return newCardPosition;
     }
     public void HandPlus(GameObject newCard)

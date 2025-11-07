@@ -3596,11 +3596,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5378591341782844883, guid: 6b1e1f10920231a4386bfb4c26bf7523, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.9530029
+      value: 0.953125
       objectReference: {fileID: 0}
     - target: {fileID: 5378591341782844883, guid: 6b1e1f10920231a4386bfb4c26bf7523, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -536.39
+      value: -536.3899
       objectReference: {fileID: 0}
     - target: {fileID: 5378591341782844883, guid: 6b1e1f10920231a4386bfb4c26bf7523, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4735,7 +4735,7 @@ Canvas:
   m_GameObject: {fileID: 2068841537}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 1
+  m_RenderMode: 0
   m_Camera: {fileID: 1155247854}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
