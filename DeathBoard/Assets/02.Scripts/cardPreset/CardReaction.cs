@@ -62,7 +62,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
         transform.localScale = originalScale * hoverScaleFactor;
 
         // Z축 위치 조정 (앞으로 나오게)
-        transform.localPosition = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z + hoverZOffset);
+        transform.localPosition = new Vector3(originalPosition.x, (originalPosition.y + 0.1f), originalPosition.z + hoverZOffset);
 
         // 미리보기 UI 활성화
         if (previewCardUI != null)
