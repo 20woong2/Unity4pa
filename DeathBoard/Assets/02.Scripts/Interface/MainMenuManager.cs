@@ -10,7 +10,7 @@ public class MainMenuManager : MonoBehaviour
     // 'public'으로 선언해야 버튼의 OnClick() 이벤트에서 찾을 수 있습니다.
     public void StartGame()
     {
-        // 이름으로 씬을 로드합니다.
+        // 이름으로 씬을 로드합니다!
         SceneManager.LoadScene(gameSceneName);
     }
 }
