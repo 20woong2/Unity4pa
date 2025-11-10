@@ -7,8 +7,8 @@ using UnityEngine.UIElements;
 public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
 
-    // ÄÚµå ÀÛ¼º : ÀÌÁø¿í
-    // Tag¸¦ »ç¿ëÇÏ´Â ÀÌÀ¯? -> Tag°¡ ¼Óµµ°¡ ´õ ºü¸§.
+    // ï¿½Úµï¿½ ï¿½Û¼ï¿½ : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    // Tagï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½? -> Tagï¿½ï¿½ ï¿½Óµï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 
     [Header("Object Hover Height (in Mouse Hover)")]
     public float hoverHeight = 0.1f;
@@ -19,20 +19,20 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private AudioSource audioSource;
     
 
-    // ¸ÞÀÎÄ«¸Þ¶ó
+    // ï¿½ï¿½ï¿½ï¿½Ä«ï¿½Þ¶ï¿½
     private GameObject mainCamera;
-    // ±âº» »óÅÂ ½Ã Ä«¸Þ¶ó À§Ä¡¸¦ ´ã°íÀÖ´Â ¿ÀºêÁ§Æ®
+    // ï¿½âº» ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     private GameObject pos1;
-    // Ä«µå ¼±ÅÃ ½Ã Ä«¸Þ¶ó À§Ä¡¸¦ ´ã°íÀÖ´Â ¿ÀºêÁ§Æ®
+    // Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½Þ¶ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®
     private GameObject pos2;
 
-    // Hover, pressed state¸¦ ÀúÀåÇÒ º¯¼ö
+    // Hover, pressed stateï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     private bool isHovered = false;
     private bool isPressed = false;
 
     void Start()
     {
-        // ÁöÁ¤
+        // ï¿½ï¿½ï¿½ï¿½
         audioSource = GetComponent<AudioSource>();
         mainCamera = GameObject.FindWithTag("MainCamera");
         pos1 = GameObject.FindWithTag("Pos1");

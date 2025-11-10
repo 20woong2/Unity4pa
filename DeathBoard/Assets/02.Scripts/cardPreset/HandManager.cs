@@ -25,22 +25,29 @@ public class HandManager : MonoBehaviour
     }
     public Vector3 PlaceNewCard()
     {
-        Vector3 newCardPosition = new Vector3(NumOfHand * (moveX*(-1))+Pos1.transform.position.x, PosY, PosZ-(0.001f*NumOfHand)); ; //카드의 가로 길이는 1
+        Vector3 newCardPosition = new Vector3(NumOfHand * (moveX * (-1)) + Pos1.transform.position.x, PosY, PosZ - (0.001f * NumOfHand));
         return newCardPosition;
     }
     public void HandPlus(GameObject newCard)
     {
         this.NumOfHand++;
         hand.Add(newCard);
+        rePlaceCard();
     }
     public void rePlaceCard()
     {
-        for (int i = 0; i < NumOfHand-1; i++)
+        for (int i = 0; i < hand.Count; i++)
         {
             GameObject thisCard = hand[i];
             CardReaction reactionScript = thisCard.GetComponent<CardReaction>();
+            Vector3 targetPosition = new Vector3(
+                Pos1.transform.position.x + i * moveX, 
+                PosY,
+                PosZ - (0.001f * i)
+            );
             if (reactionScript.zoomIn == false)
             {
+
                 Vector3 position = thisCard.transform.localPosition;
                 position.x += moveX;
                 thisCard.transform.position = position;

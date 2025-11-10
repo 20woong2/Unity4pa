@@ -12,10 +12,13 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     public GameObject previewCardUI; // 좌상단 카드 설명
     public bool zoomIn;
     public CardStateManager cardstatemanager;
+    public FieldManager fieldManager;
+    private GameObject thisCard;
     void Start()
     {
         originalScale = transform.localScale;
         originalPosition = transform.localPosition;  //기존의 크기, 위치 저장
+        thisCard = this.gameObject;
 
         if (previewCardUI != null)
         {
@@ -73,7 +76,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseDown()
     {
-        // 시점 변환 코드 (카드 선택 후 내려놓을 위치 선택 시점)
+        fieldManager.SetCardReady(thisCard);
     }
     void OnMouseExit()
     {
