@@ -12,7 +12,7 @@ public class FieldReaction : MonoBehaviour
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
-        Debug.LogWarning("Å¬¸¯ ¹ÞÀ½");
+        Debug.LogWarning("Å¬ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
         if (this.fieldPosition[0] < 2)
         {
             SetCardOnField(readyCard);
@@ -39,7 +39,7 @@ public class FieldReaction : MonoBehaviour
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
-            //È¿°ú¹ßµ¿ ½Ãµµ ¸Å°³º¯¼ö·Î Ä«µåÁ¤º¸, ÀÓÀÇÀÇ ¼ýÀÚÇÏ³ª(¿©±â¼­ È£ÃâÇß´Ù´Â Áõ°Å)
+            //ì—¬ê¸°ì„œ Effect Manager -> EffectAtSet ìœ¼ë¡œ ì ‘ê·¼
         }
         else return;
     }

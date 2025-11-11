@@ -10,7 +10,8 @@ public struct CardStruct
     public string ImgPath;
     public string Context;
     public int[] Position;
-    public CardStruct(int hp, int ap, int state, int id, int Aid, string Img, string text)
+    public int EffectTiming;
+    public CardStruct(int hp, int ap, int state, int id, int Aid, string Img, string text, int timing)
     {
         HP = hp;
         AP = ap;
@@ -19,6 +20,7 @@ public struct CardStruct
         AbilityId = Aid;
         ImgPath = Img;
         Context = text;
+        EffectTiming = timing;
         Position = new int[2];  // 배열 초기화
     }
 };

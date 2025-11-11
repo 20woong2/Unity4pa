@@ -6,26 +6,26 @@ public class CardStateManager : MonoBehaviour
 {
     public CardStruct thiscard;
     public int thiscardID;
-    public void SetState(int cardID, GameObject newCard) // º¹Á¦µÈ Ä«µå¿¡ Á¤º¸ »ðÀÔ
+    public void SetState(int cardID, GameObject newCard) // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¿¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     {
         Sprite sprite = Resources.Load<Sprite>("CardImages/" + DeckManager.CardArr[cardID].ImgPath);
         if(sprite == null)
         {
-            Debug.LogError($"½ºÇÁ¶óÀÌÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù: {"CardImages/" + DeckManager.CardArr[cardID].ImgPath}");
+            Debug.LogError($"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½: {"CardImages/" + DeckManager.CardArr[cardID].ImgPath}");
             return;
         }
         SpriteRenderer sr = newCard.GetComponent<SpriteRenderer>();
         if(sr != null)
         {
-            sr.sprite = sprite; // 2D ½ºÇÁ¶óÀÌÆ® º¯°æ
+            sr.sprite = sprite; // 2D ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
         }
         else
         {
-            Debug.LogWarning("SpriteRenderer ÄÄÆ÷³ÍÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+            Debug.LogWarning("SpriteRenderer ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.");
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardArr[cardID];
-        Debug.Log("Ä«µå¾ÆÀÌµð : " + thiscard.CardId);
+        Debug.Log("Ä«ï¿½ï¿½ï¿½ï¿½Ìµï¿½ : " + thiscard.CardId);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
