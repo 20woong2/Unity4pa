@@ -28,7 +28,7 @@ public class CardManager : MonoBehaviour
     }
     public void DrawHand()
     {
-        for (int i = 0; i < 3; i++)
+        if(handManager.hand.Count < 7)
         {
             int cardID;
             cardID = deckmanager.DrawCard();

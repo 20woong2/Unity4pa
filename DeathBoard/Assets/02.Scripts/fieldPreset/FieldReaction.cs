@@ -39,6 +39,7 @@ public class FieldReaction : MonoBehaviour
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+            //효과발동 시도 매개변수로 카드정보, 임의의 숫자하나(여기서 호출했다는 증거)
         }
         else return;
     }

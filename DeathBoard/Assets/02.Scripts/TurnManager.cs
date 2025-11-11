@@ -10,6 +10,11 @@ public class TurnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        for(int i=0;i<2;i++)
+        {
+            cardmanager.DrawHand();
+        }
+        
         NextTurn();
     }
 
@@ -23,7 +28,7 @@ public class TurnManager : MonoBehaviour
         {
             cardmanager.DrawHand();
             currentturn = 2;
-            turnend = true;
+            NextTurn();
         }
         else if(currentturn == 2)
         {
