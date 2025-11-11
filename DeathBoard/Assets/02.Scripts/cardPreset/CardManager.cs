@@ -18,7 +18,7 @@ public class CardManager : MonoBehaviour
     void Update()
     {
         // 예시: R 키를 누를 때마다 카드를 생성합니다.
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.R) && handManager.hand.Count < 7)
         {
             int cardID;
             cardID = deckmanager.DrawCard();
