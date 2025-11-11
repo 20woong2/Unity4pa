@@ -76,6 +76,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseDown()
     {
+        fieldManager = FindAnyObjectByType<FieldManager>();
         fieldManager.SetCardReady(thisCard);
     }
     void OnMouseExit()

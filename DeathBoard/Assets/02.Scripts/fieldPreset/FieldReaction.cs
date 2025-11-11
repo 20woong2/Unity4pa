@@ -8,13 +8,6 @@ public class FieldReaction : MonoBehaviour
     GameObject thisField;
     public GameObject readyCard;
     public CardManager cardManager;
-    void Awake()
-    {
-        if (cardManager == null)
-        {
-            Debug.LogError("CardManager를 찾을 수 없습니다.");
-        }
-    }
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;

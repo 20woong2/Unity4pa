@@ -5,7 +5,7 @@ using System.Collections.Generic;
 public class CardStateManager : MonoBehaviour
 {
     public CardStruct thiscard;
-    
+    public int thiscardID;
     public void SetState(int cardID, GameObject newCard) // 복제된 카드에 정보 삽입
     {
         Sprite sprite = Resources.Load<Sprite>("CardImages/" + DeckManager.CardArr[cardID].ImgPath);
@@ -23,6 +23,7 @@ public class CardStateManager : MonoBehaviour
         {
             Debug.LogWarning("SpriteRenderer 컴포넌트를 찾을 수 없습니다.");
         }
+        thiscardID = cardID;
         thiscard = DeckManager.CardArr[cardID];
         Debug.Log("카드아이디 : " + thiscard.CardId);
     }

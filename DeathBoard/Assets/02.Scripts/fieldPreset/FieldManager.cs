@@ -7,8 +7,10 @@ public class FieldManager : MonoBehaviour
     public GameObject readyCard;
     public void SetCardReady(GameObject setCard)
     {
+        CardStateManager stateManager = setCard.GetComponent<CardStateManager>();
         cardReady = true;
         readyCard = setCard;
+        readyCardID = stateManager.thiscardID;
     }
     public bool getReady()
     {

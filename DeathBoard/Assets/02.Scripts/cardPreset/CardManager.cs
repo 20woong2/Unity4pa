@@ -75,7 +75,7 @@ public class CardManager : MonoBehaviour
             reactionScript.SetPreview(newPreview, cardID);
             stateScript.SetState(cardID, spawnedCard);
 
-            // 🌟 5. 모든 정보 설정 후, 카드의 위치를 재배치하여 정렬합니다. (이 호출이 누락되었었습니다.)
+            // 5. 모든 정보 설정 후, 카드의 위치를 재배치하여 정렬합니다. (이 호출이 누락되었었습니다.)
             handManager.rePlaceCard();
         }
     }
