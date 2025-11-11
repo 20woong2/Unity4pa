@@ -8,10 +8,13 @@ public class FieldReaction : MonoBehaviour
     GameObject thisField;
     public GameObject readyCard;
     public CardManager cardManager;
+    public CardSelecter cardSelecter;
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
+        Debug.LogWarning("클릭 받음");
         SetCardOnField(readyCard);
+
     }
     void SetCardOnField(GameObject setCard)
     {
@@ -27,14 +30,28 @@ public class FieldReaction : MonoBehaviour
             fieldManager.cardReady = false;
             fieldManager.readyCard = null;
             setCard.transform.position = thisField.transform.position;
+            stateScript.thiscard.Position = fieldPosition;
+            setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+            haveCardNow = true;
             Destroy(setCard.GetComponent<CardReaction>());
+            cardSelecter = FindAnyObjectByType<CardSelecter>();
+            StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
         }
         else return;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
+        fieldManager = FindAnyObjectByType<FieldManager>();
+        cardManager = FindAnyObjectByType<CardManager>();
+        fieldPosition = new int[2];
         thisField = this.gameObject;
+        haveCardNow = false;
+    }
+
+    void Strat()
+    {
+
     }
 
     // Update is called once per frame
