@@ -14,6 +14,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     public CardStateManager cardstatemanager;
     public FieldManager fieldManager;
     private GameObject thisCard;
+    public CardSelecter cardSelecter;
     void Start()
     {
         originalScale = transform.localScale;
@@ -77,7 +78,9 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     void OnMouseDown()
     {
         fieldManager = FindAnyObjectByType<FieldManager>();
+        cardSelecter = FindAnyObjectByType<CardSelecter>();
         fieldManager.SetCardReady(thisCard);
+        StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
     }
     void OnMouseExit()
     {

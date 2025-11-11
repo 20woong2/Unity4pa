@@ -53,9 +53,8 @@ public class CardSelecter : MonoBehaviour, IPointerDownHandler
         */
     }
 
-    IEnumerator CameraSmoothMoveRoutine()
+    public IEnumerator CameraSmoothMoveRoutine()
     {
-
         float t;
         float elapsedTime = 0f;
 
