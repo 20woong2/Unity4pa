@@ -10,7 +10,6 @@ public class FieldReaction : MonoBehaviour
     public CardManager cardManager;
     void Awake()
     {
-        cardManager = FindObjectOfType<CardManager>();
         if (cardManager == null)
         {
             Debug.LogError("CardManager를 찾을 수 없습니다.");
