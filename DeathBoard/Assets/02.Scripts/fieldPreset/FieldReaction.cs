@@ -13,9 +13,12 @@ public class FieldReaction : MonoBehaviour
     {
         readyCard = fieldManager.readyCard;
         Debug.LogWarning("클릭 받음");
-        SetCardOnField(readyCard);
-
+        if (this.fieldPosition[0] < 2)
+        {
+            SetCardOnField(readyCard);
+        }
     }
+
     void SetCardOnField(GameObject setCard)
     {
         if (setCard != null && haveCardNow == false && fieldManager.getReady())
