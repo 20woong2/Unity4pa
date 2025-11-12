@@ -5,7 +5,7 @@ public class TurnManager : MonoBehaviour
     public CardManager cardmanager;
     public static int currentturn = 1;
     public static bool turnend = false;
-    //ÇöÀç ÅÏ(1->Ä«µå µå·Î¿ì ´Ü°è, 2->Ä«µå ³»·Á³õ±â ´Ü°è, 3->ÀûÄ«µå ³»·Á³õ±â ´Ü°è, 4->Ä«µå È¿°ú½ÇÇà ´Ü°è, 5->°ø°Ý´Ü°è,6->Ä«µå È¿°ú½ÇÇà´Ü°è2)
+    //í˜„ìž¬ í„´(1->ì¹´ë“œ ë“œë¡œìš° ë‹¨ê³„, 2->ì¹´ë“œ ë‚´ë ¤ë†“ê¸° ë‹¨ê³„, 3->ì ì¹´ë“œ ë‚´ë ¤ë†“ê¸° ë‹¨ê³„, 4->ì¹´ë“œ íš¨ê³¼ì‹¤í–‰ ë‹¨ê³„, 5->ê³µê²©ë‹¨ê³„,6->ì¹´ë“œ íš¨ê³¼ì‹¤í–‰ë‹¨ê³„2)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -24,7 +24,7 @@ public class TurnManager : MonoBehaviour
         
     }
     public void NextTurn(){
-        if(currentturn == 1)//µå·Î¿ìÅÏ
+        if(currentturn == 1)//ë“œë¡œìš°í„´
         {
             cardmanager.DrawHand();
             currentturn = 2;

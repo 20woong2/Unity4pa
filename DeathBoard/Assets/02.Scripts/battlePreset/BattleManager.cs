@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé¾î¾ß ÇÔ
+public class BattleManager : MonoBehaviour //ê³µê²© ë°›ê³  hp 0 ëì„ë•Œ ìƒí˜¸ì‘ìš© ë§Œë“¤ì–´ì•¼ í•¨
 {
     public FieldManager fieldManager;
     public FieldReaction attackCardField;
@@ -27,10 +27,10 @@ public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé
     }
     public void MyCardAttack(int? attackCardID)
     {
-        //¿ŞÂÊ À§ Àû ±â¹° °ø°İ
+        //ì™¼ìª½ ìœ„ ì  ê¸°ë¬¼ ê³µê²©
         if(DeckManager.CardArr[attackCardID.Value].Position[1] >= 1)
         {
-            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //»ó´ë °ø°İ ÁÙ¿¡ Ä«µå ÀÖ´Ù¸é °ø°İ
+            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //ìƒëŒ€ ê³µê²© ì¤„ì— ì¹´ë“œ ìˆë‹¤ë©´ ê³µê²©
             {
                 DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
             }
@@ -40,14 +40,14 @@ public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé
             }
             else
             {
-                //»ó´ë Á÷Á¢ °ø°İ(°øÆ÷ ¼öÄ¡ »ó½Â)
+                //ìƒëŒ€ ì§ì ‘ ê³µê²©(ê³µí¬ ìˆ˜ì¹˜ ìƒìŠ¹)
             }
         }
 
-        //¿À¸¥ÂÊ À§ Àû ±â¹° °ø°İ
+        //ì˜¤ë¥¸ìª½ ìœ„ ì  ê¸°ë¬¼ ê³µê²©
         if(DeckManager.CardArr[attackCardID.Value].Position[1] <= 5)
         {
-            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //»ó´ë °ø°İ ÁÙ¿¡ Ä«µå ÀÖ´Ù¸é °ø°İ
+            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //ìƒëŒ€ ê³µê²© ì¤„ì— ì¹´ë“œ ìˆë‹¤ë©´ ê³µê²©
             {
                 DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
             }
@@ -57,7 +57,7 @@ public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé
             }
             else
             {
-                //»ó´ë Á÷Á¢ °ø°İ(°øÆ÷ ¼öÄ¡ »ó½Â)
+                //ìƒëŒ€ ì§ì ‘ ê³µê²©(ê³µí¬ ìˆ˜ì¹˜ ìƒìŠ¹)
             }
         }
     }
@@ -65,7 +65,7 @@ public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé
     {
         
         
-        if (fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)                                                                                 //»ó´ë °ø°İ ÁÙ¿¡ Ä«µå ÀÖ´Ù¸é °ø°İ
+        if (fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)                                                                                 //ìƒëŒ€ ê³µê²© ì¤„ì— ì¹´ë“œ ìˆë‹¤ë©´ ê³µê²©
         {
             DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
         }
@@ -75,7 +75,7 @@ public class BattleManager : MonoBehaviour //°ø°İ ¹Ş°í hp 0 µÆÀ»¶§ »óÈ£ÀÛ¿ë ¸¸µé
         }
         else
         {
-            //»ó´ë Á÷Á¢ °ø°İ(°øÆ÷ ¼öÄ¡ »ó½Â)
+            //ìƒëŒ€ ì§ì ‘ ê³µê²©(ê³µí¬ ìˆ˜ì¹˜ ìƒìŠ¹)
         }
         
     }

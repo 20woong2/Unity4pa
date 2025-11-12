@@ -13,6 +13,6 @@ public class CameraMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime); //Ä«¸Ş¶ó¸¦ ¿ø·¡ zÃàÀ¸·Î ÀÌµ¿
+        transform.Translate(new Vector3(-1, 0, 0) * speed * Time.deltaTime); //ì¹´ë©”ë¼ë¥¼ ì›ë˜ zì¶•ìœ¼ë¡œ ì´ë™
     }
 }

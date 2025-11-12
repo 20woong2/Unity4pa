@@ -3,36 +3,36 @@ using UnityEngine.EventSystems;
 
 public class CameraPos : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IPointerDownHandler, IPointerUpHandler
 {
-    // Tag¸¦ »ç¿ëÇÏ´Â ÀÌÀ¯? -> Tag°¡ ¼Óµµ°¡ ´õ ºü¸§.
+    // Tagë¥¼ ì‚¬ìš©í•˜ëŠ” ì´ìœ ? -> Tagê°€ ì†ë„ê°€ ë” ë¹ ë¦„.
 
-    // ¸ŞÀÎÄ«¸Ş¶ó
+    // ë©”ì¸ì¹´ë©”ë¼
     private GameObject mainCamera;
 
-    // ±âº» »óÅÂ ½Ã Ä«¸Ş¶ó À§Ä¡
+    // ê¸°ë³¸ ìƒíƒœ ì‹œ ì¹´ë©”ë¼ ìœ„ì¹˜
     private GameObject pos1;
-    // Ä«µå ¼±ÅÃ ½Ã Ä«¸Ş¶ó À§Ä¡
+    // ì¹´ë“œ ì„ íƒ ì‹œ ì¹´ë©”ë¼ ìœ„ì¹˜
     private GameObject pos2;
 
-    // ÇöÀç Ä«¸Ş¶ó Æ÷Áö¼Ç°ú ·ÎÅ×ÀÌ¼ÇÀ» ÀúÀåÇÒ º¯¼ö
+    // í˜„ì¬ ì¹´ë©”ë¼ í¬ì§€ì…˜ê³¼ ë¡œí…Œì´ì…˜ì„ ì €ì¥í•  ë³€ìˆ˜
     private Vector3 currentPos;
     private Quaternion currentRot;
 
     void Start()
     {
-        // ÁöÁ¤
+        // ì§€ì •
         mainCamera = GameObject.FindWithTag("MainCamera");
 
         pos1 = GameObject.FindWithTag("Pos1");
         pos2 = GameObject.FindWithTag("Pos2");
 
 
-        //Ã¹ Æ÷Áö¼ÇÀº Æ÷Áö¼Ç 1ÀÌ°ÚÁö?
-        // SetPositionAndRotation -> Æ÷Áö¼Ç°ú ·ÎÅ×ÀÌ¼Ç ¼¼ÆÃ
-        // mainCamera.transform.position = pos1.transform.position; ÀÌ·± ÇüÅÂ·Î ±¼·Áµµ µÉ°Å°°±ä ÇÑµ¥ µÎÁÙÀÌ¶ó...
+        //ì²« í¬ì§€ì…˜ì€ í¬ì§€ì…˜ 1ì´ê² ì§€?
+        // SetPositionAndRotation -> í¬ì§€ì…˜ê³¼ ë¡œí…Œì´ì…˜ ì„¸íŒ…
+        // mainCamera.transform.position = pos1.transform.position; ì´ëŸ° í˜•íƒœë¡œ êµ´ë ¤ë„ ë ê±°ê°™ê¸´ í•œë° ë‘ì¤„ì´ë¼...
         mainCamera.transform.SetPositionAndRotation(currentPos, currentRot);
     }
 
-    // FixedUpdate()´Â Update()¿Í ´Ş¸® Frame´ÜÀ§°¡ ¾Æ´Ñ ½Ã°£ ´ÜÀ§·Î ÃøÁ¤µÇ¾î ¹°¸® ¿¬»êÀ» ÇÒ ¶§ À¯¸®ÇÏ´Ù.
+    // FixedUpdate()ëŠ” Update()ì™€ ë‹¬ë¦¬ Frameë‹¨ìœ„ê°€ ì•„ë‹Œ ì‹œê°„ ë‹¨ìœ„ë¡œ ì¸¡ì •ë˜ì–´ ë¬¼ë¦¬ ì—°ì‚°ì„ í•  ë•Œ ìœ ë¦¬í•˜ë‹¤.
     void FixedUpdate()
     {
         
