@@ -3,17 +3,20 @@ using UnityEngine;
 
 public class DeckManager : MonoBehaviour
 {
-    public static CardStruct[] CardArr = new CardStruct[60];
-    public static List<int> DeckList = new List<int>();
+    public static CardStruct[] CardArr = new CardStruct[60];//아군 카드
+    public static CardStruct[] CardBrr = new CardStruct[60];//적 카드
+    public static List<int> DeckList = new List<int>();//아군 덱리스트
+    public static List<int> EnemyDeckList = new List<int>();//적 덱리스트
     public static List<int> GraveList = new List<int>();
-    public static List<int> HandList = new List<int>();
+    public static List<int> HandList = new List<int>();//아군 손패 리스트
+    public static List<int> EnemyHandList = new List<int>();//적 손패 리스트
     private int init = -1;
-    void Init_Deck()
+    void Start()
     {
         DeckList.Clear();
 
         List<int> tempList = new List<int>();
-
+        //아군 덱 섞기
         // 0부터 39까지 숫자를 임시 리스트에 추가
         for (int i = 0; i < 60; i++)
         {
@@ -32,6 +35,7 @@ public class DeckManager : MonoBehaviour
         {
             Debug.Log(cardId);
         }
+        //아군 덱 기본 정보
         CardArr[0].HP = 10;
         CardArr[0].AP = 5;
         CardArr[0].State = 0;
@@ -633,10 +637,10 @@ public class DeckManager : MonoBehaviour
         CardArr[59].Position[1] = -1;
     }
     public int DrawCard()
- {
+    {
         if (init == -1)
         {
-            Init_Deck();
+            
             init = 1;
         }
         if (DeckList.Count > 0)
@@ -650,12 +654,9 @@ public class DeckManager : MonoBehaviour
             Debug.LogWarning("덱이 비었습니다. 카드를 뽑을 수 없습니다.");
             return -1; ; //<- 일단 뭐라도 반환을 해야 코드가 굴러가요;
         }
- }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
     }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
 
     // Update is called once per frame
     void Update()

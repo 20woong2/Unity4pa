@@ -12,85 +12,71 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호작용 만들
     {
         for (int i = 0; i < 7; i++)
         {
-            attackCardField = fieldManager.field[i + 7].GetComponent<FieldReaction>();
-            if (attackCardField.haveCardNow)
+            if (fieldManager.CurrntField[1,i] != null)
             {
-                MyCardAttack(attackCardField.readyCard);
+                MyCardAttack(fieldManager.CurrntField[1,i]);
             }
         }
         for (int i = 0; i < 7; i++)
         {
-            attackCardField = fieldManager.field[i + 14].GetComponent<FieldReaction>();
-            if (attackCardField.haveCardNow)
+            if (fieldManager.CurrntField[2,i] != null)
             {
-                EnemyCardAttack(attackCardField.readyCard);
+                EnemyCardAttack(fieldManager.CurrntField[2,i]);
             }
         }
     }
-    public void MyCardAttack(GameObject attackCard)
+    public void MyCardAttack(int? attackCardID)
     {
-        attackCardState = attackCard.GetComponent<CardStateManager>();
-        deffenceCardField = fieldManager.field[14 + attackCardState.thiscard.Position[1] - 1].GetComponent<FieldReaction>(); //첫번째 공격 대상 지정 (왼쪽 대각선)
-        if (deffenceCardField.haveCardNow && attackCardState.thiscard.Position[1] - 1 >= 0)                                                                                 //상대 공격 줄에 카드 있다면 공격
+        //왼쪽 위 적 기물 공격
+        if(DeckManager.CardArr[attackCardID.Value].Position[1] >= 1)
         {
-            deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-            deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
-        }
-        else
-        {
-            deffenceCardField = fieldManager.field[21 + attackCardState.thiscard.Position[1] - 1].GetComponent<FieldReaction>(); //상대 공격 줄에 카드가 없다면 그 라인 대기줄에 카드 있는지 확인 -> 있다면 공격
-            if (deffenceCardField.haveCardNow && attackCardState.thiscard.Position[1] - 1 >= 0)
+            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
             {
-                deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-                deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
+                DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
             }
-            else                                                                                                                //상대 세로줄이 전부 비었다면 상대 직접 공격
+            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)
             {
-                //상대 직접 공격 코드
+                DeckManager.CardArr[fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
+            }
+            else
+            {
+                //상대 직접 공격(공포 수치 상승)
             }
         }
 
-        deffenceCardField = fieldManager.field[14 + attackCardState.thiscard.Position[1] + 1].GetComponent<FieldReaction>(); //두번째 공격 대상 지정 (오른쪽 대각선)
-        if (deffenceCardField.haveCardNow && attackCardState.thiscard.Position[1] + 1 < 7)                                                                                 //상대 공격 줄에 카드 있다면 공격
+        //오른쪽 위 적 기물 공격
+        if(DeckManager.CardArr[attackCardID.Value].Position[1] <= 5)
         {
-            deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-            deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
-        }
-        else
-        {
-            deffenceCardField = fieldManager.field[21 + attackCardState.thiscard.Position[1] + 1].GetComponent<FieldReaction>(); //상대 공격 줄에 카드가 없다면 그 라인 대기줄에 카드 있는지 확인 -> 있다면 공격
-            if (deffenceCardField.haveCardNow && attackCardState.thiscard.Position[1] + 1 < 7)
+            if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
             {
-                deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-                deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
+                DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
             }
-            else                                                                                                                //상대 세로줄이 전부 비었다면 상대 직접 공격
+            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)
             {
-                //상대 직접 공격 코드
+                DeckManager.CardArr[fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
+            }
+            else
+            {
+                //상대 직접 공격(공포 수치 상승)
             }
         }
     }
-    public void EnemyCardAttack(GameObject attackCard)
+    public void EnemyCardAttack(int? attackCardID)
     {
-        attackCardState = attackCard.GetComponent<CardStateManager>();
-        deffenceCardField = fieldManager.field[7 + attackCardState.thiscard.Position[1]].GetComponent<FieldReaction>(); //공격 대상 지정 (정면)
-        if (deffenceCardField.haveCardNow)                                                                                 //플레이어 공격 줄에 카드 있다면 공격
+        
+        
+        if (fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
         {
-            deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-            deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
+            DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
+        }
+        else if(fieldManager.CurrntField[0,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)
+        {
+            DeckManager.CardArr[fieldManager.CurrntField[0,DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
         }
         else
         {
-            deffenceCardField = fieldManager.field[attackCardState.thiscard.Position[1]].GetComponent<FieldReaction>(); //플레이어 공격 줄에 카드가 없다면 그 라인 대기줄에 카드 있는지 확인 -> 있다면 공격
-            if (deffenceCardField.haveCardNow)
-            {
-                deffenceCardState = deffenceCardField.readyCard.GetComponent<CardStateManager>();
-                deffenceCardState.thiscard.HP -= attackCardState.thiscard.AP;
-            }
-            else                                                                                                                //세로줄이 전부 비었다면 플레이어 직접 공격
-            {
-                //플레이어 직접 공격 코드
-            }
+            //상대 직접 공격(공포 수치 상승)
         }
+        
     }
 }

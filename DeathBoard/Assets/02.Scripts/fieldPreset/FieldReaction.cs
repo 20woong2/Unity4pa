@@ -9,6 +9,7 @@ public class FieldReaction : MonoBehaviour
     public GameObject readyCard;
     public CardManager cardManager;
     public CardSelecter cardSelecter;
+    public DeckManager deckmanager;
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
@@ -26,6 +27,8 @@ public class FieldReaction : MonoBehaviour
             haveCardNow = true;
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
             stateScript.thiscard.Position = fieldPosition;
+            DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
+            fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
             if (cardManager != null)
             {
                 cardManager.PlayCard(setCard);

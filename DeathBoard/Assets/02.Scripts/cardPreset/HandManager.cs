@@ -23,20 +23,19 @@ public class HandManager : MonoBehaviour
     {
 
     }
-    public void HandPlus(GameObject newCard)
+    public void HandPlus(int newCardID)
     {
-        this.NumOfHand++;
-        hand.Add(newCard);
+        DeckManager.HandList.Add(newCardID);
     }
     public void rePlaceCard()
     {
-        for (int i = 0; i < hand.Count; i++)
+        for (int i = 0; i < DeckManager.HandList.Count; i++)
         {
-            GameObject thisCard = hand[i];
+            GameObject thisCard = GameObject.FindWithTag(DeckManager.HandList[i].ToString());
             CardReaction reactionScript = thisCard.GetComponent<CardReaction>();
             Vector3 position = reactionScript.originalPosition;
             Vector3 targetPosition = new Vector3(
-                ((hand.Count-1) - i*2)*moveX + PosX,
+                ((DeckManager.HandList.Count-1) - i*2)*moveX + PosX,
                 PosY,
                 PosZ - (0.001f * i)
             );
