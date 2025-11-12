@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class FieldManager : MonoBehaviour
@@ -7,6 +8,7 @@ public class FieldManager : MonoBehaviour
     public GameObject readyCard;
     public GameObject MyfieldPrefab;
     public GameObject EnemyfieldPrefab;
+    public List<GameObject> field = new List<GameObject>();
     public void SetCardReady(GameObject setCard)
     {
         CardStateManager stateManager = setCard.GetComponent<CardStateManager>();
@@ -35,6 +37,7 @@ public class FieldManager : MonoBehaviour
                     FieldCube = Instantiate(EnemyfieldPrefab, new Vector3(3.95f + 0.425f * j, 2.00f, -1.275f + 0.625f * i), Quaternion.identity);
                 }
                 FieldReaction fieldReaction = FieldCube.GetComponent<FieldReaction>();
+                field.Add(FieldCube);
                 fieldReaction.fieldPosition[0] = i;
                 fieldReaction.fieldPosition[1] = j;
                 fieldReaction.haveCardNow = false;
