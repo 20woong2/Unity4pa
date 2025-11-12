@@ -5,7 +5,7 @@ public class TurnManager : MonoBehaviour
     public CardManager cardmanager;
     public static int currentturn = 1;
     public static bool turnend = false;
-    //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->카드 효과실행단계2)
+    //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->뒷열 카드 전진 단계, 6->카드 효과실행 단계2, 7->공격단계2, 8->뒷열 카드 전진 단계2)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -32,7 +32,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 2)
         {
-            currentturn = 3;
+            //currentturn = 3;
         }
         else if(currentturn == 3)
         {
@@ -48,7 +48,15 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 6)
         {
-            currentturn = 1;      
+            currentturn = 7;      
+        }
+        else if(currentturn == 7)
+        {
+            currentturn = 8;
+        }
+        else if (currentturn == 8)
+        {
+            currentturn = 1;
         }
     }
 }

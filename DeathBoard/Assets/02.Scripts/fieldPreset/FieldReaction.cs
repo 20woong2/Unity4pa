@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class FieldReaction : MonoBehaviour
 {
-    public bool haveCardNow;
     public FieldManager fieldManager;
     public int[] fieldPosition;
     GameObject thisField;
@@ -22,9 +21,8 @@ public class FieldReaction : MonoBehaviour
 
     void SetCardOnField(GameObject setCard)
     {
-        if (setCard != null && haveCardNow == false && fieldManager.getReady())
+        if (setCard != null && fieldManager.CurrntField[fieldPosition[0], fieldPosition[1]] == null && fieldManager.getReady() && TurnManager.currentturn == 2)
         {
-            haveCardNow = true;
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
             stateScript.thiscard.Position = fieldPosition;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
@@ -38,7 +36,6 @@ public class FieldReaction : MonoBehaviour
             setCard.transform.position = thisField.transform.position;
             stateScript.thiscard.Position = fieldPosition;
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
-            haveCardNow = true;
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
@@ -53,7 +50,6 @@ public class FieldReaction : MonoBehaviour
         cardManager = FindAnyObjectByType<CardManager>();
         fieldPosition = new int[2];
         thisField = this.gameObject;
-        haveCardNow = false;
     }
 
     void Strat()

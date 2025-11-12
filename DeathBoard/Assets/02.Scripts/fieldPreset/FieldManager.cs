@@ -52,7 +52,6 @@ public class FieldManager : MonoBehaviour
                 FieldReaction fieldReaction = FieldCube.GetComponent<FieldReaction>();
                 fieldReaction.fieldPosition[0] = i;
                 fieldReaction.fieldPosition[1] = j;
-                fieldReaction.haveCardNow = false;
             }
         }
     }

@@ -45,6 +45,7 @@ public class DeckManager : MonoBehaviour
         CardArr[0].Context = "";
         CardArr[0].Position[0] = -1;
         CardArr[0].Position[1] = -1;
+        CardArr[0].EffectTiming = 0;
 
         CardArr[1].HP = 10;
         CardArr[1].AP = 5;
@@ -55,6 +56,7 @@ public class DeckManager : MonoBehaviour
         CardArr[1].Context = "";
         CardArr[1].Position[0] = -1;
         CardArr[1].Position[1] = -1;
+        CardArr[1].EffectTiming = 0;
 
         CardArr[2].HP = 10;
         CardArr[2].AP = 5;
@@ -65,6 +67,7 @@ public class DeckManager : MonoBehaviour
         CardArr[2].Context = "";
         CardArr[2].Position[0] = -1;
         CardArr[2].Position[1] = -1;
+        CardArr[2].EffectTiming = 0;
 
         CardArr[3].HP = 10;
         CardArr[3].AP = 5;
@@ -75,6 +78,7 @@ public class DeckManager : MonoBehaviour
         CardArr[3].Context = "";
         CardArr[3].Position[0] = -1;
         CardArr[3].Position[1] = -1;
+        CardArr[3].EffectTiming = 0;
 
         CardArr[4].HP = 10;
         CardArr[4].AP = 5;
@@ -85,6 +89,7 @@ public class DeckManager : MonoBehaviour
         CardArr[4].Context = "";
         CardArr[4].Position[0] = -1;
         CardArr[4].Position[1] = -1;
+        CardArr[4].EffectTiming = 0;
 
         CardArr[5].HP = 10;
         CardArr[5].AP = 5;
@@ -95,6 +100,7 @@ public class DeckManager : MonoBehaviour
         CardArr[5].Context = "";
         CardArr[5].Position[0] = -1;
         CardArr[5].Position[1] = -1;
+        CardArr[5].EffectTiming = 0;
 
         CardArr[6].HP = 10;
         CardArr[6].AP = 5;
@@ -105,6 +111,7 @@ public class DeckManager : MonoBehaviour
         CardArr[6].Context = "";
         CardArr[6].Position[0] = -1;
         CardArr[6].Position[1] = -1;
+        CardArr[6].EffectTiming = 0;
 
         CardArr[7].HP = 10;
         CardArr[7].AP = 5;
@@ -115,6 +122,7 @@ public class DeckManager : MonoBehaviour
         CardArr[7].Context = "";
         CardArr[7].Position[0] = -1;
         CardArr[7].Position[1] = -1;
+        CardArr[7].EffectTiming = 0;
 
         CardArr[8].HP = 10;
         CardArr[8].AP = 5;
@@ -125,6 +133,7 @@ public class DeckManager : MonoBehaviour
         CardArr[8].Context = "";
         CardArr[8].Position[0] = -1;
         CardArr[8].Position[1] = -1;
+        CardArr[8].EffectTiming = 0;
 
         CardArr[9].HP = 10;
         CardArr[9].AP = 5;
@@ -135,6 +144,7 @@ public class DeckManager : MonoBehaviour
         CardArr[9].Context = "";
         CardArr[9].Position[0] = -1;
         CardArr[9].Position[1] = -1;
+        CardArr[9].EffectTiming = 0;
 
         CardArr[10].HP = 10;
         CardArr[10].AP = 5;
@@ -145,6 +155,7 @@ public class DeckManager : MonoBehaviour
         CardArr[10].Context = "";
         CardArr[10].Position[0] = -1;
         CardArr[10].Position[1] = -1;
+        CardArr[10].EffectTiming = 0;
 
         CardArr[11].HP = 10;
         CardArr[11].AP = 5;
@@ -155,6 +166,7 @@ public class DeckManager : MonoBehaviour
         CardArr[11].Context = "";
         CardArr[11].Position[0] = -1;
         CardArr[11].Position[1] = -1;
+        CardArr[11].EffectTiming = 0;
 
         CardArr[12].HP = 10;
         CardArr[12].AP = 5;
@@ -165,6 +177,7 @@ public class DeckManager : MonoBehaviour
         CardArr[12].Context = "";
         CardArr[12].Position[0] = -1;
         CardArr[12].Position[1] = -1;
+        CardArr[12].EffectTiming = 0;
 
         CardArr[13].HP = 10;
         CardArr[13].AP = 5;
@@ -175,6 +188,7 @@ public class DeckManager : MonoBehaviour
         CardArr[13].Context = "";
         CardArr[13].Position[0] = -1;
         CardArr[13].Position[1] = -1;
+        CardArr[13].EffectTiming = 0;
 
         CardArr[14].HP = 10;
         CardArr[14].AP = 5;
@@ -185,6 +199,7 @@ public class DeckManager : MonoBehaviour
         CardArr[14].Context = "";
         CardArr[14].Position[0] = -1;
         CardArr[14].Position[1] = -1;
+        CardArr[14].EffectTiming = 0;
 
         CardArr[15].HP = 10;
         CardArr[15].AP = 5;
@@ -195,6 +210,7 @@ public class DeckManager : MonoBehaviour
         CardArr[15].Context = "";
         CardArr[15].Position[0] = -1;
         CardArr[15].Position[1] = -1;
+        CardArr[15].EffectTiming = 0;
 
         CardArr[16].HP = 10;
         CardArr[16].AP = 5;
@@ -205,6 +221,7 @@ public class DeckManager : MonoBehaviour
         CardArr[16].Context = "";
         CardArr[16].Position[0] = -1;
         CardArr[16].Position[1] = -1;
+        CardArr[16].EffectTiming = 0;
 
         CardArr[17].HP = 10;
         CardArr[17].AP = 5;
@@ -215,6 +232,7 @@ public class DeckManager : MonoBehaviour
         CardArr[17].Context = "";
         CardArr[17].Position[0] = -1;
         CardArr[17].Position[1] = -1;
+        CardArr[17].EffectTiming = 0;
 
         CardArr[18].HP = 10;
         CardArr[18].AP = 5;
@@ -225,6 +243,7 @@ public class DeckManager : MonoBehaviour
         CardArr[18].Context = "";
         CardArr[18].Position[0] = -1;
         CardArr[18].Position[1] = -1;
+        CardArr[18].EffectTiming = 0;
 
         CardArr[19].HP = 10;
         CardArr[19].AP = 5;
@@ -235,6 +254,7 @@ public class DeckManager : MonoBehaviour
         CardArr[19].Context = "";
         CardArr[19].Position[0] = -1;
         CardArr[19].Position[1] = -1;
+        CardArr[19].EffectTiming = 0;
 
         CardArr[20].HP = 10;
         CardArr[20].AP = 5;
@@ -245,6 +265,7 @@ public class DeckManager : MonoBehaviour
         CardArr[20].Context = "";
         CardArr[20].Position[0] = -1;
         CardArr[20].Position[1] = -1;
+        CardArr[20].EffectTiming = 0;
 
         CardArr[21].HP = 10;
         CardArr[21].AP = 5;
@@ -255,6 +276,7 @@ public class DeckManager : MonoBehaviour
         CardArr[21].Context = "";
         CardArr[21].Position[0] = -1;
         CardArr[21].Position[1] = -1;
+        CardArr[21].EffectTiming = 0;
 
         CardArr[22].HP = 10;
         CardArr[22].AP = 5;
@@ -265,6 +287,7 @@ public class DeckManager : MonoBehaviour
         CardArr[22].Context = "";
         CardArr[22].Position[0] = -1;
         CardArr[22].Position[1] = -1;
+        CardArr[22].EffectTiming = 0;
 
         CardArr[23].HP = 10;
         CardArr[23].AP = 5;
@@ -275,6 +298,7 @@ public class DeckManager : MonoBehaviour
         CardArr[23].Context = "";
         CardArr[23].Position[0] = -1;
         CardArr[23].Position[1] = -1;
+        CardArr[23].EffectTiming = 0;
 
         CardArr[24].HP = 10;
         CardArr[24].AP = 5;
@@ -285,6 +309,7 @@ public class DeckManager : MonoBehaviour
         CardArr[24].Context = "";
         CardArr[24].Position[0] = -1;
         CardArr[24].Position[1] = -1;
+        CardArr[24].EffectTiming = 0;
 
         CardArr[25].HP = 10;
         CardArr[25].AP = 5;
@@ -295,6 +320,7 @@ public class DeckManager : MonoBehaviour
         CardArr[25].Context = "";
         CardArr[25].Position[0] = -1;
         CardArr[25].Position[1] = -1;
+        CardArr[25].EffectTiming = 0;
 
         CardArr[26].HP = 10;
         CardArr[26].AP = 5;
@@ -305,6 +331,7 @@ public class DeckManager : MonoBehaviour
         CardArr[26].Context = "";
         CardArr[26].Position[0] = -1;
         CardArr[26].Position[1] = -1;
+        CardArr[26].EffectTiming = 0;
 
         CardArr[27].HP = 10;
         CardArr[27].AP = 5;
@@ -315,6 +342,7 @@ public class DeckManager : MonoBehaviour
         CardArr[27].Context = "";
         CardArr[27].Position[0] = -1;
         CardArr[27].Position[1] = -1;
+        CardArr[27].EffectTiming = 0;
 
         CardArr[28].HP = 10;
         CardArr[28].AP = 5;
@@ -325,6 +353,7 @@ public class DeckManager : MonoBehaviour
         CardArr[28].Context = "";
         CardArr[28].Position[0] = -1;
         CardArr[28].Position[1] = -1;
+        CardArr[28].EffectTiming = 0;
 
         CardArr[29].HP = 10;
         CardArr[29].AP = 5;
@@ -335,6 +364,7 @@ public class DeckManager : MonoBehaviour
         CardArr[29].Context = "";
         CardArr[29].Position[0] = -1;
         CardArr[29].Position[1] = -1;
+        CardArr[29].EffectTiming = 0;
 
         CardArr[30].HP = 10;
         CardArr[30].AP = 5;
@@ -345,6 +375,7 @@ public class DeckManager : MonoBehaviour
         CardArr[30].Context = "";
         CardArr[30].Position[0] = -1;
         CardArr[30].Position[1] = -1;
+        CardArr[30].EffectTiming = 0;
 
         CardArr[31].HP = 10;
         CardArr[31].AP = 5;
@@ -355,6 +386,7 @@ public class DeckManager : MonoBehaviour
         CardArr[31].Context = "";
         CardArr[31].Position[0] = -1;
         CardArr[31].Position[1] = -1;
+        CardArr[31].EffectTiming = 0;
 
         CardArr[32].HP = 10;
         CardArr[32].AP = 5;
@@ -365,6 +397,7 @@ public class DeckManager : MonoBehaviour
         CardArr[32].Context = "";
         CardArr[32].Position[0] = -1;
         CardArr[32].Position[1] = -1;
+        CardArr[32].EffectTiming = 0;
 
         CardArr[33].HP = 10;
         CardArr[33].AP = 5;
@@ -375,6 +408,7 @@ public class DeckManager : MonoBehaviour
         CardArr[33].Context = "";
         CardArr[33].Position[0] = -1;
         CardArr[33].Position[1] = -1;
+        CardArr[33].EffectTiming = 0;
 
         CardArr[34].HP = 10;
         CardArr[34].AP = 5;
@@ -385,6 +419,7 @@ public class DeckManager : MonoBehaviour
         CardArr[34].Context = "";
         CardArr[34].Position[0] = -1;
         CardArr[34].Position[1] = -1;
+        CardArr[34].EffectTiming = 0;
 
         CardArr[35].HP = 10;
         CardArr[35].AP = 5;
@@ -395,6 +430,7 @@ public class DeckManager : MonoBehaviour
         CardArr[35].Context = "";
         CardArr[35].Position[0] = -1;
         CardArr[35].Position[1] = -1;
+        CardArr[35].EffectTiming = 0;
 
         CardArr[36].HP = 10;
         CardArr[36].AP = 5;
@@ -405,6 +441,7 @@ public class DeckManager : MonoBehaviour
         CardArr[36].Context = "";
         CardArr[36].Position[0] = -1;
         CardArr[36].Position[1] = -1;
+        CardArr[36].EffectTiming = 0;
 
         CardArr[37].HP = 10;
         CardArr[37].AP = 5;
@@ -415,6 +452,8 @@ public class DeckManager : MonoBehaviour
         CardArr[37].Context = "";
         CardArr[37].Position[0] = -1;
         CardArr[37].Position[1] = -1;
+        CardArr[37].EffectTiming = 0;
+
 
         CardArr[38].HP = 10;
         CardArr[38].AP = 5;
@@ -425,6 +464,8 @@ public class DeckManager : MonoBehaviour
         CardArr[38].Context = "";
         CardArr[38].Position[0] = -1;
         CardArr[38].Position[1] = -1;
+        CardArr[38].EffectTiming = 0;
+
 
         CardArr[39].HP = 10;
         CardArr[39].AP = 5;
@@ -435,6 +476,8 @@ public class DeckManager : MonoBehaviour
         CardArr[39].Context = "";
         CardArr[39].Position[0] = -1;
         CardArr[39].Position[1] = -1;
+        CardArr[39].EffectTiming = 0;
+
 
         CardArr[40].HP = 10;
         CardArr[40].AP = 5;
@@ -445,6 +488,8 @@ public class DeckManager : MonoBehaviour
         CardArr[40].Context = "";
         CardArr[40].Position[0] = -1;
         CardArr[40].Position[1] = -1;
+        CardArr[40].EffectTiming = 0;
+
 
         CardArr[41].HP = 10;
         CardArr[41].AP = 5;
@@ -455,6 +500,7 @@ public class DeckManager : MonoBehaviour
         CardArr[41].Context = "";
         CardArr[41].Position[0] = -1;
         CardArr[41].Position[1] = -1;
+        CardArr[41].EffectTiming = 0;
 
         CardArr[42].HP = 10;
         CardArr[42].AP = 5;
@@ -465,6 +511,7 @@ public class DeckManager : MonoBehaviour
         CardArr[42].Context = "";
         CardArr[42].Position[0] = -1;
         CardArr[42].Position[1] = -1;
+        CardArr[42].EffectTiming = 0;
 
         CardArr[43].HP = 10;
         CardArr[43].AP = 5;
@@ -475,6 +522,7 @@ public class DeckManager : MonoBehaviour
         CardArr[43].Context = "";
         CardArr[43].Position[0] = -1;
         CardArr[43].Position[1] = -1;
+        CardArr[43].EffectTiming = 0;
 
         CardArr[44].HP = 10;
         CardArr[44].AP = 5;
@@ -485,6 +533,7 @@ public class DeckManager : MonoBehaviour
         CardArr[44].Context = "";
         CardArr[44].Position[0] = -1;
         CardArr[44].Position[1] = -1;
+        CardArr[44].EffectTiming = 0;
 
         CardArr[45].HP = 10;
         CardArr[45].AP = 5;
@@ -495,6 +544,7 @@ public class DeckManager : MonoBehaviour
         CardArr[45].Context = "";
         CardArr[45].Position[0] = -1;
         CardArr[45].Position[1] = -1;
+        CardArr[45].EffectTiming = 0;
 
         CardArr[46].HP = 10;
         CardArr[46].AP = 5;
@@ -505,6 +555,7 @@ public class DeckManager : MonoBehaviour
         CardArr[46].Context = "";
         CardArr[46].Position[0] = -1;
         CardArr[46].Position[1] = -1;
+        CardArr[46].EffectTiming = 0;
 
         CardArr[47].HP = 10;
         CardArr[47].AP = 5;
@@ -515,6 +566,7 @@ public class DeckManager : MonoBehaviour
         CardArr[47].Context = "";
         CardArr[47].Position[0] = -1;
         CardArr[47].Position[1] = -1;
+        CardArr[47].EffectTiming = 0;
 
         CardArr[48].HP = 10;
         CardArr[48].AP = 5;
@@ -525,6 +577,7 @@ public class DeckManager : MonoBehaviour
         CardArr[48].Context = "";
         CardArr[48].Position[0] = -1;
         CardArr[48].Position[1] = -1;
+        CardArr[48].EffectTiming = 0;
 
         CardArr[49].HP = 10;
         CardArr[49].AP = 5;
@@ -535,6 +588,7 @@ public class DeckManager : MonoBehaviour
         CardArr[49].Context = "";
         CardArr[49].Position[0] = -1;
         CardArr[49].Position[1] = -1;
+        CardArr[49].EffectTiming = 0;
 
         CardArr[50].HP = 10;
         CardArr[50].AP = 5;
@@ -545,6 +599,7 @@ public class DeckManager : MonoBehaviour
         CardArr[50].Context = "";
         CardArr[50].Position[0] = -1;
         CardArr[50].Position[1] = -1;
+        CardArr[50].EffectTiming = 0;
 
         CardArr[51].HP = 10;
         CardArr[51].AP = 5;
@@ -555,6 +610,7 @@ public class DeckManager : MonoBehaviour
         CardArr[51].Context = "";
         CardArr[51].Position[0] = -1;
         CardArr[51].Position[1] = -1;
+        CardArr[51].EffectTiming = 0;
 
         CardArr[52].HP = 10;
         CardArr[52].AP = 5;
@@ -565,6 +621,7 @@ public class DeckManager : MonoBehaviour
         CardArr[52].Context = "";
         CardArr[52].Position[0] = -1;
         CardArr[52].Position[1] = -1;
+        CardArr[52].EffectTiming = 0;
 
         CardArr[53].HP = 10;
         CardArr[53].AP = 5;
@@ -575,6 +632,7 @@ public class DeckManager : MonoBehaviour
         CardArr[53].Context = "";
         CardArr[53].Position[0] = -1;
         CardArr[53].Position[1] = -1;
+        CardArr[53].EffectTiming = 0;
 
         CardArr[54].HP = 10;
         CardArr[54].AP = 5;
@@ -585,6 +643,7 @@ public class DeckManager : MonoBehaviour
         CardArr[54].Context = "";
         CardArr[54].Position[0] = -1;
         CardArr[54].Position[1] = -1;
+        CardArr[54].EffectTiming = 0;
 
         CardArr[55].HP = 10;
         CardArr[55].AP = 5;
@@ -595,6 +654,7 @@ public class DeckManager : MonoBehaviour
         CardArr[55].Context = "";
         CardArr[55].Position[0] = -1;
         CardArr[55].Position[1] = -1;
+        CardArr[55].EffectTiming = 0;
 
         CardArr[56].HP = 10;
         CardArr[56].AP = 5;
@@ -605,6 +665,7 @@ public class DeckManager : MonoBehaviour
         CardArr[56].Context = "";
         CardArr[56].Position[0] = -1;
         CardArr[56].Position[1] = -1;
+        CardArr[56].EffectTiming = 0;
 
         CardArr[57].HP = 10;
         CardArr[57].AP = 5;
@@ -615,6 +676,7 @@ public class DeckManager : MonoBehaviour
         CardArr[57].Context = "";
         CardArr[57].Position[0] = -1;
         CardArr[57].Position[1] = -1;
+        CardArr[57].EffectTiming = 0;
 
         CardArr[58].HP = 10;
         CardArr[58].AP = 5;
@@ -625,6 +687,7 @@ public class DeckManager : MonoBehaviour
         CardArr[58].Context = "";
         CardArr[58].Position[0] = -1;
         CardArr[58].Position[1] = -1;
+        CardArr[58].EffectTiming = 0;
 
         CardArr[59].HP = 10;
         CardArr[59].AP = 5;
@@ -635,6 +698,7 @@ public class DeckManager : MonoBehaviour
         CardArr[59].Context = "";
         CardArr[59].Position[0] = -1;
         CardArr[59].Position[1] = -1;
+        CardArr[59].EffectTiming = 0;
     }
     public int DrawCard()
     {
