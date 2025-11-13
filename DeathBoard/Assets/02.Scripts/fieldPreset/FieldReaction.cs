@@ -24,6 +24,7 @@ public class FieldReaction : MonoBehaviour
         if (setCard != null && fieldManager.CurrntField[fieldPosition[0], fieldPosition[1]] == null && fieldManager.getReady() && TurnManager.currentturn == 2)
         {
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
+            CardReaction reactionScript = setCard.GetComponent<CardReaction>();
             stateScript.thiscard.Position = fieldPosition;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
             fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
@@ -35,6 +36,7 @@ public class FieldReaction : MonoBehaviour
             fieldManager.readyCard = null;
             setCard.transform.position = thisField.transform.position;
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+            reactionScript.originalPosition = thisField.transform.position;
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
