@@ -6,6 +6,7 @@ public class TurnManager : MonoBehaviour
     public static int currentturn = 1;
     public static bool turnend = false;
     public MoveManager movemanager;
+    public BattleManager battlemanager;
     //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->뒷열 카드 전진 단계, 6->카드 효과실행 단계2, 7->공격단계2, 8->뒷열 카드 전진 단계2, 9->총격 선택, 10->상대방 검사 선택)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -45,6 +46,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 5)
         {
+            battlemanager.StartBattle();
             currentturn = 6;     
         }
         else if(currentturn == 6)
@@ -54,6 +56,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 7)
         {
+            battlemanager.StartBattle();
             currentturn = 8;
         }
         else if (currentturn == 8)

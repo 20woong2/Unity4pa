@@ -57,7 +57,7 @@ public class DeckManager : MonoBehaviour
         {
             Debug.Log(cardId);
         }
-        //아군 덱 기본 정보
+        //아군 덱 기본 정보 EffectTiming 1: 소환시, 2: 소환 후 다음 턴, 3: 능력발동 페이즈, 4: 파괴시(+마법카드), 5: 공격당한 다음 턴 / 0: 패시브
         CardArr[0].HP = 10;
         CardArr[0].AP = 5;
         CardArr[0].State = 0;
