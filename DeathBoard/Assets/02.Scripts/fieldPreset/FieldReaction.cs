@@ -9,6 +9,7 @@ public class FieldReaction : MonoBehaviour
     public CardManager cardManager;
     public CardSelecter cardSelecter;
     public DeckManager deckmanager;
+    public EffectManager effectManager;
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
@@ -40,6 +41,7 @@ public class FieldReaction : MonoBehaviour
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+            effectManager.EffectAtSet(stateScript.thiscardID);
             //여기서 Effect Manager -> EffectAtSet 으로 접근
         }
         else return;

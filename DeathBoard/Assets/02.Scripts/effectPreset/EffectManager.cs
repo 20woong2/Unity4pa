@@ -2,17 +2,42 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    public void EffectAtSet(GameObject setCard)
+    public void EffectAtSet(int cardID)
     {
-        if (setCard == null) { return; }
-        CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
-        if (stateScript.thiscard.EffectTiming == 1)
+        if (cardID < 0) { return; }
+        if (DeckManager.CardArr[cardID].EffectTiming == 1)
         {
-            EffectActive(setCard);
+            EffectActive(cardID);
         }
         else return;
     }
-    void EffectActive(GameObject effctCard)
+    public void EffectAtNextTurn(int cardID)
+    {
+
+    }
+    public void EffectAtEffectTurn(int cardID)
+    {
+        if (cardID < 0) { return; }
+        if (DeckManager.CardArr[cardID].EffectTiming == 3)
+        {
+            EffectActive(cardID);
+        }
+        else return;
+    }
+    public void EffectAtDestroy(int cardID)
+    {
+        if (cardID < 0) { return; }
+        if (DeckManager.CardArr[cardID].EffectTiming == 4)
+        {
+            EffectActive(cardID);
+        }
+        else return;
+    }
+    public void EffectAtNextTurnOfAttacked(int cardID)
+    {
+
+    }
+    void EffectActive(int cardID)
     {
 
     }

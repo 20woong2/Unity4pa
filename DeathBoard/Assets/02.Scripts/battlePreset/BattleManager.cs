@@ -35,6 +35,12 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
                 if(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].HP <= 0)
                 {
+                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[0] = -1;
+                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[1] = -1;
+                    
+                    GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].ToString());
+                    fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
+                    thisCard.SetActive(false);
                     //카드 파괴, 필드에서 내리는 함수 작성
                 }
             }
@@ -57,6 +63,12 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 if (DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].HP <= 0)
                 {
                     //카드 파괴, 필드에서 내리는 함수 작성
+                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[0] = -1;
+                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[1] = -1;
+
+                    GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].ToString());
+                    fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
+                    thisCard.SetActive(false);
                 }
             }
             else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)
@@ -79,6 +91,12 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP <= 0)
             {
                 //카드 파괴, 필드에서 내리는 함수 작성
+                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].Position[0] = -1;
+                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].Position[1] = -1;
+
+                GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].ToString());
+                fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]] = null;
+                thisCard.SetActive(false);
             }
         }
         else if(fieldManager.CurrntField[0,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)
