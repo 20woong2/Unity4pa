@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class FieldManager : MonoBehaviour
 {
-    public int readyCardID;
+    public int readyCardID = -1;
     public bool cardReady = false;
     public GameObject readyCard;
     public GameObject MyfieldPrefab;

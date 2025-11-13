@@ -34,7 +34,6 @@ public class FieldReaction : MonoBehaviour
             fieldManager.cardReady = false;
             fieldManager.readyCard = null;
             setCard.transform.position = thisField.transform.position;
-            stateScript.thiscard.Position = fieldPosition;
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
