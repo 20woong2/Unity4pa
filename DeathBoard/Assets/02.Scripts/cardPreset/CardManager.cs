@@ -67,7 +67,7 @@ public class CardManager : MonoBehaviour
         if (cardPrefab != null)
         {
             // 1. 카드 복사본 생성 및 초기 위치 설정
-            GameObject spawnedCard = Instantiate(cardPrefab, new Vector3(handManager.NumOfHand * (handManager.moveX * (-1)) + handManager.PosX, handManager.PosY, handManager.PosZ - (0.001f * handManager.NumOfHand)), Quaternion.Euler(26f, 0f, 0f));
+            GameObject spawnedCard = Instantiate(cardPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(26f, 0f, 0f));
             spawnedCard.tag = cardID.ToString();
             // 2. 미리보기 UI 생성 및 Canvas에 연결
             Transform canvasTransform = GameObject.Find("Canvas")?.transform;

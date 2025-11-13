@@ -3,6 +3,7 @@ using UnityEngine;
 public class TurnManager : MonoBehaviour
 {   
     public CardManager cardmanager;
+    public EnemyCardManager enemycardmanager;
     public static int currentturn = 1;
     public static bool turnend = false;
     public MoveManager movemanager;
@@ -14,6 +15,7 @@ public class TurnManager : MonoBehaviour
         for(int i=0;i<2;i++)
         {
             cardmanager.DrawHand();
+            enemycardmanager.DrawHand();
         }
         
         NextTurn();
@@ -28,6 +30,7 @@ public class TurnManager : MonoBehaviour
         if(currentturn == 1)//드로우턴
         {
             cardmanager.DrawHand();
+            enemycardmanager.DrawHand();
             currentturn = 2;
             NextTurn();
         }

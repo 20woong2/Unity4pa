@@ -1389,16 +1389,25 @@ public class DeckManager : MonoBehaviour
     }
     public int DrawCard()
     {
-        if (init == -1)
-        {
-
-            init = 1;
-        }
         if (DeckList.Count > 0)
         {
             int drawCardID = DeckList[0];
             DeckList.RemoveAt(0);
             return drawCardID;
+        }
+        else
+        {
+            Debug.LogWarning("덱이 비었습니다. 카드를 뽑을 수 없습니다.");
+            return -1; ; //<- 일단 뭐라도 반환을 해야 코드가 굴러가요;
+        }
+    }
+    public int EnemyDrawCard()
+    {
+        if (EnemyDeckList.Count > 0)
+        {
+            int drawCardID = EnemyDeckList[0];
+            EnemyDeckList.RemoveAt(0);
+            return drawCardID+60;
         }
         else
         {
