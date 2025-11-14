@@ -2,50 +2,121 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
-    public void EffectAtSet(int cardID)
+    public void EffectCast(int cardID , int timing)
     {
-        if (cardID < 0) { return; }
-        if (DeckManager.CardArr[cardID].EffectTiming == 1)
+        if(timing == 1)
         {
-            EffectActive(cardID);
-        }
-        else return;
-    }
-    public void EffectAtNextTurn(int cardID)
-    {
-
-    }
-    public void EffectAtEffectTurn(int cardID)
-    {
-        if (cardID < 0) { return; }
-        if (DeckManager.CardArr[cardID].EffectTiming == 3)
-        {
-            EffectActive(cardID);
-        }
-        else return;
-    }
-    public void EffectAtDestroy(int cardID)
-    {
-        if (cardID < 0) { return; }
-        if (DeckManager.CardArr[cardID].EffectTiming == 4)
-        {
-            EffectActive(cardID);
-        }
-        else return;
-    }
-    public void EffectAtNextTurnOfAttacked(int cardID)
-    {
-
-    }
-    void EffectActive(int cardID)
-    {
-
-    }
-            // Start is called once before the first execution of Update after the MonoBehaviour is created
-            void Start()
+            if(DeckManager.CardArr[cardID].AbilityId == 5)
             {
 
             }
+            else if(DeckManager.CardArr[cardID].AbilityId == 8)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 9)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 10)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 11)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 12)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 13)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 17)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 21)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 22)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 23)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 24)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 25)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 26)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 27)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 29)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 30)
+            {
+                
+            }
+        }
+        else if(timing == 2)
+        {
+            if(DeckManager.CardArr[cardID].AbilityId == 1)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 2)
+            {
+                
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 4)
+            {
+                
+            }
+        }
+        else if(timing == 3)
+        {
+            if(DeckManager.CardArr[cardID].AbilityId == 16)
+            {
+                
+            }
+        }
+        else if(timing == 4)
+        {
+            if(DeckManager.CardArr[cardID].AbilityId == 14)
+            {
+                
+            }
+        }
+        else if(timing == 5)
+        {
+            if(DeckManager.CardArr[cardID].AbilityId == 6)
+            {
+                
+            }
+        }
+    }
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+
+    }
 
     // Update is called once per frame
     void Update()

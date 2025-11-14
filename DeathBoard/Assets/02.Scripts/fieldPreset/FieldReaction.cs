@@ -41,7 +41,7 @@ public class FieldReaction : MonoBehaviour
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
-            effectManager.EffectAtSet(stateScript.thiscardID);
+            effectManager.EffectCast(stateScript.thiscardID,1);
             //여기서 Effect Manager -> EffectAtSet 으로 접근
         }
         else return;
