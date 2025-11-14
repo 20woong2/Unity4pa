@@ -61,26 +61,32 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseEnter()
     {
-        // 크기 확대
-        originalPosition = transform.localPosition;
-        transform.localScale = originalScale * hoverScaleFactor;
-
-        // Z축 위치 조정 (앞으로 나오게)
-        transform.localPosition = new Vector3(originalPosition.x, (originalPosition.y + 0.1f), originalPosition.z + hoverZOffset);
-
-        // 미리보기 UI 활성화
-        if (previewCardUI != null)
+        if(int.Parse(thisCard.tag) < 60)
         {
-            previewCardUI.SetActive(true);
-            zoomIn = true;
+            // 크기 확대
+            originalPosition = transform.localPosition;
+            transform.localScale = originalScale * hoverScaleFactor;
+
+            // Z축 위치 조정 (앞으로 나오게)
+            transform.localPosition = new Vector3(originalPosition.x, (originalPosition.y + 0.1f), originalPosition.z + hoverZOffset);
+
+            // 미리보기 UI 활성화
+            if (previewCardUI != null)
+            {
+                previewCardUI.SetActive(true);
+                zoomIn = true;
+            }
         }
     }
     void OnMouseDown()
     {
-        fieldManager = FindAnyObjectByType<FieldManager>();
-        cardSelecter = FindAnyObjectByType<CardSelecter>();
-        fieldManager.SetCardReady(thisCard);
-        StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+        if(int.Parse(thisCard.tag) < 60)
+        {
+            fieldManager = FindAnyObjectByType<FieldManager>();
+            cardSelecter = FindAnyObjectByType<CardSelecter>();
+            fieldManager.SetCardReady(thisCard);
+            StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+        }
     }
     void OnMouseExit()
     {
