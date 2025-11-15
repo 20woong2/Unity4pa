@@ -56,7 +56,9 @@ public class TurnManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[i,j] != null)
                     {
-                        Debug.LogWarning(fieldManager.CurrntField[i,j].Value);
+                        Debug.LogWarning("여기에 존재");
+                        Debug.Log(i);
+                        Debug.Log(j);
                         effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,3);
                         
                     }
@@ -90,15 +92,8 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 7)//효과실행2
         {
-            currentturn = 8;
-            for(int i=0;i<DeckManager.HandList.Count;i++)
-            {
-                effectManager.EffectCast(DeckManager.HandList[i],3);
-            }
-            for(int i=0;i<DeckManager.EnemyHandList.Count;i++)
-            {
-                effectManager.EffectCast(DeckManager.EnemyHandList[i],3);
-            }
+            //currentturn = 8;
+
             turnend = true;
         }
         else if (currentturn == 8)//공격단계2

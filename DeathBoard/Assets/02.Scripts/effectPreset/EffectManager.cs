@@ -92,7 +92,8 @@ public class EffectManager : MonoBehaviour
         }
         else if(timing == 3)
         {
-            if(DeckManager.CardArr[cardID].AbilityId == 16)
+            Debug.Log(cardID);
+            if (DeckManager.CardArr[cardID].AbilityId == 16)
             {
                 
             }
