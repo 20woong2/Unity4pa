@@ -13,7 +13,7 @@ public class FieldReaction : MonoBehaviour
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
-        Debug.LogWarning("Ŭ�� ����");
+        Debug.LogWarning("Ŭ       ");
         if (this.fieldPosition[0] < 2)
         {
             SetCardOnField(readyCard);
@@ -26,6 +26,7 @@ public class FieldReaction : MonoBehaviour
         {
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
             CardReaction reactionScript = setCard.GetComponent<CardReaction>();
+            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(setCard.tag);
             stateScript.thiscard.Position = fieldPosition;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
             fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
@@ -37,7 +38,11 @@ public class FieldReaction : MonoBehaviour
             fieldManager.readyCard = null;
             setCard.transform.position = thisField.transform.position;
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+            thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
             reactionScript.originalPosition = thisField.transform.position;
+            reactionScript.originalPosition.y = reactionScript.originalPosition.y-0.001f;
+            thiscards[1].transform.position = reactionScript.originalPosition;
+            reactionScript.originalPosition.y = reactionScript.originalPosition.y+0.001f;
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
