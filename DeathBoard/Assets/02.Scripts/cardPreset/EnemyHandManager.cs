@@ -7,9 +7,9 @@ public class EnemyHandManager : MonoBehaviour
     public GameObject Pos1;
 
     public readonly float PosX = 5.225f;
-    public readonly float moveX = -1.3f * 0.12f; //Ä«µå°¡ Ãß°¡µÉ ¶§¸¶´Ù ÁÂÃøÀ¸·Î 1.3¸¸Å­ ÀÌµ¿
+    public readonly float moveX = -1.3f * 0.12f; //Ä«ï¿½å°¡ ï¿½ß°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 1.3ï¿½ï¿½Å­ ï¿½Ìµï¿½
     public readonly float PosY = 2.3f;
-    public readonly float PosZ = 1.125f; //Ä«µåÀÇ Y, ZÃàÀº Ä«µå ¸Å¼ö¿Í °ü°è¾øÀÌ °íÁ¤
+    public readonly float PosZ = 1.125f; //Ä«ï¿½ï¿½ï¿½ï¿½ Y, Zï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½Å¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

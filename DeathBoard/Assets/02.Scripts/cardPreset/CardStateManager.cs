@@ -6,57 +6,78 @@ public class CardStateManager : MonoBehaviour
 {
     public CardStruct thiscard;
     public int thiscardID;
-    public void SetState(int cardID, GameObject newCard) // ������ ī�忡 ���� ����
+    public void SetState(int cardID, GameObject newCard) //        ī 忡          
     {
         Sprite sprite = Resources.Load<Sprite>("CardImages/" + DeckManager.CardArr[cardID].ImgPath);
-        if(sprite == null)
+        if (sprite == null)
         {
-            Debug.LogError($"��������Ʈ�� ã�� �� �����ϴ�: {"CardImages/" + DeckManager.CardArr[cardID].ImgPath}");
+            Debug.LogError($"        Ʈ   ã           ϴ : {"CardImages/" + DeckManager.CardArr[cardID].ImgPath}");
             return;
         }
         SpriteRenderer sr = newCard.GetComponent<SpriteRenderer>();
-        if(sr != null)
+        if (sr != null)
         {
-            sr.sprite = sprite; // 2D ��������Ʈ ����
+            sr.sprite = sprite; // 2D         Ʈ     
         }
         else
         {
-            Debug.LogWarning("SpriteRenderer ������Ʈ�� ã�� �� �����ϴ�.");
+            Debug.LogWarning("SpriteRenderer       Ʈ   ã           ϴ .");
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardArr[cardID];
-        Debug.Log("ī����̵� : " + thiscard.CardId);
+        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
-    public void EnemySetState(int cardID, GameObject newCard) // ������ ī�忡 ���� ����
+
+    public void SetBackCard(GameObject backcard, int cardid)
     {
-        Sprite sprite = Resources.Load<Sprite>("CardImages/" + DeckManager.CardBrr[cardID-60].ImgPath);
-        if(sprite == null)
+        Sprite sprite = Resources.Load<Sprite>("CardImages/Cardimg1");
+        if (sprite == null)
         {
-            Debug.LogError($"��������Ʈ�� ã�� �� �����ϴ�: {"CardImages/" + DeckManager.CardBrr[cardID-60].ImgPath}");
+            Debug.LogError("뒷면이미지없음");
             return;
         }
-        SpriteRenderer sr = newCard.GetComponent<SpriteRenderer>();
-        if(sr != null)
+        SpriteRenderer sr = backcard.GetComponent<SpriteRenderer>();
+        if (sr != null)
         {
-            sr.sprite = sprite; // 2D ��������Ʈ ����
+            sr.sprite = sprite; // 2D         Ʈ     
         }
         else
         {
-            Debug.LogWarning("SpriteRenderer ������Ʈ�� ã�� �� �����ϴ�.");
+            Debug.LogWarning("뒷면이미지없음");
+        }
+    }
+
+
+    public void EnemySetState(int cardID, GameObject newCard) //        ī 忡          
+    {
+        Sprite sprite = Resources.Load<Sprite>("CardImages/" + DeckManager.CardBrr[cardID - 60].ImgPath);
+        if (sprite == null)
+        {
+            Debug.LogError($"        Ʈ   ã           ϴ : {"CardImages/" + DeckManager.CardBrr[cardID - 60].ImgPath}");
+            return;
+        }
+        SpriteRenderer sr = newCard.GetComponent<SpriteRenderer>();
+        if (sr != null)
+        {
+            sr.sprite = sprite; // 2D         Ʈ     
+        }
+        else
+        {
+            Debug.LogWarning("SpriteRenderer       Ʈ   ã           ϴ .");
         }
         thiscardID = cardID;
-        thiscard = DeckManager.CardBrr[cardID-60];
-        Debug.Log("ī����̵� : " + thiscard.CardId);
+        thiscard = DeckManager.CardBrr[cardID - 60];
+        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

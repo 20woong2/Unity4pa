@@ -31,11 +31,12 @@ public class HandManager : MonoBehaviour
     {
         for (int i = 0; i < DeckManager.HandList.Count; i++)
         {
+            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.HandList[i].ToString());
             GameObject thisCard = GameObject.FindWithTag(DeckManager.HandList[i].ToString());
             CardReaction reactionScript = thisCard.GetComponent<CardReaction>();
             Vector3 position = reactionScript.originalPosition;
             Vector3 targetPosition = new Vector3(
-                ((DeckManager.HandList.Count-1) - i*2)*moveX + PosX,
+                ((DeckManager.HandList.Count - 1) - i * 2) * moveX + PosX,
                 PosY,
                 PosZ - (0.001f * i)
             );
@@ -43,12 +44,13 @@ public class HandManager : MonoBehaviour
             {
                 position = targetPosition;
                 thisCard.transform.position = position;
+                thiscards[1].transform.position = new Vector3(position.x, position.y, position.z + 0.001f);
             }
             else
             {
-
                 position = targetPosition;
                 thisCard.transform.localPosition = position;
+                thiscards[1].transform.position = new Vector3(position.x, position.y, position.z + 0.001f);
                 reactionScript.originalPosition = position;
             }
         }

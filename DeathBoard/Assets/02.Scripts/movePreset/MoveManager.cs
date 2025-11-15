@@ -3,7 +3,6 @@ using UnityEngine;
 public class MoveManager : MonoBehaviour //
 {
     public FieldManager fieldManager;
-    public CardStateManager deffenceCardState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartMoveTurn()
     {
@@ -26,9 +25,11 @@ public class MoveManager : MonoBehaviour //
             {
                 fieldManager.CurrntField[2, i] = fieldManager.CurrntField[3, i];
                 fieldManager.CurrntField[3, i] = null;
-                DeckManager.CardArr[fieldManager.CurrntField[2, i].Value].Position[0] = 2;
+                DeckManager.CardBrr[fieldManager.CurrntField[2, i].Value - 60].Position[0] = 2;
                 GameObject moveCard = GameObject.FindWithTag(fieldManager.CurrntField[2, i].ToString());
-                moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 2.00f, -1.275f + 0.625f*2);
+                moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 1.97f, -1.275f + 0.625f*2); 
+                Debug.Log(3);
+                Debug.Log(2);
             }
         }
     }

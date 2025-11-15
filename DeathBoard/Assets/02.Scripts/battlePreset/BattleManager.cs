@@ -3,10 +3,10 @@ using UnityEngine;
 public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호작용 만들어야 함
 {
     public FieldManager fieldManager;
-    public FieldReaction attackCardField;
-    public FieldReaction deffenceCardField;
-    public CardStateManager attackCardState;
-    public CardStateManager deffenceCardState;
+  //  public FieldReaction attackCardField;
+    //public FieldReaction deffenceCardField;
+    //public CardStateManager attackCardState;
+    //public CardStateManager deffenceCardState;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {

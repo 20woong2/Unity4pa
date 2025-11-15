@@ -28,7 +28,7 @@ public class CardManager : MonoBehaviour
     }
     public void DrawHand()
     {
-        if(DeckManager.HandList.Count < 7)
+        if (DeckManager.HandList.Count < 7)
         {
             int cardID;
             cardID = deckmanager.DrawCard();
@@ -44,7 +44,7 @@ public class CardManager : MonoBehaviour
         if (removed)
         {
             // 카드 수 감소 및 남은 카드 재배치
-            
+
             handManager.rePlaceCard();
 
             CardReaction reactionScript = playedCard.GetComponent<CardReaction>();
@@ -68,10 +68,13 @@ public class CardManager : MonoBehaviour
         {
             // 1. 카드 복사본 생성 및 초기 위치 설정
             GameObject spawnedCard = Instantiate(cardPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(26f, 0f, 0f));
+            GameObject backCard = Instantiate(cardPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-26f, 180f, 0f));
             spawnedCard.tag = cardID.ToString();
+            backCard.tag = cardID.ToString();
             // 2. 미리보기 UI 생성 및 Canvas에 연결
             Transform canvasTransform = GameObject.Find("Canvas")?.transform;
             GameObject newPreview = Instantiate(previewCardUI, canvasTransform);
+
 
             // 3. HandManager에 카드 추가 및 NumOfHand 증가
             handManager.HandPlus(cardID);
@@ -82,7 +85,7 @@ public class CardManager : MonoBehaviour
 
             reactionScript.SetPreview(newPreview, cardID);
             stateScript.SetState(cardID, spawnedCard);
-
+            stateScript.SetBackCard(backCard, cardID);
             // 5. 모든 정보 설정 후, 카드의 위치를 재배치하여 정렬합니다. (이 호출이 누락되었었습니다.)
             handManager.rePlaceCard();
         }

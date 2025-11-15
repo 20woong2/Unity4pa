@@ -29,7 +29,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     public void SetPreview(GameObject preview, int cardid)
     {
-        previewCardUI = preview;    
+        previewCardUI = preview;
 
         RawImage imageComponent;
         imageComponent = previewCardUI.GetComponent<RawImage>();
@@ -40,28 +40,30 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
         }
         if (imageComponent != null)
         {
-            
-                if (texture != null)
-                {
-                    imageComponent.texture = texture;
-                }
-                else
-                {
-                    Debug.LogWarning($"경로에서 스프라이트를 찾을 수 없습니다: {"CardImages/" + DeckManager.CardArr[cardid].ImgPath}");
-                }
+
+            if (texture != null)
+            {
+                imageComponent.texture = texture;
+            }
+            else
+            {
+                Debug.LogWarning($"경로에서 스프라이트를 찾을 수 없습니다: {"CardImages/" + DeckManager.CardArr[cardid].ImgPath}");
+            }
         }
         else
-            {
-                Debug.LogWarning("Image 컴포넌트를 찾지 못했습니다.");
-            }
+        {
+            Debug.LogWarning("Image 컴포넌트를 찾지 못했습니다.");
+        }
     }
-    public void SetImg(){
+    public void SetImg()
+    {
 
-        
+
     }
     void OnMouseEnter()
     {
-        if(int.Parse(thisCard.tag) < 60)
+        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(thisCard.tag);
+        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard)
         {
             // 크기 확대
             originalPosition = transform.localPosition;
@@ -70,6 +72,8 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
             // Z축 위치 조정 (앞으로 나오게)
             transform.localPosition = new Vector3(originalPosition.x, (originalPosition.y + 0.1f), originalPosition.z + hoverZOffset);
 
+            thiscards[1].transform.localScale = originalScale * hoverScaleFactor;
+            thiscards[1].transform.position = new Vector3(originalPosition.x, (originalPosition.y + 0.1f), originalPosition.z + hoverZOffset + 0.001f);
             // 미리보기 UI 활성화
             if (previewCardUI != null)
             {
@@ -80,7 +84,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseDown()
     {
-        if(int.Parse(thisCard.tag) < 60)
+        if (int.Parse(thisCard.tag) < 60)
         {
             fieldManager = FindAnyObjectByType<FieldManager>();
             cardSelecter = FindAnyObjectByType<CardSelecter>();
@@ -90,17 +94,21 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseExit()
     {
-        // 크기 복원
-        transform.localScale = originalScale;
-
-        // Z축 위치 복원
-        transform.localPosition = originalPosition;
-
-        // 미리보기 UI 비활성화
-        if (previewCardUI != null)
+        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(thisCard.tag);
+        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard)
         {
-            previewCardUI.SetActive(false);
-            zoomIn = false;
+            // 크기 복원
+            transform.localScale = originalScale;
+            thiscards[1].transform.localScale = originalScale;
+            // Z축 위치 복원
+            transform.localPosition = originalPosition;
+            thiscards[1].transform.position = new Vector3(originalPosition.x, originalPosition.y, originalPosition.z + 0.001f);
+            // 미리보기 UI 비활성화
+            if (previewCardUI != null)
+            {
+                previewCardUI.SetActive(false);
+                zoomIn = false;
+            }
         }
     }
 }
