@@ -7,6 +7,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     //public FieldReaction deffenceCardField;
     //public CardStateManager attackCardState;
     //public CardStateManager deffenceCardState;
+    public TurnManager turnmanager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void StartBattle()
     {
@@ -32,19 +33,20 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         {
             if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
             {
-                DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
-                if(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].HP <= 0)
+                DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value].ExHP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
+                if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].ExHP <= 0)
                 {
-                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[0] = -1;
-                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[1] = -1;
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[0] = -1;
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].Position[1] = -1;
                     
-                    GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].ToString());
+                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value].ToString());
                     fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
-                    thisCard.SetActive(false);
+                    thiscards[0].SetActive(false);
+                    thiscards[1].SetActive(false);
                     //카드 파괴, 필드에서 내리는 함수 작성
                 }
             }
-            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)
+            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]-1] == null)
             {
                 return;
             }
@@ -59,19 +61,20 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         {
             if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
             {
-                DeckManager.CardArr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
-                if (DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].HP <= 0)
+                DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value].ExHP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
+                if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].ExHP <= 0)
                 {
-                    //카드 파괴, 필드에서 내리는 함수 작성
-                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[0] = -1;
-                    DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[1] = -1;
-
-                    GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].ToString());
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[0] = -1;
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].Position[1] = -1;
+                    
+                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value].ToString());
                     fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
-                    thisCard.SetActive(false);
+                    thiscards[0].SetActive(false);
+                    thiscards[1].SetActive(false);
+                    //카드 파괴, 필드에서 내리는 함수 작성
                 }
             }
-            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)
+            else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] == null)
             {
                 return;
             }
@@ -83,23 +86,24 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     }
     public void EnemyCardAttack(int? attackCardID)
     {
-        
-        
-        if (fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
+        if (fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
         {
-            DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP -= DeckManager.CardArr[attackCardID.Value].AP;
-            if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].HP <= 0)
+            DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].ExHP -= (DeckManager.CardBrr[attackCardID.Value-60].AP + DeckManager.CardBrr[attackCardID.Value-60].ExAP);
+            if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].HP + DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].ExHP <= 0)
             {
                 //카드 파괴, 필드에서 내리는 함수 작성
-                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].Position[0] = -1;
-                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].Position[1] = -1;
+                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[0] = -1;
+                DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[1] = -1;
 
-                GameObject thisCard = GameObject.FindWithTag(DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]].Value].ToString());
-                fieldManager.CurrntField[1, DeckManager.CardArr[attackCardID.Value].Position[1]] = null;
-                thisCard.SetActive(false);
+
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].ToString());
+                fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]] = null;
+                thiscards[0].SetActive(false);
+                thiscards[1].SetActive(false);
+
             }
         }
-        else if(fieldManager.CurrntField[0,DeckManager.CardArr[attackCardID.Value].Position[1]] != null)
+        else if(fieldManager.CurrntField[0,DeckManager.CardBrr[attackCardID.Value-60].Position[1]] == null)
         {
             return;
         }

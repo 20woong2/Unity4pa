@@ -30,6 +30,7 @@ public class EnemyHandManager : MonoBehaviour
     {
         for (int i = 0; i < DeckManager.EnemyHandList.Count; i++)
         {
+            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.EnemyHandList[i].ToString());
             GameObject thisCard = GameObject.FindWithTag(DeckManager.EnemyHandList[i].ToString());
             
             Vector3 targetPosition = new Vector3(
@@ -39,6 +40,8 @@ public class EnemyHandManager : MonoBehaviour
             );
             Vector3 position = targetPosition;
             thisCard.transform.position = position;
+            thiscards[1].transform.position = new Vector3(position.x, position.y, position.z - 0.001f);
+
         }
     }
 }

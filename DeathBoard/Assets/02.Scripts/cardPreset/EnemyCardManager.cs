@@ -35,7 +35,9 @@ public class EnemyCardManager : MonoBehaviour
         {
             // 1. 카드 복사본 생성 및 초기 위치 설정
             GameObject spawnedCard = Instantiate(cardPrefab, new Vector3(0f,0f,0f), Quaternion.Euler(26f, 180f, 0f));
+            GameObject backCard = Instantiate(cardPrefab, new Vector3(0f, 0f, 0f), Quaternion.Euler(-26f, 0f, 0f));
             spawnedCard.tag = cardID.ToString();
+            backCard.tag = cardID.ToString();
             // 2. 미리보기 UI 생성 및 Canvas에 연결
            
 
@@ -45,10 +47,10 @@ public class EnemyCardManager : MonoBehaviour
             // 4. 스크립트 접근 및 정보 설정
             
             CardStateManager stateScript = spawnedCard.GetComponent<CardStateManager>();
-
+            CardReaction reactionScript = spawnedCard.GetComponent<CardReaction>();
             
             stateScript.EnemySetState(cardID, spawnedCard);
-
+            stateScript.SetBackCard(backCard, cardID);
             // 5. 모든 정보 설정 후, 카드의 위치를 재배치하여 정렬합니다. (이 호출이 누락되었었습니다.)
             enemyhandmanager.rePlaceCard();
         }

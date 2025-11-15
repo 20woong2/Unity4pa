@@ -17,6 +17,7 @@ public class EnemyFieldManager : MonoBehaviour
             Debug.Log(setCount);
             for (int i = 0; i < setCount; i++)
             {
+                
                 int space = findXY();
                 int cardID = DeckManager.EnemyHandList[Random.Range(0, DeckManager.EnemyHandList.Count)];
                 DeckManager.CardBrr[cardID - 60].Position[0] = space / 10;
@@ -25,8 +26,11 @@ public class EnemyFieldManager : MonoBehaviour
                 Debug.Log(cardID);
                 Debug.Log(fieldManager.CurrntField[space / 10, space % 10]);
                 GameObject thisCard = GameObject.FindWithTag(cardID.ToString());
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(cardID.ToString());
                 thisCard.transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f, -1.275f + 0.625f * (space / 10));
                 thisCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 180f);
+                thiscards[1].transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f-0.001f, -1.275f + 0.625f * (space / 10));
+                thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
                 DeckManager.EnemyHandList.Remove(cardID);
                 enemyHandManager.rePlaceCard();
                 

@@ -153,6 +153,8 @@ MonoBehaviour:
   movemanager: {fileID: 669354152}
   battlemanager: {fileID: 604515102}
   enemyFieldManager: {fileID: 1109056114}
+  effectManager: {fileID: 358205097}
+  fieldManager: {fileID: 118279512}
 --- !u!4 &110871188
 Transform:
   m_ObjectHideFlags: 0
@@ -1304,6 +1306,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BattleManager
   fieldManager: {fileID: 118279512}
+  turnmanager: {fileID: 0}
 --- !u!4 &604515103
 Transform:
   m_ObjectHideFlags: 0
@@ -1610,6 +1613,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MoveManager
   fieldManager: {fileID: 118279512}
+  turnmanager: {fileID: 0}
 --- !u!4 &669354153
 Transform:
   m_ObjectHideFlags: 0
