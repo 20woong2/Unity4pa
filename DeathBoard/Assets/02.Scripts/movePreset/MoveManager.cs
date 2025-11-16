@@ -34,6 +34,8 @@ public class MoveManager : MonoBehaviour //
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, i].ToString());
                 moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 1.97f, -1.275f + 0.625f*2); 
                 thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 1.97f-0.001f, -1.275f + 0.625f*2); 
+                Debug.Log(3);
+                Debug.Log(2);
             }
         }
     }
