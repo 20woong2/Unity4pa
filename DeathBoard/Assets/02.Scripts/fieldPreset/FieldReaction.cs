@@ -29,7 +29,7 @@ public class FieldReaction : MonoBehaviour
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(setCard.tag);
             stateScript.thiscard.Position = fieldPosition;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
-            fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0], DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
+            fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
             if (cardManager != null)
             {
                 cardManager.PlayCard(setCard);
@@ -40,19 +40,13 @@ public class FieldReaction : MonoBehaviour
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
             thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
             reactionScript.originalPosition = thisField.transform.position;
-<<<<<<< HEAD
-            reactionScript.originalPosition.y = reactionScript.originalPosition.y - 0.001f;
-            thiscards[1].transform.position = reactionScript.originalPosition;
-            reactionScript.originalPosition.y = reactionScript.originalPosition.y + 0.001f;
-=======
             reactionScript.originalPosition.y = reactionScript.originalPosition.y-0.001f;
             thiscards[1].transform.position = reactionScript.originalPosition;
             reactionScript.originalPosition.y = reactionScript.originalPosition.y+0.001f;
->>>>>>> e148a1e0d4fef6a49bbbc48fc361afb348430a1b
             Destroy(setCard.GetComponent<CardReaction>());
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
-            effectManager.EffectCast(stateScript.thiscardID, 1);
+            effectManager.EffectCast(stateScript.thiscardID,1);
             //여기서 Effect Manager -> EffectAtSet 으로 접근
         }
         else return;

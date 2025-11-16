@@ -55,9 +55,7 @@ public class TurnManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[i,j] != null)
                     {
-                        Debug.LogWarning("여기에 존재");
-                        Debug.Log(i);
-                        Debug.Log(j);
+                        Debug.LogWarning(fieldManager.CurrntField[i,j].Value);
                         effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,3);
                     }
                 }
@@ -90,10 +88,6 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 7)//효과실행2
         {
-<<<<<<< HEAD
-            //currentturn = 8;
-
-=======
             
             for(int i=1;i>=0;i--)
             {
@@ -117,7 +111,6 @@ public class TurnManager : MonoBehaviour
                 }
             }
             currentturn = 8;
->>>>>>> e148a1e0d4fef6a49bbbc48fc361afb348430a1b
             turnend = true;
         }
         else if (currentturn == 8)//공격단계2

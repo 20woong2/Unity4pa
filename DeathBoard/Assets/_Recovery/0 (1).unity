@@ -438,7 +438,7 @@ MonoBehaviour:
   cardManager: {fileID: 734864416}
   cardSelecter: {fileID: 0}
   deckmanager: {fileID: 0}
-  effectManager: {fileID: 0}
+  effectManager: {fileID: 358205097}
 --- !u!4 &229912592
 Transform:
   m_ObjectHideFlags: 0

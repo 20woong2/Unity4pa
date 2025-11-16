@@ -74,6 +74,7 @@ public class EnemyFieldManager : MonoBehaviour
             }
         }
         setPlace += RandX[Random.Range(0, RandX.Count)];
+        Debug.LogWarning("findXY 진행");
         Debug.Log(setPlace);
         return setPlace;
     }
