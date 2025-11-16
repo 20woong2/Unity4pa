@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
 public class TurnManager : MonoBehaviour
 {   
     public CardManager cardmanager;
@@ -55,7 +56,6 @@ public class TurnManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[i,j] != null)
                     {
-                        Debug.LogWarning(fieldManager.CurrntField[i,j].Value);
                         effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,3);
                     }
                 }
@@ -76,14 +76,13 @@ public class TurnManager : MonoBehaviour
         else if(currentturn == 5)//공격단계
         {
             currentturn = 6; 
-            battlemanager.StartBattle();
-            turnend = true;
-                
+            StartCoroutine(battlemanager.StartBattle());
         }
         else if(currentturn == 6)//뒷열카드전진
         {
             currentturn = 7;   
-            movemanager.StartMoveTurn();
+            StartCoroutine(movemanager.StartMoveTurn());
+            
             turnend = true;
         }
         else if(currentturn == 7)//효과실행2
@@ -95,7 +94,6 @@ public class TurnManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[i,j] != null)
                     {
-                        Debug.LogWarning(fieldManager.CurrntField[i,j].Value);
                         effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,3);
                     }
                 }
@@ -116,14 +114,13 @@ public class TurnManager : MonoBehaviour
         else if (currentturn == 8)//공격단계2
         {
             currentturn = 9;
-            battlemanager.StartBattle();
-            turnend = true;
+            StartCoroutine(battlemanager.StartBattle());
+            //battlemanager.StartBattle();
         }
         else if (currentturn == 9)//뒷열전진2
         {
             currentturn = 10;
-            movemanager.StartMoveTurn();
-            turnend = true;
+            StartCoroutine(movemanager.StartMoveTurn());
         }
         else if (currentturn == 10)//총격선택
         {

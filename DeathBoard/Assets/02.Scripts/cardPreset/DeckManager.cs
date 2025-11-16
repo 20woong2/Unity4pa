@@ -13,7 +13,6 @@ public class DeckManager : MonoBehaviour
     public static List<int> HandList = new List<int>();//아군 손패 리스트
     public static List<int> EnemyHandList = new List<int>();//적 손패 리스트
 
-    private int init = -1;
     void Start()
     {
         DeckList.Clear();
@@ -34,10 +33,6 @@ public class DeckManager : MonoBehaviour
             DeckList.Add(tempList[randomIndex]);
             tempList.RemoveAt(randomIndex);
         }
-        foreach (int cardId in DeckList)
-        {
-            Debug.Log(cardId);
-        }
         //적 덱섞기
 
         for (int i = 0; i < 60; i++)
@@ -52,10 +47,6 @@ public class DeckManager : MonoBehaviour
             int randomIndex = Random.Range(0, tempList.Count);
             EnemyDeckList.Add(tempList[randomIndex]);
             tempList.RemoveAt(randomIndex);
-        }
-        foreach (int cardId in EnemyDeckList)
-        {
-            Debug.Log(cardId);
         }
         //아군 덱 기본 정보 EffectTiming 1: 소환시, 2: 소환 후 다음 턴, 3: 능력발동 페이즈, 4: 파괴시(+마법카드), 5: 공격당한 다음 턴 / 0: 패시브
         CardArr[0].HP = 10;

@@ -25,7 +25,6 @@ public class CardStateManager : MonoBehaviour
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardArr[cardID];
-        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
 
     public void SetBackCard(GameObject backcard, int cardid)
@@ -67,7 +66,6 @@ public class CardStateManager : MonoBehaviour
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardBrr[cardID - 60];
-        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

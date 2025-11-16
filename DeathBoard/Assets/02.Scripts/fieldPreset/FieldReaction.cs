@@ -13,7 +13,6 @@ public class FieldReaction : MonoBehaviour
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
-        Debug.LogWarning("Ŭ       ");
         if (this.fieldPosition[0] < 2)
         {
             SetCardOnField(readyCard);
@@ -27,7 +26,7 @@ public class FieldReaction : MonoBehaviour
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
             CardReaction reactionScript = setCard.GetComponent<CardReaction>();
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(setCard.tag);
-            stateScript.thiscard.Position = fieldPosition;
+            stateScript.thiscard.Position = (int[])fieldPosition.Clone();
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
             fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
             if (cardManager != null)
@@ -36,6 +35,7 @@ public class FieldReaction : MonoBehaviour
             }
             fieldManager.cardReady = false;
             fieldManager.readyCard = null;
+            DeckManager.CardArr[stateScript.thiscard.CardId].Position = (int[])fieldPosition.Clone();
             setCard.transform.position = thisField.transform.position;
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
             thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
