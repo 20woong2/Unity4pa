@@ -13,12 +13,13 @@ public class EnemyFieldManager : MonoBehaviour
         }
         else
         {
-            int setCount = Random.Range(0, DeckManager.EnemyHandList.Count);
+            int setCount = Random.Range(1, DeckManager.EnemyHandList.Count+1);
             Debug.Log(setCount);
             for (int i = 0; i < setCount; i++)
             {
                 
                 int space = findXY();
+                if (space == 0) return;
                 int cardID = DeckManager.EnemyHandList[Random.Range(0, DeckManager.EnemyHandList.Count)];
                 DeckManager.CardBrr[cardID - 60].Position[0] = space / 10;
                 DeckManager.CardBrr[cardID - 60].Position[1] = space % 10;

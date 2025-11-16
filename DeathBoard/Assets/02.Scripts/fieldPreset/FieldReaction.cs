@@ -27,8 +27,8 @@ public class FieldReaction : MonoBehaviour
             CardStateManager stateScript = setCard.GetComponent<CardStateManager>();
             CardReaction reactionScript = setCard.GetComponent<CardReaction>();
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(setCard.tag);
-            stateScript.thiscard.Position = fieldPosition;
-            DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
+            stateScript.thiscard.Position = (int[])fieldPosition.Clone();
+            DeckManager.CardArr[stateScript.thiscard.CardId].Position = (int[])fieldPosition.Clone();
             fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0],DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
             if (cardManager != null)
             {
