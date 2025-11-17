@@ -12,6 +12,7 @@ public class TurnManager : MonoBehaviour
     public EnemyFieldManager enemyFieldManager;
     public EffectManager effectManager;
     public FieldManager fieldManager;
+    public Shoot shoot;
     //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->뒷열 카드 전진 단계, 7->카드 효과실행 단계2, 8->공격단계2, 9->뒷열 카드 전진 단계2, 10->총격 선택, 11->상대방 검사 선택)
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -124,11 +125,11 @@ public class TurnManager : MonoBehaviour
         }
         else if (currentturn == 10)//총격선택
         {
-            currentturn = 11;
-            turnend = true;
+            
         }
         else if(currentturn == 11)//상대총격선택
         {
+            
             currentturn = 1;
             turnend = true;
         }

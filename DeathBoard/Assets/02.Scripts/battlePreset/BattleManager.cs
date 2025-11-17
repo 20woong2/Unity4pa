@@ -8,6 +8,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     //public CardStateManager attackCardState;
     //public CardStateManager deffenceCardState;
     public TurnManager turnmanager;
+    public Player player;
     bool end = true;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public IEnumerator StartBattle()
@@ -58,6 +59,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             }
             else
             {
+                player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                 //상대 직접 공격(공포 수치 상승)
             }
         }
@@ -86,6 +88,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             }
             else
             {
+                player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                 //상대 직접 공격(공포 수치 상승)
             }
         }
@@ -116,6 +119,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         }
         else
         {
+            player.user.CP += (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP);
             //상대 직접 공격(공포 수치 상승)
         }
         
