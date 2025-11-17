@@ -56,7 +56,7 @@ public class Player : MonoBehaviour
         user.HP = 5;
         user.CP = 0;
         user.randomStack = 0;
-        enemy.HP = 0;
+        enemy.HP = 5;
         enemy.CP = 0;
         enemy.randomStack = 0;
     }
