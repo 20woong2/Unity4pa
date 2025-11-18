@@ -25,15 +25,14 @@ public class CardStateManager : MonoBehaviour
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardArr[cardID];
-        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
 
     public void SetBackCard(GameObject backcard, int cardid)
     {
-        Sprite sprite = Resources.Load<Sprite>("CardImages/Cardimg1");
+        Sprite sprite = Resources.Load<Sprite>("CardImages/CardBackground");
         if (sprite == null)
         {
-            Debug.LogError("뒷면이미지없음");
+            Debug.LogError("카드 뒷면 이미지가 존재하지 않습니다.");
             return;
         }
         SpriteRenderer sr = backcard.GetComponent<SpriteRenderer>();
@@ -43,7 +42,7 @@ public class CardStateManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("뒷면이미지없음");
+            Debug.LogWarning("카드 뒷면 이미지가 존재하지 않습니다.");
         }
     }
 
@@ -67,7 +66,6 @@ public class CardStateManager : MonoBehaviour
         }
         thiscardID = cardID;
         thiscard = DeckManager.CardBrr[cardID - 60];
-        Debug.Log("ī    ̵  : " + thiscard.CardId);
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

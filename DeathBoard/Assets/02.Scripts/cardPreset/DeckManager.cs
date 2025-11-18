@@ -13,7 +13,6 @@ public class DeckManager : MonoBehaviour
     public static List<int> HandList = new List<int>();//아군 손패 리스트
     public static List<int> EnemyHandList = new List<int>();//적 손패 리스트
 
-    private int init = -1;
     void Start()
     {
         DeckList.Clear();
@@ -34,10 +33,6 @@ public class DeckManager : MonoBehaviour
             DeckList.Add(tempList[randomIndex]);
             tempList.RemoveAt(randomIndex);
         }
-        foreach (int cardId in DeckList)
-        {
-            Debug.Log(cardId);
-        }
         //적 덱섞기
 
         for (int i = 0; i < 60; i++)
@@ -53,13 +48,9 @@ public class DeckManager : MonoBehaviour
             EnemyDeckList.Add(tempList[randomIndex]);
             tempList.RemoveAt(randomIndex);
         }
-        foreach (int cardId in EnemyDeckList)
-        {
-            Debug.Log(cardId);
-        }
         //아군 덱 기본 정보 EffectTiming 1: 소환시, 2: 소환 후 다음 턴, 3: 능력발동 페이즈, 4: 파괴시(+마법카드), 5: 공격당한 다음 턴 / 0: 패시브
-        CardArr[0].HP = 10;
-        CardArr[0].AP = 5;
+        CardArr[0].HP = 5;
+        CardArr[0].AP = 1;
         CardArr[0].ExHP = 0;
         CardArr[0].ExAP = 0;
         CardArr[0].State = 0;
@@ -71,8 +62,8 @@ public class DeckManager : MonoBehaviour
         CardArr[0].Position[1] = -1;
         CardArr[0].EffectTiming = 2;
 
-        CardArr[1].HP = 10;
-        CardArr[1].AP = 5;
+        CardArr[1].HP = 5;
+        CardArr[1].AP = 1;
         CardArr[1].ExHP = 0;
         CardArr[1].ExAP = 0;
         CardArr[1].State = 0;
@@ -84,8 +75,8 @@ public class DeckManager : MonoBehaviour
         CardArr[1].Position[1] = -1;
         CardArr[1].EffectTiming = 2;
 
-        CardArr[2].HP = 10;
-        CardArr[2].AP = 5;
+        CardArr[2].HP = 1;
+        CardArr[2].AP = 2;
         CardArr[2].ExHP = 0;
         CardArr[2].ExAP = 0;
         CardArr[2].State = 0;
@@ -97,8 +88,8 @@ public class DeckManager : MonoBehaviour
         CardArr[2].Position[1] = -1;
         CardArr[2].EffectTiming = 2;
 
-        CardArr[3].HP = 10;
-        CardArr[3].AP = 5;
+        CardArr[3].HP = 1;
+        CardArr[3].AP = 2;
         CardArr[3].ExHP = 0;
         CardArr[3].ExAP = 0;
         CardArr[3].State = 0;
@@ -110,8 +101,8 @@ public class DeckManager : MonoBehaviour
         CardArr[3].Position[1] = -1;
         CardArr[3].EffectTiming = 2;
 
-        CardArr[4].HP = 10;
-        CardArr[4].AP = 5;
+        CardArr[4].HP = 2;
+        CardArr[4].AP = 1;
         CardArr[4].ExHP = 0;
         CardArr[4].ExAP = 0;
         CardArr[4].State = 0;
@@ -123,8 +114,8 @@ public class DeckManager : MonoBehaviour
         CardArr[4].Position[1] = -1;
         CardArr[4].EffectTiming = 0;
 
-        CardArr[5].HP = 10;
-        CardArr[5].AP = 5;
+        CardArr[5].HP = 2;
+        CardArr[5].AP = 1;
         CardArr[5].ExHP = 0;
         CardArr[5].ExAP = 0;
         CardArr[5].State = 0;
@@ -136,8 +127,8 @@ public class DeckManager : MonoBehaviour
         CardArr[5].Position[1] = -1;
         CardArr[5].EffectTiming = 0;
 
-        CardArr[6].HP = 10;
-        CardArr[6].AP = 5;
+        CardArr[6].HP = 2;
+        CardArr[6].AP = 2;
         CardArr[6].ExHP = 0;
         CardArr[6].ExAP = 0;
         CardArr[6].State = 0;
@@ -149,8 +140,8 @@ public class DeckManager : MonoBehaviour
         CardArr[6].Position[1] = -1;
         CardArr[6].EffectTiming = 2;
 
-        CardArr[7].HP = 10;
-        CardArr[7].AP = 5;
+        CardArr[7].HP = 2;
+        CardArr[7].AP = 2;
         CardArr[7].ExHP = 0;
         CardArr[7].ExAP = 0;
         CardArr[7].State = 0;
@@ -162,8 +153,8 @@ public class DeckManager : MonoBehaviour
         CardArr[7].Position[1] = -1;
         CardArr[7].EffectTiming = 2;
 
-        CardArr[8].HP = 10;
-        CardArr[8].AP = 5;
+        CardArr[8].HP = 2;
+        CardArr[8].AP = 3;
         CardArr[8].ExHP = 0;
         CardArr[8].ExAP = 0;
         CardArr[8].State = 0;
@@ -175,8 +166,8 @@ public class DeckManager : MonoBehaviour
         CardArr[8].Position[1] = -1;
         CardArr[8].EffectTiming = 1;
 
-        CardArr[9].HP = 10;
-        CardArr[9].AP = 5;
+        CardArr[9].HP = 2;
+        CardArr[9].AP = 3;
         CardArr[9].ExHP = 0;
         CardArr[9].ExAP = 0;
         CardArr[9].State = 0;
@@ -188,8 +179,8 @@ public class DeckManager : MonoBehaviour
         CardArr[9].Position[1] = -1;
         CardArr[9].EffectTiming = 1;
 
-        CardArr[10].HP = 10;
-        CardArr[10].AP = 5;
+        CardArr[10].HP = 3;
+        CardArr[10].AP = 1;
         CardArr[10].ExHP = 0;
         CardArr[10].ExAP = 0;
         CardArr[10].State = 0;
@@ -201,8 +192,8 @@ public class DeckManager : MonoBehaviour
         CardArr[10].Position[1] = -1;
         CardArr[10].EffectTiming = 5;
 
-        CardArr[11].HP = 10;
-        CardArr[11].AP = 5;
+        CardArr[11].HP = 3;
+        CardArr[11].AP = 1;
         CardArr[11].ExHP = 0;
         CardArr[11].ExAP = 0;
         CardArr[11].State = 0;
@@ -214,8 +205,8 @@ public class DeckManager : MonoBehaviour
         CardArr[11].Position[1] = -1;
         CardArr[11].EffectTiming = 5;
 
-        CardArr[12].HP = 10;
-        CardArr[12].AP = 5;
+        CardArr[12].HP = 5;
+        CardArr[12].AP = 4;
         CardArr[12].ExHP = 0;
         CardArr[12].ExAP = 0;
         CardArr[12].State = 0;
@@ -227,8 +218,8 @@ public class DeckManager : MonoBehaviour
         CardArr[12].Position[1] = -1;
         CardArr[12].EffectTiming = 0;
 
-        CardArr[13].HP = 10;
-        CardArr[13].AP = 5;
+        CardArr[13].HP = 5;
+        CardArr[13].AP = 4;
         CardArr[13].ExHP = 0;
         CardArr[13].ExAP = 0;
         CardArr[13].State = 0;
@@ -240,8 +231,8 @@ public class DeckManager : MonoBehaviour
         CardArr[13].Position[1] = -1;
         CardArr[13].EffectTiming = 0;
 
-        CardArr[14].HP = 10;
-        CardArr[14].AP = 5;
+        CardArr[14].HP = 3;
+        CardArr[14].AP = 4;
         CardArr[14].ExHP = 0;
         CardArr[14].ExAP = 0;
         CardArr[14].State = 0;
@@ -253,8 +244,8 @@ public class DeckManager : MonoBehaviour
         CardArr[14].Position[1] = -1;
         CardArr[14].EffectTiming = 1;
 
-        CardArr[15].HP = 10;
-        CardArr[15].AP = 5;
+        CardArr[15].HP = 3;
+        CardArr[15].AP = 4;
         CardArr[15].ExHP = 0;
         CardArr[15].ExAP = 0;
         CardArr[15].State = 0;
@@ -266,8 +257,8 @@ public class DeckManager : MonoBehaviour
         CardArr[15].Position[1] = -1;
         CardArr[15].EffectTiming = 1;
 
-        CardArr[16].HP = 10;
-        CardArr[16].AP = 5;
+        CardArr[16].HP = 1;
+        CardArr[16].AP = 3;
         CardArr[16].ExHP = 0;
         CardArr[16].ExAP = 0;
         CardArr[16].State = 0;
@@ -279,8 +270,8 @@ public class DeckManager : MonoBehaviour
         CardArr[16].Position[1] = -1;
         CardArr[16].EffectTiming = 1;
 
-        CardArr[17].HP = 10;
-        CardArr[17].AP = 5;
+        CardArr[17].HP = 1;
+        CardArr[17].AP = 3;
         CardArr[17].ExHP = 0;
         CardArr[17].ExAP = 0;
         CardArr[17].State = 0;
@@ -292,8 +283,8 @@ public class DeckManager : MonoBehaviour
         CardArr[17].Position[1] = -1;
         CardArr[17].EffectTiming = 1;
 
-        CardArr[18].HP = 10;
-        CardArr[18].AP = 5;
+        CardArr[18].HP = 4;
+        CardArr[18].AP = 1;
         CardArr[18].ExHP = 0;
         CardArr[18].ExAP = 0;
         CardArr[18].State = 0;
@@ -305,8 +296,8 @@ public class DeckManager : MonoBehaviour
         CardArr[18].Position[1] = -1;
         CardArr[18].EffectTiming = 1;
 
-        CardArr[19].HP = 10;
-        CardArr[19].AP = 5;
+        CardArr[19].HP = 4;
+        CardArr[19].AP = 1;
         CardArr[19].ExHP = 0;
         CardArr[19].ExAP = 0;
         CardArr[19].State = 0;
@@ -318,8 +309,8 @@ public class DeckManager : MonoBehaviour
         CardArr[19].Position[1] = -1;
         CardArr[19].EffectTiming = 1;
 
-        CardArr[20].HP = 10;
-        CardArr[20].AP = 5;
+        CardArr[20].HP = 5;
+        CardArr[20].AP = 2;
         CardArr[20].ExHP = 0;
         CardArr[20].ExAP = 0;
         CardArr[20].State = 0;
@@ -331,8 +322,8 @@ public class DeckManager : MonoBehaviour
         CardArr[20].Position[1] = -1;
         CardArr[20].EffectTiming = 1;
 
-        CardArr[21].HP = 10;
-        CardArr[21].AP = 5;
+        CardArr[21].HP = 5;
+        CardArr[21].AP = 2;
         CardArr[21].ExHP = 0;
         CardArr[21].ExAP = 0;
         CardArr[21].State = 0;
@@ -344,8 +335,8 @@ public class DeckManager : MonoBehaviour
         CardArr[21].Position[1] = -1;
         CardArr[21].EffectTiming = 1;
 
-        CardArr[22].HP = 10;
-        CardArr[22].AP = 5;
+        CardArr[22].HP = 1;
+        CardArr[22].AP = 2;
         CardArr[22].ExHP = 0;
         CardArr[22].ExAP = 0;
         CardArr[22].State = 0;
@@ -357,8 +348,8 @@ public class DeckManager : MonoBehaviour
         CardArr[22].Position[1] = -1;
         CardArr[22].EffectTiming = 1;
 
-        CardArr[23].HP = 10;
-        CardArr[23].AP = 5;
+        CardArr[23].HP = 1;
+        CardArr[23].AP = 2;
         CardArr[23].ExHP = 0;
         CardArr[23].ExAP = 0;
         CardArr[23].State = 0;
@@ -370,8 +361,8 @@ public class DeckManager : MonoBehaviour
         CardArr[23].Position[1] = -1;
         CardArr[23].EffectTiming = 1;
 
-        CardArr[24].HP = 10;
-        CardArr[24].AP = 5;
+        CardArr[24].HP = 4;
+        CardArr[24].AP = 2;
         CardArr[24].ExHP = 0;
         CardArr[24].ExAP = 0;
         CardArr[24].State = 0;
@@ -383,8 +374,8 @@ public class DeckManager : MonoBehaviour
         CardArr[24].Position[1] = -1;
         CardArr[24].EffectTiming = 1;
 
-        CardArr[25].HP = 10;
-        CardArr[25].AP = 5;
+        CardArr[25].HP = 4;
+        CardArr[25].AP = 2;
         CardArr[25].ExHP = 0;
         CardArr[25].ExAP = 0;
         CardArr[25].State = 0;
@@ -396,8 +387,8 @@ public class DeckManager : MonoBehaviour
         CardArr[25].Position[1] = -1;
         CardArr[25].EffectTiming = 1;
 
-        CardArr[26].HP = 10;
-        CardArr[26].AP = 5;
+        CardArr[26].HP = 1;
+        CardArr[26].AP = 3;
         CardArr[26].ExHP = 0;
         CardArr[26].ExAP = 0;
         CardArr[26].State = 0;
@@ -409,8 +400,8 @@ public class DeckManager : MonoBehaviour
         CardArr[26].Position[1] = -1;
         CardArr[26].EffectTiming = 4;
 
-        CardArr[27].HP = 10;
-        CardArr[27].AP = 5;
+        CardArr[27].HP = 1;
+        CardArr[27].AP = 3;
         CardArr[27].ExHP = 0;
         CardArr[27].ExAP = 0;
         CardArr[27].State = 0;
@@ -422,8 +413,8 @@ public class DeckManager : MonoBehaviour
         CardArr[27].Position[1] = -1;
         CardArr[27].EffectTiming = 4;
 
-        CardArr[28].HP = 10;
-        CardArr[28].AP = 5;
+        CardArr[28].HP = 3;
+        CardArr[28].AP = 3;
         CardArr[28].ExHP = 0;
         CardArr[28].ExAP = 0;
         CardArr[28].State = 0;
@@ -435,8 +426,8 @@ public class DeckManager : MonoBehaviour
         CardArr[28].Position[1] = -1;
         CardArr[28].EffectTiming = 0;
 
-        CardArr[29].HP = 10;
-        CardArr[29].AP = 5;
+        CardArr[29].HP = 3;
+        CardArr[29].AP = 3;
         CardArr[29].ExHP = 0;
         CardArr[29].ExAP = 0;
         CardArr[29].State = 0;
@@ -448,8 +439,8 @@ public class DeckManager : MonoBehaviour
         CardArr[29].Position[1] = -1;
         CardArr[29].EffectTiming = 0;
 
-        CardArr[30].HP = 10;
-        CardArr[30].AP = 5;
+        CardArr[30].HP = 1;
+        CardArr[30].AP = 1;
         CardArr[30].ExHP = 0;
         CardArr[30].ExAP = 0;
         CardArr[30].State = 0;
@@ -461,8 +452,8 @@ public class DeckManager : MonoBehaviour
         CardArr[30].Position[1] = -1;
         CardArr[30].EffectTiming = 3;
 
-        CardArr[31].HP = 10;
-        CardArr[31].AP = 5;
+        CardArr[31].HP = 1;
+        CardArr[31].AP = 1;
         CardArr[31].ExHP = 0;
         CardArr[31].ExAP = 0;
         CardArr[31].State = 0;
@@ -474,8 +465,8 @@ public class DeckManager : MonoBehaviour
         CardArr[31].Position[1] = -1;
         CardArr[31].EffectTiming = 3;
 
-        CardArr[32].HP = 10;
-        CardArr[32].AP = 5;
+        CardArr[32].HP = 1;
+        CardArr[32].AP = 2;
         CardArr[32].ExHP = 0;
         CardArr[32].ExAP = 0;
         CardArr[32].State = 0;
@@ -487,8 +478,8 @@ public class DeckManager : MonoBehaviour
         CardArr[32].Position[1] = -1;
         CardArr[32].EffectTiming = 1;
 
-        CardArr[33].HP = 10;
-        CardArr[33].AP = 5;
+        CardArr[33].HP = 1;
+        CardArr[33].AP = 2;
         CardArr[33].ExHP = 0;
         CardArr[33].ExAP = 0;
         CardArr[33].State = 0;
@@ -500,8 +491,8 @@ public class DeckManager : MonoBehaviour
         CardArr[33].Position[1] = -1;
         CardArr[33].EffectTiming = 1;
 
-        CardArr[34].HP = 10;
-        CardArr[34].AP = 5;
+        CardArr[34].HP = 2;
+        CardArr[34].AP = 4;
         CardArr[34].ExHP = 0;
         CardArr[34].ExAP = 0;
         CardArr[34].State = 0;
@@ -513,8 +504,8 @@ public class DeckManager : MonoBehaviour
         CardArr[34].Position[1] = -1;
         CardArr[34].EffectTiming = 0;
 
-        CardArr[35].HP = 10;
-        CardArr[35].AP = 5;
+        CardArr[35].HP = 2;
+        CardArr[35].AP = 4;
         CardArr[35].ExHP = 0;
         CardArr[35].ExAP = 0;
         CardArr[35].State = 0;
@@ -526,8 +517,8 @@ public class DeckManager : MonoBehaviour
         CardArr[35].Position[1] = -1;
         CardArr[35].EffectTiming = 0;
 
-        CardArr[36].HP = 10;
-        CardArr[36].AP = 5;
+        CardArr[36].HP = 5;
+        CardArr[36].AP = 2;
         CardArr[36].ExHP = 0;
         CardArr[36].ExAP = 0;
         CardArr[36].State = 0;
@@ -539,8 +530,8 @@ public class DeckManager : MonoBehaviour
         CardArr[36].Position[1] = -1;
         CardArr[36].EffectTiming = 0;
 
-        CardArr[37].HP = 10;
-        CardArr[37].AP = 5;
+        CardArr[37].HP = 5;
+        CardArr[37].AP = 2;
         CardArr[37].ExHP = 0;
         CardArr[37].ExAP = 0;
         CardArr[37].State = 0;
@@ -552,8 +543,8 @@ public class DeckManager : MonoBehaviour
         CardArr[37].Position[1] = -1;
         CardArr[37].EffectTiming = 0;
 
-        CardArr[38].HP = 10;
-        CardArr[38].AP = 5;
+        CardArr[38].HP = 3;
+        CardArr[38].AP = 1;
         CardArr[38].ExHP = 0;
         CardArr[38].ExAP = 0;
         CardArr[38].State = 0;
@@ -565,8 +556,8 @@ public class DeckManager : MonoBehaviour
         CardArr[38].Position[1] = -1;
         CardArr[38].EffectTiming = 0;
 
-        CardArr[39].HP = 10;
-        CardArr[39].AP = 5;
+        CardArr[39].HP = 3;
+        CardArr[39].AP = 1;
         CardArr[39].ExHP = 0;
         CardArr[39].ExAP = 0;
         CardArr[39].State = 0;
@@ -578,8 +569,8 @@ public class DeckManager : MonoBehaviour
         CardArr[39].Position[1] = -1;
         CardArr[39].EffectTiming = 0;
 
-        CardArr[40].HP = 10;
-        CardArr[40].AP = 5;
+        CardArr[40].HP = 0;
+        CardArr[40].AP = 0;
         CardArr[40].ExHP = 0;
         CardArr[40].ExAP = 0;
         CardArr[40].State = 0;
@@ -591,8 +582,8 @@ public class DeckManager : MonoBehaviour
         CardArr[40].Position[1] = -1;
         CardArr[40].EffectTiming = 1;
 
-        CardArr[41].HP = 10;
-        CardArr[41].AP = 5;
+        CardArr[41].HP = 0;
+        CardArr[41].AP = 0;
         CardArr[41].ExHP = 0;
         CardArr[41].ExAP = 0;
         CardArr[41].State = 0;
@@ -604,8 +595,8 @@ public class DeckManager : MonoBehaviour
         CardArr[41].Position[1] = -1;
         CardArr[41].EffectTiming = 1;
 
-        CardArr[42].HP = 10;
-        CardArr[42].AP = 5;
+        CardArr[42].HP = 0;
+        CardArr[42].AP = 0;
         CardArr[42].ExHP = 0;
         CardArr[42].ExAP = 0;
         CardArr[42].State = 0;
@@ -617,8 +608,8 @@ public class DeckManager : MonoBehaviour
         CardArr[42].Position[1] = -1;
         CardArr[42].EffectTiming = 1;
 
-        CardArr[43].HP = 10;
-        CardArr[43].AP = 5;
+        CardArr[43].HP = 0;
+        CardArr[43].AP = 0;
         CardArr[43].ExHP = 0;
         CardArr[43].ExAP = 0;
         CardArr[43].State = 0;
@@ -630,8 +621,8 @@ public class DeckManager : MonoBehaviour
         CardArr[43].Position[1] = -1;
         CardArr[43].EffectTiming = 1;
 
-        CardArr[44].HP = 10;
-        CardArr[44].AP = 5;
+        CardArr[44].HP = 0;
+        CardArr[44].AP = 0;
         CardArr[44].ExHP = 0;
         CardArr[44].ExAP = 0;
         CardArr[44].State = 0;
@@ -643,8 +634,8 @@ public class DeckManager : MonoBehaviour
         CardArr[44].Position[1] = -1;
         CardArr[44].EffectTiming = 1;
 
-        CardArr[45].HP = 10;
-        CardArr[45].AP = 5;
+        CardArr[45].HP = 0;
+        CardArr[45].AP = 0;
         CardArr[45].ExHP = 0;
         CardArr[45].ExAP = 0;
         CardArr[45].State = 0;
@@ -656,8 +647,8 @@ public class DeckManager : MonoBehaviour
         CardArr[45].Position[1] = -1;
         CardArr[45].EffectTiming = 1;
 
-        CardArr[46].HP = 10;
-        CardArr[46].AP = 5;
+        CardArr[46].HP = 0;
+        CardArr[46].AP = 0;
         CardArr[46].ExHP = 0;
         CardArr[46].ExAP = 0;
         CardArr[46].State = 0;
@@ -669,8 +660,8 @@ public class DeckManager : MonoBehaviour
         CardArr[46].Position[1] = -1;
         CardArr[46].EffectTiming = 1;
 
-        CardArr[47].HP = 10;
-        CardArr[47].AP = 5;
+        CardArr[47].HP = 0;
+        CardArr[47].AP = 0;
         CardArr[47].ExHP = 0;
         CardArr[47].ExAP = 0;
         CardArr[47].State = 0;
@@ -682,8 +673,8 @@ public class DeckManager : MonoBehaviour
         CardArr[47].Position[1] = -1;
         CardArr[47].EffectTiming = 1;
 
-        CardArr[48].HP = 10;
-        CardArr[48].AP = 5;
+        CardArr[48].HP = 0;
+        CardArr[48].AP = 0;
         CardArr[48].ExHP = 0;
         CardArr[48].ExAP = 0;
         CardArr[48].State = 0;
@@ -695,8 +686,8 @@ public class DeckManager : MonoBehaviour
         CardArr[48].Position[1] = -1;
         CardArr[48].EffectTiming = 1;
 
-        CardArr[49].HP = 10;
-        CardArr[49].AP = 5;
+        CardArr[49].HP = 0;
+        CardArr[49].AP = 0;
         CardArr[49].ExHP = 0;
         CardArr[49].ExAP = 0;
         CardArr[49].State = 0;
@@ -708,8 +699,8 @@ public class DeckManager : MonoBehaviour
         CardArr[49].Position[1] = -1;
         CardArr[49].EffectTiming = 1;
 
-        CardArr[50].HP = 10;
-        CardArr[50].AP = 5;
+        CardArr[50].HP = 0;
+        CardArr[50].AP = 0;
         CardArr[50].ExHP = 0;
         CardArr[50].ExAP = 0;
         CardArr[50].State = 0;
@@ -721,8 +712,8 @@ public class DeckManager : MonoBehaviour
         CardArr[50].Position[1] = -1;
         CardArr[50].EffectTiming = 1;
 
-        CardArr[51].HP = 10;
-        CardArr[51].AP = 5;
+        CardArr[51].HP = 0;
+        CardArr[51].AP = 0;
         CardArr[51].ExHP = 0;
         CardArr[51].ExAP = 0;
         CardArr[51].State = 0;
@@ -734,8 +725,8 @@ public class DeckManager : MonoBehaviour
         CardArr[51].Position[1] = -1;
         CardArr[51].EffectTiming = 1;
 
-        CardArr[52].HP = 10;
-        CardArr[52].AP = 5;
+        CardArr[52].HP = 0;
+        CardArr[52].AP = 0;
         CardArr[52].ExHP = 0;
         CardArr[52].ExAP = 0;
         CardArr[52].State = 0;
@@ -747,8 +738,8 @@ public class DeckManager : MonoBehaviour
         CardArr[52].Position[1] = -1;
         CardArr[52].EffectTiming = 1;
 
-        CardArr[53].HP = 10;
-        CardArr[53].AP = 5;
+        CardArr[53].HP = 0;
+        CardArr[53].AP = 0;
         CardArr[53].ExHP = 0;
         CardArr[53].ExAP = 0;
         CardArr[53].State = 0;
@@ -760,8 +751,8 @@ public class DeckManager : MonoBehaviour
         CardArr[53].Position[1] = -1;
         CardArr[53].EffectTiming = 1;
 
-        CardArr[54].HP = 10;
-        CardArr[54].AP = 5;
+        CardArr[54].HP = 0;
+        CardArr[54].AP = 0;
         CardArr[54].ExHP = 0;
         CardArr[54].ExAP = 0;
         CardArr[54].State = 0;
@@ -773,8 +764,8 @@ public class DeckManager : MonoBehaviour
         CardArr[54].Position[1] = -1;
         CardArr[54].EffectTiming = 0;
 
-        CardArr[55].HP = 10;
-        CardArr[55].AP = 5;
+        CardArr[55].HP = 0;
+        CardArr[55].AP = 0;
         CardArr[55].ExHP = 0;
         CardArr[55].ExAP = 0;
         CardArr[55].State = 0;
@@ -786,8 +777,8 @@ public class DeckManager : MonoBehaviour
         CardArr[55].Position[1] = -1;
         CardArr[55].EffectTiming = 0;
 
-        CardArr[56].HP = 10;
-        CardArr[56].AP = 5;
+        CardArr[56].HP = 0;
+        CardArr[56].AP = 0;
         CardArr[56].ExHP = 0;
         CardArr[56].ExAP = 0;
         CardArr[56].State = 0;
@@ -799,8 +790,8 @@ public class DeckManager : MonoBehaviour
         CardArr[56].Position[1] = -1;
         CardArr[56].EffectTiming = 1;
 
-        CardArr[57].HP = 10;
-        CardArr[57].AP = 5;
+        CardArr[57].HP = 0;
+        CardArr[57].AP = 0;
         CardArr[57].ExHP = 0;
         CardArr[57].ExAP = 0;
         CardArr[57].State = 0;
@@ -812,8 +803,8 @@ public class DeckManager : MonoBehaviour
         CardArr[57].Position[1] = -1;
         CardArr[57].EffectTiming = 1;
 
-        CardArr[58].HP = 10;
-        CardArr[58].AP = 5;
+        CardArr[58].HP = 0;
+        CardArr[58].AP = 0;
         CardArr[58].ExHP = 0;
         CardArr[58].ExAP = 0;
         CardArr[58].State = 0;
@@ -825,8 +816,8 @@ public class DeckManager : MonoBehaviour
         CardArr[58].Position[1] = -1;
         CardArr[58].EffectTiming = 1;
 
-        CardArr[59].HP = 10;
-        CardArr[59].AP = 5;
+        CardArr[59].HP = 0;
+        CardArr[59].AP = 0;
         CardArr[59].ExHP = 0;
         CardArr[59].ExAP = 0;
         CardArr[59].State = 0;
@@ -838,780 +829,780 @@ public class DeckManager : MonoBehaviour
         CardArr[59].Position[1] = -1;
         CardArr[59].EffectTiming = 1;
         //적 덱 기본정보
-        CardBrr[0].HP = 10;
-        CardBrr[0].AP = 5;
+        CardBrr[0].HP = 5;
+        CardBrr[0].AP = 1;
         CardBrr[0].ExHP = 0;
         CardBrr[0].ExAP = 0;
         CardBrr[0].State = 0;
         CardBrr[0].CardId = 60;
-        CardBrr[0].AbilityId = 0;
+        CardBrr[0].AbilityId = 1;
         CardBrr[0].ImgPath = "Cardimg1";
         CardBrr[0].Context = "";
         CardBrr[0].Position[0] = -1;
         CardBrr[0].Position[1] = -1;
         CardBrr[0].EffectTiming = 0;
 
-        CardBrr[1].HP = 10;
-        CardBrr[1].AP = 5;
+        CardBrr[1].HP = 5;
+        CardBrr[1].AP = 1;
         CardBrr[1].ExHP = 0;
         CardBrr[1].ExAP = 0;
         CardBrr[1].State = 0;
         CardBrr[1].CardId = 61;
-        CardBrr[1].AbilityId = 0;
+        CardBrr[1].AbilityId = 1;
         CardBrr[1].ImgPath = "Cardimg1";
         CardBrr[1].Context = "";
         CardBrr[1].Position[0] = -1;
         CardBrr[1].Position[1] = -1;
         CardBrr[1].EffectTiming = 0;
 
-        CardBrr[2].HP = 10;
-        CardBrr[2].AP = 5;
+        CardBrr[2].HP = 1;
+        CardBrr[2].AP = 2;
         CardBrr[2].ExHP = 0;
         CardBrr[2].ExAP = 0;
         CardBrr[2].State = 0;
         CardBrr[2].CardId = 62;
-        CardBrr[2].AbilityId = 0;
+        CardBrr[2].AbilityId = 2;
         CardBrr[2].ImgPath = "Cardimg2";
         CardBrr[2].Context = "";
         CardBrr[2].Position[0] = -1;
         CardBrr[2].Position[1] = -1;
         CardBrr[2].EffectTiming = 0;
 
-        CardBrr[3].HP = 10;
-        CardBrr[3].AP = 5;
+        CardBrr[3].HP = 1;
+        CardBrr[3].AP = 2;
         CardBrr[3].ExHP = 0;
         CardBrr[3].ExAP = 0;
         CardBrr[3].State = 0;
         CardBrr[3].CardId = 63;
-        CardBrr[3].AbilityId = 0;
+        CardBrr[3].AbilityId = 2;
         CardBrr[3].ImgPath = "Cardimg2";
         CardBrr[3].Context = "";
         CardBrr[3].Position[0] = -1;
         CardBrr[3].Position[1] = -1;
         CardBrr[3].EffectTiming = 0;
 
-        CardBrr[4].HP = 10;
-        CardBrr[4].AP = 5;
+        CardBrr[4].HP = 2;
+        CardBrr[4].AP = 1;
         CardBrr[4].ExHP = 0;
         CardBrr[4].ExAP = 0;
         CardBrr[4].State = 0;
         CardBrr[4].CardId = 64;
-        CardBrr[4].AbilityId = 0;
+        CardBrr[4].AbilityId = 3;
         CardBrr[4].ImgPath = "Cardimg3";
         CardBrr[4].Context = "";
         CardBrr[4].Position[0] = -1;
         CardBrr[4].Position[1] = -1;
         CardBrr[4].EffectTiming = 0;
 
-        CardBrr[5].HP = 10;
-        CardBrr[5].AP = 5;
+        CardBrr[5].HP = 2;
+        CardBrr[5].AP = 1;
         CardBrr[5].ExHP = 0;
         CardBrr[5].ExAP = 0;
         CardBrr[5].State = 0;
         CardBrr[5].CardId = 65;
-        CardBrr[5].AbilityId = 0;
+        CardBrr[5].AbilityId = 3;
         CardBrr[5].ImgPath = "Cardimg3";
         CardBrr[5].Context = "";
         CardBrr[5].Position[0] = -1;
         CardBrr[5].Position[1] = -1;
         CardBrr[5].EffectTiming = 0;
 
-        CardBrr[6].HP = 10;
-        CardBrr[6].AP = 5;
+        CardBrr[6].HP = 2;
+        CardBrr[6].AP = 2;
         CardBrr[6].ExHP = 0;
         CardBrr[6].ExAP = 0;
         CardBrr[6].State = 0;
         CardBrr[6].CardId = 66;
-        CardBrr[6].AbilityId = 0;
+        CardBrr[6].AbilityId = 4;
         CardBrr[6].ImgPath = "Cardimg4";
         CardBrr[6].Context = "";
         CardBrr[6].Position[0] = -1;
         CardBrr[6].Position[1] = -1;
         CardBrr[6].EffectTiming = 0;
 
-        CardBrr[7].HP = 10;
-        CardBrr[7].AP = 5;
+        CardBrr[7].HP = 2;
+        CardBrr[7].AP = 2;
         CardBrr[7].ExHP = 0;
         CardBrr[7].ExAP = 0;
         CardBrr[7].State = 0;
         CardBrr[7].CardId = 67;
-        CardBrr[7].AbilityId = 0;
+        CardBrr[7].AbilityId = 4;
         CardBrr[7].ImgPath = "Cardimg4";
         CardBrr[7].Context = "";
         CardBrr[7].Position[0] = -1;
         CardBrr[7].Position[1] = -1;
         CardBrr[7].EffectTiming = 0;
 
-        CardBrr[8].HP = 10;
-        CardBrr[8].AP = 5;
+        CardBrr[8].HP = 2;
+        CardBrr[8].AP = 3;
         CardBrr[8].ExHP = 0;
         CardBrr[8].ExAP = 0;
         CardBrr[8].State = 0;
         CardBrr[8].CardId = 68;
-        CardBrr[8].AbilityId = 0;
+        CardBrr[8].AbilityId = 5;
         CardBrr[8].ImgPath = "Cardimg5";
         CardBrr[8].Context = "";
         CardBrr[8].Position[0] = -1;
         CardBrr[8].Position[1] = -1;
         CardBrr[8].EffectTiming = 0;
 
-        CardBrr[9].HP = 10;
-        CardBrr[9].AP = 5;
+        CardBrr[9].HP = 2;
+        CardBrr[9].AP = 3;
         CardBrr[9].ExHP = 0;
         CardBrr[9].ExAP = 0;
         CardBrr[9].State = 0;
         CardBrr[9].CardId = 69;
-        CardBrr[9].AbilityId = 0;
+        CardBrr[9].AbilityId = 5;
         CardBrr[9].ImgPath = "Cardimg5";
         CardBrr[9].Context = "";
         CardBrr[9].Position[0] = -1;
         CardBrr[9].Position[1] = -1;
         CardBrr[9].EffectTiming = 0;
 
-        CardBrr[10].HP = 10;
-        CardBrr[10].AP = 5;
+        CardBrr[10].HP = 3;
+        CardBrr[10].AP = 1;
         CardBrr[10].ExHP = 0;
         CardBrr[10].ExAP = 0;
         CardBrr[10].State = 0;
         CardBrr[10].CardId = 70;
-        CardBrr[10].AbilityId = 0;
+        CardBrr[10].AbilityId = 6;
         CardBrr[10].ImgPath = "Cardimg6";
         CardBrr[10].Context = "";
         CardBrr[10].Position[0] = -1;
         CardBrr[10].Position[1] = -1;
         CardBrr[10].EffectTiming = 0;
 
-        CardBrr[11].HP = 10;
-        CardBrr[11].AP = 5;
+        CardBrr[11].HP = 3;
+        CardBrr[11].AP = 1;
         CardBrr[11].ExHP = 0;
         CardBrr[11].ExAP = 0;
         CardBrr[11].State = 0;
         CardBrr[11].CardId = 71;
-        CardBrr[11].AbilityId = 0;
+        CardBrr[11].AbilityId = 6;
         CardBrr[11].ImgPath = "Cardimg6";
         CardBrr[11].Context = "";
         CardBrr[11].Position[0] = -1;
         CardBrr[11].Position[1] = -1;
         CardBrr[11].EffectTiming = 0;
 
-        CardBrr[12].HP = 10;
-        CardBrr[12].AP = 5;
+        CardBrr[12].HP = 5;
+        CardBrr[12].AP = 4;
         CardBrr[12].ExHP = 0;
         CardBrr[12].ExAP = 0;
         CardBrr[12].State = 0;
         CardBrr[12].CardId = 72;
-        CardBrr[12].AbilityId = 0;
+        CardBrr[12].AbilityId = 7;
         CardBrr[12].ImgPath = "Cardimg7";
         CardBrr[12].Context = "";
         CardBrr[12].Position[0] = -1;
         CardBrr[12].Position[1] = -1;
         CardBrr[12].EffectTiming = 0;
 
-        CardBrr[13].HP = 10;
-        CardBrr[13].AP = 5;
+        CardBrr[13].HP = 5;
+        CardBrr[13].AP = 4;
         CardBrr[13].ExHP = 0;
         CardBrr[13].ExAP = 0;
         CardBrr[13].State = 0;
         CardBrr[13].CardId = 73;
-        CardBrr[13].AbilityId = 0;
+        CardBrr[13].AbilityId = 7;
         CardBrr[13].ImgPath = "Cardimg7";
         CardBrr[13].Context = "";
         CardBrr[13].Position[0] = -1;
         CardBrr[13].Position[1] = -1;
         CardBrr[13].EffectTiming = 0;
 
-        CardBrr[14].HP = 10;
-        CardBrr[14].AP = 5;
+        CardBrr[14].HP = 3;
+        CardBrr[14].AP = 4;
         CardBrr[14].ExHP = 0;
         CardBrr[14].ExAP = 0;
         CardBrr[14].State = 0;
         CardBrr[14].CardId = 74;
-        CardBrr[14].AbilityId = 0;
+        CardBrr[14].AbilityId = 8;
         CardBrr[14].ImgPath = "Cardimg8";
         CardBrr[14].Context = "";
         CardBrr[14].Position[0] = -1;
         CardBrr[14].Position[1] = -1;
         CardBrr[14].EffectTiming = 0;
 
-        CardBrr[15].HP = 10;
-        CardBrr[15].AP = 5;
+        CardBrr[15].HP = 3;
+        CardBrr[15].AP = 4;
         CardBrr[15].ExHP = 0;
         CardBrr[15].ExAP = 0;
         CardBrr[15].State = 0;
         CardBrr[15].CardId = 75;
-        CardBrr[15].AbilityId = 0;
+        CardBrr[15].AbilityId = 8;
         CardBrr[15].ImgPath = "Cardimg8";
         CardBrr[15].Context = "";
         CardBrr[15].Position[0] = -1;
         CardBrr[15].Position[1] = -1;
         CardBrr[15].EffectTiming = 0;
 
-        CardBrr[16].HP = 10;
-        CardBrr[16].AP = 5;
+        CardBrr[16].HP = 1;
+        CardBrr[16].AP = 3;
         CardBrr[16].ExHP = 0;
         CardBrr[16].ExAP = 0;
         CardBrr[16].State = 0;
         CardBrr[16].CardId = 76;
-        CardBrr[16].AbilityId = 0;
+        CardBrr[16].AbilityId = 9;
         CardBrr[16].ImgPath = "Cardimg9";
         CardBrr[16].Context = "";
         CardBrr[16].Position[0] = -1;
         CardBrr[16].Position[1] = -1;
         CardBrr[16].EffectTiming = 0;
 
-        CardBrr[17].HP = 10;
-        CardBrr[17].AP = 5;
+        CardBrr[17].HP = 1;
+        CardBrr[17].AP = 3;
         CardBrr[17].ExHP = 0;
         CardBrr[17].ExAP = 0;
         CardBrr[17].State = 0;
         CardBrr[17].CardId = 77;
-        CardBrr[17].AbilityId = 0;
+        CardBrr[17].AbilityId = 9;
         CardBrr[17].ImgPath = "Cardimg9";
         CardBrr[17].Context = "";
         CardBrr[17].Position[0] = -1;
         CardBrr[17].Position[1] = -1;
         CardBrr[17].EffectTiming = 0;
 
-        CardBrr[18].HP = 10;
-        CardBrr[18].AP = 5;
+        CardBrr[18].HP = 4;
+        CardBrr[18].AP = 1;
         CardBrr[18].ExHP = 0;
         CardBrr[18].ExAP = 0;
         CardBrr[18].State = 0;
         CardBrr[18].CardId = 78;
-        CardBrr[18].AbilityId = 0;
+        CardBrr[18].AbilityId = 10;
         CardBrr[18].ImgPath = "Cardimg10";
         CardBrr[18].Context = "";
         CardBrr[18].Position[0] = -1;
         CardBrr[18].Position[1] = -1;
         CardBrr[18].EffectTiming = 0;
 
-        CardBrr[19].HP = 10;
-        CardBrr[19].AP = 5;
+        CardBrr[19].HP = 4;
+        CardBrr[19].AP = 1;
         CardBrr[19].ExHP = 0;
         CardBrr[19].ExAP = 0;
         CardBrr[19].State = 0;
         CardBrr[19].CardId = 79;
-        CardBrr[19].AbilityId = 0;
+        CardBrr[19].AbilityId = 10;
         CardBrr[19].ImgPath = "Cardimg10";
         CardBrr[19].Context = "";
         CardBrr[19].Position[0] = -1;
         CardBrr[19].Position[1] = -1;
         CardBrr[19].EffectTiming = 0;
 
-        CardBrr[20].HP = 10;
-        CardBrr[20].AP = 5;
+        CardBrr[20].HP = 5;
+        CardBrr[20].AP = 2;
         CardBrr[20].ExHP = 0;
         CardBrr[20].ExAP = 0;
         CardBrr[20].State = 0;
         CardBrr[20].CardId = 80;
-        CardBrr[20].AbilityId = 0;
+        CardBrr[20].AbilityId = 11;
         CardBrr[20].ImgPath = "Cardimg11";
         CardBrr[20].Context = "";
         CardBrr[20].Position[0] = -1;
         CardBrr[20].Position[1] = -1;
         CardBrr[20].EffectTiming = 0;
 
-        CardBrr[21].HP = 10;
-        CardBrr[21].AP = 5;
+        CardBrr[21].HP = 5;
+        CardBrr[21].AP = 2;
         CardBrr[21].ExHP = 0;
         CardBrr[21].ExAP = 0;
         CardBrr[21].State = 0;
         CardBrr[21].CardId = 81;
-        CardBrr[21].AbilityId = 0;
+        CardBrr[21].AbilityId = 11;
         CardBrr[21].ImgPath = "Cardimg11";
         CardBrr[21].Context = "";
         CardBrr[21].Position[0] = -1;
         CardBrr[21].Position[1] = -1;
         CardBrr[21].EffectTiming = 0;
 
-        CardBrr[22].HP = 10;
-        CardBrr[22].AP = 5;
+        CardBrr[22].HP = 1;
+        CardBrr[22].AP = 2;
         CardBrr[22].ExHP = 0;
         CardBrr[22].ExAP = 0;
         CardBrr[22].State = 0;
         CardBrr[22].CardId = 82;
-        CardBrr[22].AbilityId = 0;
+        CardBrr[22].AbilityId = 12;
         CardBrr[22].ImgPath = "Cardimg12";
         CardBrr[22].Context = "";
         CardBrr[22].Position[0] = -1;
         CardBrr[22].Position[1] = -1;
         CardBrr[22].EffectTiming = 0;
 
-        CardBrr[23].HP = 10;
-        CardBrr[23].AP = 5;
+        CardBrr[23].HP = 1;
+        CardBrr[23].AP = 2;
         CardBrr[23].ExHP = 0;
         CardBrr[23].ExAP = 0;
         CardBrr[23].State = 0;
         CardBrr[23].CardId = 83;
-        CardBrr[23].AbilityId = 0;
+        CardBrr[23].AbilityId = 12;
         CardBrr[23].ImgPath = "Cardimg12";
         CardBrr[23].Context = "";
         CardBrr[23].Position[0] = -1;
         CardBrr[23].Position[1] = -1;
         CardBrr[23].EffectTiming = 0;
 
-        CardBrr[24].HP = 10;
-        CardBrr[24].AP = 5;
+        CardBrr[24].HP = 4;
+        CardBrr[24].AP = 2;
         CardBrr[24].ExHP = 0;
         CardBrr[24].ExAP = 0;
         CardBrr[24].State = 0;
         CardBrr[24].CardId = 84;
-        CardBrr[24].AbilityId = 0;
+        CardBrr[24].AbilityId = 13;
         CardBrr[24].ImgPath = "Cardimg13";
         CardBrr[24].Context = "";
         CardBrr[24].Position[0] = -1;
         CardBrr[24].Position[1] = -1;
         CardBrr[24].EffectTiming = 0;
 
-        CardBrr[25].HP = 10;
-        CardBrr[25].AP = 5;
+        CardBrr[25].HP = 4;
+        CardBrr[25].AP = 2;
         CardBrr[25].ExHP = 0;
         CardBrr[25].ExAP = 0;
         CardBrr[25].State = 0;
         CardBrr[25].CardId = 85;
-        CardBrr[25].AbilityId = 0;
+        CardBrr[25].AbilityId = 13;
         CardBrr[25].ImgPath = "Cardimg13";
         CardBrr[25].Context = "";
         CardBrr[25].Position[0] = -1;
         CardBrr[25].Position[1] = -1;
         CardBrr[25].EffectTiming = 0;
 
-        CardBrr[26].HP = 10;
-        CardBrr[26].AP = 5;
+        CardBrr[26].HP = 1;
+        CardBrr[26].AP = 3;
         CardBrr[26].ExHP = 0;
         CardBrr[26].ExAP = 0;
         CardBrr[26].State = 0;
         CardBrr[26].CardId = 86;
-        CardBrr[26].AbilityId = 0;
+        CardBrr[26].AbilityId = 14;
         CardBrr[26].ImgPath = "Cardimg14";
         CardBrr[26].Context = "";
         CardBrr[26].Position[0] = -1;
         CardBrr[26].Position[1] = -1;
         CardBrr[26].EffectTiming = 0;
 
-        CardBrr[27].HP = 10;
-        CardBrr[27].AP = 5;
+        CardBrr[27].HP = 1;
+        CardBrr[27].AP = 3;
         CardBrr[27].ExHP = 0;
         CardBrr[27].ExAP = 0;
         CardBrr[27].State = 0;
         CardBrr[27].CardId = 87;
-        CardBrr[27].AbilityId = 0;
+        CardBrr[27].AbilityId = 14;
         CardBrr[27].ImgPath = "Cardimg14";
         CardBrr[27].Context = "";
         CardBrr[27].Position[0] = -1;
         CardBrr[27].Position[1] = -1;
         CardBrr[27].EffectTiming = 0;
 
-        CardBrr[28].HP = 10;
-        CardBrr[28].AP = 5;
+        CardBrr[28].HP = 3;
+        CardBrr[28].AP = 3;
         CardBrr[28].ExHP = 0;
         CardBrr[28].ExAP = 0;
         CardBrr[28].State = 0;
         CardBrr[28].CardId = 88;
-        CardBrr[28].AbilityId = 0;
+        CardBrr[28].AbilityId = 15;
         CardBrr[28].ImgPath = "Cardimg15";
         CardBrr[28].Context = "";
         CardBrr[28].Position[0] = -1;
         CardBrr[28].Position[1] = -1;
         CardBrr[28].EffectTiming = 0;
 
-        CardBrr[29].HP = 10;
-        CardBrr[29].AP = 5;
+        CardBrr[29].HP = 3;
+        CardBrr[29].AP = 3;
         CardBrr[29].ExHP = 0;
         CardBrr[29].ExAP = 0;
         CardBrr[29].State = 0;
         CardBrr[29].CardId = 89;
-        CardBrr[29].AbilityId = 0;
+        CardBrr[29].AbilityId = 15;
         CardBrr[29].ImgPath = "Cardimg15";
         CardBrr[29].Context = "";
         CardBrr[29].Position[0] = -1;
         CardBrr[29].Position[1] = -1;
         CardBrr[29].EffectTiming = 0;
 
-        CardBrr[30].HP = 10;
-        CardBrr[30].AP = 5;
+        CardBrr[30].HP = 1;
+        CardBrr[30].AP = 1;
         CardBrr[30].ExHP = 0;
         CardBrr[30].ExAP = 0;
         CardBrr[30].State = 0;
         CardBrr[30].CardId = 90;
-        CardBrr[30].AbilityId = 0;
+        CardBrr[30].AbilityId = 16;
         CardBrr[30].ImgPath = "Cardimg16";
         CardBrr[30].Context = "";
         CardBrr[30].Position[0] = -1;
         CardBrr[30].Position[1] = -1;
         CardBrr[30].EffectTiming = 0;
 
-        CardBrr[31].HP = 10;
-        CardBrr[31].AP = 5;
+        CardBrr[31].HP = 1;
+        CardBrr[31].AP = 1;
         CardBrr[31].ExHP = 0;
         CardBrr[31].ExAP = 0;
         CardBrr[31].State = 0;
         CardBrr[31].CardId = 91;
-        CardBrr[31].AbilityId = 0;
+        CardBrr[31].AbilityId = 16;
         CardBrr[31].ImgPath = "Cardimg16";
         CardBrr[31].Context = "";
         CardBrr[31].Position[0] = -1;
         CardBrr[31].Position[1] = -1;
         CardBrr[31].EffectTiming = 0;
 
-        CardBrr[32].HP = 10;
-        CardBrr[32].AP = 5;
+        CardBrr[32].HP = 1;
+        CardBrr[32].AP = 2;
         CardBrr[32].ExHP = 0;
         CardBrr[32].ExAP = 0;
         CardBrr[32].State = 0;
         CardBrr[32].CardId = 92;
-        CardBrr[32].AbilityId = 0;
+        CardBrr[32].AbilityId = 17;
         CardBrr[32].ImgPath = "Cardimg17";
         CardBrr[32].Context = "";
         CardBrr[32].Position[0] = -1;
         CardBrr[32].Position[1] = -1;
         CardBrr[32].EffectTiming = 0;
 
-        CardBrr[33].HP = 10;
-        CardBrr[33].AP = 5;
+        CardBrr[33].HP = 1;
+        CardBrr[33].AP = 2;
         CardBrr[33].ExHP = 0;
         CardBrr[33].ExAP = 0;
         CardBrr[33].State = 0;
         CardBrr[33].CardId = 93;
-        CardBrr[33].AbilityId = 0;
+        CardBrr[33].AbilityId = 17;
         CardBrr[33].ImgPath = "Cardimg17";
         CardBrr[33].Context = "";
         CardBrr[33].Position[0] = -1;
         CardBrr[33].Position[1] = -1;
         CardBrr[33].EffectTiming = 0;
 
-        CardBrr[34].HP = 10;
-        CardBrr[34].AP = 5;
+        CardBrr[34].HP = 2;
+        CardBrr[34].AP = 4;
         CardBrr[34].ExHP = 0;
         CardBrr[34].ExAP = 0;
         CardBrr[34].State = 0;
         CardBrr[34].CardId = 94;
-        CardBrr[34].AbilityId = 0;
+        CardBrr[34].AbilityId = 18;
         CardBrr[34].ImgPath = "Cardimg18";
         CardBrr[34].Context = "";
         CardBrr[34].Position[0] = -1;
         CardBrr[34].Position[1] = -1;
         CardBrr[34].EffectTiming = 0;
 
-        CardBrr[35].HP = 10;
-        CardBrr[35].AP = 5;
+        CardBrr[35].HP = 2;
+        CardBrr[35].AP = 4;
         CardBrr[35].ExHP = 0;
         CardBrr[35].ExAP = 0;
         CardBrr[35].State = 0;
         CardBrr[35].CardId = 95;
-        CardBrr[35].AbilityId = 0;
+        CardBrr[35].AbilityId = 18;
         CardBrr[35].ImgPath = "Cardimg18";
         CardBrr[35].Context = "";
         CardBrr[35].Position[0] = -1;
         CardBrr[35].Position[1] = -1;
         CardBrr[35].EffectTiming = 0;
 
-        CardBrr[36].HP = 10;
-        CardBrr[36].AP = 5;
+        CardBrr[36].HP = 5;
+        CardBrr[36].AP = 2;
         CardBrr[36].ExHP = 0;
         CardBrr[36].ExAP = 0;
         CardBrr[36].State = 0;
         CardBrr[36].CardId = 96;
-        CardBrr[36].AbilityId = 0;
+        CardBrr[36].AbilityId = 19;
         CardBrr[36].ImgPath = "Cardimg19";
         CardBrr[36].Context = "";
         CardBrr[36].Position[0] = -1;
         CardBrr[36].Position[1] = -1;
         CardBrr[36].EffectTiming = 0;
 
-        CardBrr[37].HP = 10;
-        CardBrr[37].AP = 5;
+        CardBrr[37].HP = 5;
+        CardBrr[37].AP = 2;
         CardBrr[37].ExHP = 0;
         CardBrr[37].ExAP = 0;
         CardBrr[37].State = 0;
         CardBrr[37].CardId = 97;
-        CardBrr[37].AbilityId = 0;
+        CardBrr[37].AbilityId = 19;
         CardBrr[37].ImgPath = "Cardimg19";
         CardBrr[37].Context = "";
         CardBrr[37].Position[0] = -1;
         CardBrr[37].Position[1] = -1;
         CardBrr[37].EffectTiming = 0;
 
-        CardBrr[38].HP = 10;
-        CardBrr[38].AP = 5;
+        CardBrr[38].HP = 3;
+        CardBrr[38].AP = 1;
         CardBrr[38].ExHP = 0;
         CardBrr[38].ExAP = 0;
         CardBrr[38].State = 0;
         CardBrr[38].CardId = 98;
-        CardBrr[38].AbilityId = 0;
+        CardBrr[38].AbilityId = 20;
         CardBrr[38].ImgPath = "Cardimg20";
         CardBrr[38].Context = "";
         CardBrr[38].Position[0] = -1;
         CardBrr[38].Position[1] = -1;
         CardBrr[38].EffectTiming = 0;
 
-        CardBrr[39].HP = 10;
-        CardBrr[39].AP = 5;
+        CardBrr[39].HP = 3;
+        CardBrr[39].AP = 1;
         CardBrr[39].ExHP = 0;
         CardBrr[39].ExAP = 0;
         CardBrr[39].State = 0;
         CardBrr[39].CardId = 99;
-        CardBrr[39].AbilityId = 0;
+        CardBrr[39].AbilityId = 20;
         CardBrr[39].ImgPath = "Cardimg20";
         CardBrr[39].Context = "";
         CardBrr[39].Position[0] = -1;
         CardBrr[39].Position[1] = -1;
         CardBrr[39].EffectTiming = 0;
 
-        CardBrr[40].HP = 10;
-        CardBrr[40].AP = 5;
+        CardBrr[40].HP = 0;
+        CardBrr[40].AP = 0;
         CardBrr[40].ExHP = 0;
         CardBrr[40].ExAP = 0;
         CardBrr[40].State = 0;
         CardBrr[40].CardId = 100;
-        CardBrr[40].AbilityId = 0;
+        CardBrr[40].AbilityId = 21;
         CardBrr[40].ImgPath = "Cardimg21";
         CardBrr[40].Context = "";
         CardBrr[40].Position[0] = -1;
         CardBrr[40].Position[1] = -1;
         CardBrr[40].EffectTiming = 0;
 
-        CardBrr[41].HP = 10;
-        CardBrr[41].AP = 5;
+        CardBrr[41].HP = 0;
+        CardBrr[41].AP = 0;
         CardBrr[41].ExHP = 0;
         CardBrr[41].ExAP = 0;
         CardBrr[41].State = 0;
         CardBrr[41].CardId = 101;
-        CardBrr[41].AbilityId = 0;
+        CardBrr[41].AbilityId = 21;
         CardBrr[41].ImgPath = "Cardimg21";
         CardBrr[41].Context = "";
         CardBrr[41].Position[0] = -1;
         CardBrr[41].Position[1] = -1;
         CardBrr[41].EffectTiming = 0;
 
-        CardBrr[42].HP = 10;
-        CardBrr[42].AP = 5;
+        CardBrr[42].HP = 0;
+        CardBrr[42].AP = 0;
         CardBrr[42].ExHP = 0;
         CardBrr[42].ExAP = 0;
         CardBrr[42].State = 0;
         CardBrr[42].CardId = 102;
-        CardBrr[42].AbilityId = 0;
+        CardBrr[42].AbilityId = 22;
         CardBrr[42].ImgPath = "Cardimg22";
         CardBrr[42].Context = "";
         CardBrr[42].Position[0] = -1;
         CardBrr[42].Position[1] = -1;
         CardBrr[42].EffectTiming = 0;
 
-        CardBrr[43].HP = 10;
-        CardBrr[43].AP = 5;
+        CardBrr[43].HP = 0;
+        CardBrr[43].AP = 0;
         CardBrr[43].ExHP = 0;
         CardBrr[43].ExAP = 0;
         CardBrr[43].State = 0;
         CardBrr[43].CardId = 103;
-        CardBrr[43].AbilityId = 0;
+        CardBrr[43].AbilityId = 22;
         CardBrr[43].ImgPath = "Cardimg22";
         CardBrr[43].Context = "";
         CardBrr[43].Position[0] = -1;
         CardBrr[43].Position[1] = -1;
         CardBrr[43].EffectTiming = 0;
 
-        CardBrr[44].HP = 10;
-        CardBrr[44].AP = 5;
+        CardBrr[44].HP = 0;
+        CardBrr[44].AP = 0;
         CardBrr[44].ExHP = 0;
         CardBrr[44].ExAP = 0;
         CardBrr[44].State = 0;
         CardBrr[44].CardId = 104;
-        CardBrr[44].AbilityId = 0;
+        CardBrr[44].AbilityId = 23;
         CardBrr[44].ImgPath = "Cardimg23";
         CardBrr[44].Context = "";
         CardBrr[44].Position[0] = -1;
         CardBrr[44].Position[1] = -1;
         CardBrr[44].EffectTiming = 0;
 
-        CardBrr[45].HP = 10;
-        CardBrr[45].AP = 5;
+        CardBrr[45].HP = 0;
+        CardBrr[45].AP = 0;
         CardBrr[45].ExHP = 0;
         CardBrr[45].ExAP = 0;
         CardBrr[45].State = 0;
         CardBrr[45].CardId = 105;
-        CardBrr[45].AbilityId = 0;
+        CardBrr[45].AbilityId = 23;
         CardBrr[45].ImgPath = "Cardimg23";
         CardBrr[45].Context = "";
         CardBrr[45].Position[0] = -1;
         CardBrr[45].Position[1] = -1;
         CardBrr[45].EffectTiming = 0;
 
-        CardBrr[46].HP = 10;
-        CardBrr[46].AP = 5;
+        CardBrr[46].HP = 0;
+        CardBrr[46].AP = 0;
         CardBrr[46].ExHP = 0;
         CardBrr[46].ExAP = 0;
         CardBrr[46].State = 0;
         CardBrr[46].CardId = 106;
-        CardBrr[46].AbilityId = 0;
+        CardBrr[46].AbilityId = 24;
         CardBrr[46].ImgPath = "Cardimg24";
         CardBrr[46].Context = "";
         CardBrr[46].Position[0] = -1;
         CardBrr[46].Position[1] = -1;
         CardBrr[46].EffectTiming = 0;
 
-        CardBrr[47].HP = 10;
-        CardBrr[47].AP = 5;
+        CardBrr[47].HP = 0;
+        CardBrr[47].AP = 0;
         CardBrr[47].ExHP = 0;
         CardBrr[47].ExAP = 0;
         CardBrr[47].State = 0;
         CardBrr[47].CardId = 107;
-        CardBrr[47].AbilityId = 0;
+        CardBrr[47].AbilityId = 24;
         CardBrr[47].ImgPath = "Cardimg24";
         CardBrr[47].Context = "";
         CardBrr[47].Position[0] = -1;
         CardBrr[47].Position[1] = -1;
         CardBrr[47].EffectTiming = 0;
 
-        CardBrr[48].HP = 10;
-        CardBrr[48].AP = 5;
+        CardBrr[48].HP = 0;
+        CardBrr[48].AP = 0;
         CardBrr[48].ExHP = 0;
         CardBrr[48].ExAP = 0;
         CardBrr[48].State = 0;
         CardBrr[48].CardId = 108;
-        CardBrr[48].AbilityId = 0;
+        CardBrr[48].AbilityId = 25;
         CardBrr[48].ImgPath = "Cardimg25";
         CardBrr[48].Context = "";
         CardBrr[48].Position[0] = -1;
         CardBrr[48].Position[1] = -1;
         CardBrr[48].EffectTiming = 0;
 
-        CardBrr[49].HP = 10;
-        CardBrr[49].AP = 5;
+        CardBrr[49].HP = 0;
+        CardBrr[49].AP = 0;
         CardBrr[49].ExHP = 0;
         CardBrr[49].ExAP = 0;
         CardBrr[49].State = 0;
         CardBrr[49].CardId = 109;
-        CardBrr[49].AbilityId = 0;
+        CardBrr[49].AbilityId = 25;
         CardBrr[49].ImgPath = "Cardimg25";
         CardBrr[49].Context = "";
         CardBrr[49].Position[0] = -1;
         CardBrr[49].Position[1] = -1;
         CardBrr[49].EffectTiming = 0;
 
-        CardBrr[50].HP = 10;
-        CardBrr[50].AP = 5;
+        CardBrr[50].HP = 0;
+        CardBrr[50].AP = 0;
         CardBrr[50].ExHP = 0;
         CardBrr[50].ExAP = 0;
         CardBrr[50].State = 0;
         CardBrr[50].CardId = 110;
-        CardBrr[50].AbilityId = 0;
+        CardBrr[50].AbilityId = 26;
         CardBrr[50].ImgPath = "Cardimg26";
         CardBrr[50].Context = "";
         CardBrr[50].Position[0] = -1;
         CardBrr[50].Position[1] = -1;
         CardBrr[50].EffectTiming = 0;
 
-        CardBrr[51].HP = 10;
-        CardBrr[51].AP = 5;
+        CardBrr[51].HP = 0;
+        CardBrr[51].AP = 0;
         CardBrr[51].ExHP = 0;
         CardBrr[51].ExAP = 0;
         CardBrr[51].State = 0;
         CardBrr[51].CardId = 111;
-        CardBrr[51].AbilityId = 0;
+        CardBrr[51].AbilityId = 26;
         CardBrr[51].ImgPath = "Cardimg26";
         CardBrr[51].Context = "";
         CardBrr[51].Position[0] = -1;
         CardBrr[51].Position[1] = -1;
         CardBrr[51].EffectTiming = 0;
 
-        CardBrr[52].HP = 10;
-        CardBrr[52].AP = 5;
+        CardBrr[52].HP = 0;
+        CardBrr[52].AP = 0;
         CardBrr[52].ExHP = 0;
         CardBrr[52].ExAP = 0;
         CardBrr[52].State = 0;
         CardBrr[52].CardId = 112;
-        CardBrr[52].AbilityId = 0;
+        CardBrr[52].AbilityId = 27;
         CardBrr[52].ImgPath = "Cardimg27";
         CardBrr[52].Context = "";
         CardBrr[52].Position[0] = -1;
         CardBrr[52].Position[1] = -1;
         CardBrr[52].EffectTiming = 0;
 
-        CardBrr[53].HP = 10;
-        CardBrr[53].AP = 5;
+        CardBrr[53].HP = 0;
+        CardBrr[53].AP = 0;
         CardBrr[53].ExHP = 0;
         CardBrr[53].ExAP = 0;
         CardBrr[53].State = 0;
         CardBrr[53].CardId = 113;
-        CardBrr[53].AbilityId = 0;
+        CardBrr[53].AbilityId = 27;
         CardBrr[53].ImgPath = "Cardimg27";
         CardBrr[53].Context = "";
         CardBrr[53].Position[0] = -1;
         CardBrr[53].Position[1] = -1;
         CardBrr[53].EffectTiming = 0;
 
-        CardBrr[54].HP = 10;
-        CardBrr[54].AP = 5;
+        CardBrr[54].HP = 0;
+        CardBrr[54].AP = 0;
         CardBrr[54].ExHP = 0;
         CardBrr[54].ExAP = 0;
         CardBrr[54].State = 0;
         CardBrr[54].CardId = 114;
-        CardBrr[54].AbilityId = 0;
+        CardBrr[54].AbilityId = 28;
         CardBrr[54].ImgPath = "Cardimg28";
         CardBrr[54].Context = "";
         CardBrr[54].Position[0] = -1;
         CardBrr[54].Position[1] = -1;
         CardBrr[54].EffectTiming = 0;
 
-        CardBrr[55].HP = 10;
-        CardBrr[55].AP = 5;
+        CardBrr[55].HP = 0;
+        CardBrr[55].AP = 0;
         CardBrr[55].ExHP = 0;
         CardBrr[55].ExAP = 0;
         CardBrr[55].State = 0;
         CardBrr[55].CardId = 115;
-        CardBrr[55].AbilityId = 0;
+        CardBrr[55].AbilityId = 28;
         CardBrr[55].ImgPath = "Cardimg28";
         CardBrr[55].Context = "";
         CardBrr[55].Position[0] = -1;
         CardBrr[55].Position[1] = -1;
         CardBrr[55].EffectTiming = 0;
 
-        CardBrr[56].HP = 10;
-        CardBrr[56].AP = 5;
+        CardBrr[56].HP = 0;
+        CardBrr[56].AP = 0;
         CardBrr[56].ExHP = 0;
         CardBrr[56].ExAP = 0;
         CardBrr[56].State = 0;
         CardBrr[56].CardId = 116;
-        CardBrr[56].AbilityId = 0;
+        CardBrr[56].AbilityId = 29;
         CardBrr[56].ImgPath = "Cardimg29";
         CardBrr[56].Context = "";
         CardBrr[56].Position[0] = -1;
         CardBrr[56].Position[1] = -1;
         CardBrr[56].EffectTiming = 0;
 
-        CardBrr[57].HP = 10;
-        CardBrr[57].AP = 5;
+        CardBrr[57].HP = 0;
+        CardBrr[57].AP = 0;
         CardBrr[57].ExHP = 0;
         CardBrr[57].ExAP = 0;
         CardBrr[57].State = 0;
         CardBrr[57].CardId = 117;
-        CardBrr[57].AbilityId = 0;
+        CardBrr[57].AbilityId = 29;
         CardBrr[57].ImgPath = "Cardimg29";
         CardBrr[57].Context = "";
         CardBrr[57].Position[0] = -1;
         CardBrr[57].Position[1] = -1;
         CardBrr[57].EffectTiming = 0;
 
-        CardBrr[58].HP = 10;
-        CardBrr[58].AP = 5;
+        CardBrr[58].HP = 0;
+        CardBrr[58].AP = 0;
         CardBrr[58].ExHP = 0;
         CardBrr[58].ExAP = 0;
         CardBrr[58].State = 0;
         CardBrr[58].CardId = 118;
-        CardBrr[58].AbilityId = 0;
+        CardBrr[58].AbilityId = 30;
         CardBrr[58].ImgPath = "Cardimg30";
         CardBrr[58].Context = "";
         CardBrr[58].Position[0] = -1;
         CardBrr[58].Position[1] = -1;
         CardBrr[58].EffectTiming = 0;
 
-        CardBrr[59].HP = 10;
-        CardBrr[59].AP = 5;
+        CardBrr[59].HP = 0;
+        CardBrr[59].AP = 0;
         CardBrr[59].ExHP = 0;
         CardBrr[59].ExAP = 0;
         CardBrr[59].State = 0;
         CardBrr[59].CardId = 119;
-        CardBrr[59].AbilityId = 0;
+        CardBrr[59].AbilityId = 30;
         CardBrr[59].ImgPath = "Cardimg30";
         CardBrr[59].Context = "";
         CardBrr[59].Position[0] = -1;

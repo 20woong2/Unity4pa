@@ -13,26 +13,24 @@ public class EnemyFieldManager : MonoBehaviour
         }
         else
         {
-            int setCount = Random.Range(1, DeckManager.EnemyHandList.Count+1);
-            Debug.Log(setCount);
+            int setCount = Random.Range(1, DeckManager.EnemyHandList.Count);
             for (int i = 0; i < setCount; i++)
             {
                 
                 int space = findXY();
                 if (space == 0) return;
                 int cardID = DeckManager.EnemyHandList[Random.Range(0, DeckManager.EnemyHandList.Count)];
+                DeckManager.EnemyHandList.Remove(cardID);
                 DeckManager.CardBrr[cardID - 60].Position[0] = space / 10;
                 DeckManager.CardBrr[cardID - 60].Position[1] = space % 10;
                 fieldManager.CurrntField[space / 10, space % 10] = cardID;
-                Debug.Log(cardID);
-                Debug.Log(fieldManager.CurrntField[space / 10, space % 10]);
+                
                 GameObject thisCard = GameObject.FindWithTag(cardID.ToString());
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(cardID.ToString());
                 thisCard.transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f, -1.275f + 0.625f * (space / 10));
                 thisCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 180f);
                 thiscards[1].transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f-0.001f, -1.275f + 0.625f * (space / 10));
                 thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
-                DeckManager.EnemyHandList.Remove(cardID);
                 enemyHandManager.rePlaceCard();
                 
             }
@@ -75,8 +73,6 @@ public class EnemyFieldManager : MonoBehaviour
             }
         }
         setPlace += RandX[Random.Range(0, RandX.Count)];
-        Debug.LogWarning("findXY 진행");
-        Debug.Log(setPlace);
         return setPlace;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created

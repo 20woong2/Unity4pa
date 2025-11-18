@@ -19,5 +19,10 @@ public class Trunconverter : MonoBehaviour
             TurnManager.currentturn = 3;
             TurnManager.turnend = true;
         }
+        if (TurnManager.currentturn == 10)
+        {
+            TurnManager.currentturn = 11;
+            TurnManager.turnend = true;
+        }
     }
 }
