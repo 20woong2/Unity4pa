@@ -29,10 +29,10 @@ public class CardStateManager : MonoBehaviour
 
     public void SetBackCard(GameObject backcard, int cardid)
     {
-        Sprite sprite = Resources.Load<Sprite>("CardImages/CardBackground");
+        Sprite sprite = Resources.Load<Sprite>("CardImages/Cardimg1");
         if (sprite == null)
         {
-            Debug.LogError("카드 뒷면 이미지가 존재하지 않습니다.");
+            Debug.LogError("뒷면이미지없음");
             return;
         }
         SpriteRenderer sr = backcard.GetComponent<SpriteRenderer>();
@@ -42,7 +42,7 @@ public class CardStateManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("카드 뒷면 이미지가 존재하지 않습니다.");
+            Debug.LogWarning("뒷면이미지없음");
         }
     }
 
