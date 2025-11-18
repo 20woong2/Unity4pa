@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System.Collections;
+using System.Diagnostics;
 
 public class EnemyFieldManager : MonoBehaviour
 {
@@ -32,7 +34,20 @@ public class EnemyFieldManager : MonoBehaviour
                 thiscards[1].transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f-0.001f, -1.275f + 0.625f * (space / 10));
                 thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
                 enemyHandManager.rePlaceCard();
-                
+
+                effectManager.EnemyEffectCast(cardID, 1);
+                if (DeckManager.CardBrr[cardID-60].HP <= 0)
+                {
+                    yield return new WaitForSeconds(0.5f);
+                    UnityEngine.Debug.Log(DeckManager.CardBrr[cardID - 60].Position[0]);
+                    UnityEngine.Debug.Log(DeckManager.CardBrr[cardID - 60].Position[1]);
+                    fieldManager.CurrntField[DeckManager.CardBrr[cardID-60].Position[0], DeckManager.CardBrr[cardID-60].Position[1]] = null;
+                    DeckManager.CardBrr[cardID-60].Position[0] = -1;
+                    DeckManager.CardBrr[cardID-60].Position[1] = -1;
+                    thiscards[0].SetActive(false);
+                    thiscards[1].SetActive(false);
+                    yield return new WaitForSeconds(0.5f);
+                }
             }
                 
         }
