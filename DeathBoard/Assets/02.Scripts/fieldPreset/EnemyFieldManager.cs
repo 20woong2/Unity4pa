@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Diagnostics;
 public class EnemyFieldManager : MonoBehaviour
 {
     public FieldManager fieldManager;
@@ -38,6 +39,8 @@ public class EnemyFieldManager : MonoBehaviour
                 if (DeckManager.CardBrr[cardID-60].HP <= 0)
                 {
                     yield return new WaitForSeconds(0.5f);
+                    UnityEngine.Debug.Log(DeckManager.CardBrr[cardID - 60].Position[0]);
+                    UnityEngine.Debug.Log(DeckManager.CardBrr[cardID - 60].Position[1]);
                     fieldManager.CurrntField[DeckManager.CardBrr[cardID-60].Position[0], DeckManager.CardBrr[cardID-60].Position[1]] = null;
                     DeckManager.CardBrr[cardID-60].Position[0] = -1;
                     DeckManager.CardBrr[cardID-60].Position[1] = -1;
