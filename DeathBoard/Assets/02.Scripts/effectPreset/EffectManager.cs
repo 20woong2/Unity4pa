@@ -2,13 +2,24 @@ using UnityEngine;
 
 public class EffectManager : MonoBehaviour
 {
+    public FieldManager fieldManager;
     public void EffectCast(int cardID , int timing)
     {
         if(timing == 1)
         {
             if(DeckManager.CardArr[cardID].AbilityId == 5)
             {
-
+                if(DeckManager.CardArr[cardID].Position[0]==0 && fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]] != null)
+                {
+                    DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].ExHP -= 2;
+                    if(DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].ExHP + DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].HP <= 0)
+                    {
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
+                        fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]] = null;
+                        thiscards[0].SetActive(false);
+                        thiscards[1].SetActive(false);
+                    }
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 8)
             {
@@ -79,15 +90,26 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardArr[cardID].AbilityId == 1)
             {
-                
+                DeckManager.CardArr[cardID].HP = 1;
+                DeckManager.CardArr[cardID].ExHP = 0;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 2)
             {
-                
+                if(DeckManager.CardArr[cardID].Position[0] == 0)
+                {
+                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
+                    fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]] = null;
+                    thiscards[0].SetActive(false);
+                    thiscards[1].SetActive(false);
+                    DeckManager.CardArr[cardID].ExAP += 2;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 4)
             {
-                
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(cardID.ToString());
+                fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0], DeckManager.CardArr[cardID].Position[1]] = null;
+                thiscards[0].SetActive(false);
+                thiscards[1].SetActive(false);
             }
         }
         else if(timing == 3)
