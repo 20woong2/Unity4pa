@@ -37,10 +37,13 @@ public class EffectManager : MonoBehaviour
                 {
                     for(int j=0;j<7;j++)
                     {
-                        if(BiggestAP < (DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].ExAP))
+                        if(fieldManager.CurrntField[i,j] != null)
                         {
-                            BiggestAP = DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].ExAP;
-                            BigID = fieldManager.CurrntField[i,j].Value;
+                            if(BiggestAP < (DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].ExAP))
+                            {
+                                BiggestAP = DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].ExAP;
+                                BigID = fieldManager.CurrntField[i,j].Value;
+                            }
                         }
                     }
                 }
