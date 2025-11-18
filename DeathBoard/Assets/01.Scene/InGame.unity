@@ -1113,6 +1113,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dcec1ed6ecdbc8498d2be03d3c417f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EffectManager
+  fieldManager: {fileID: 118279512}
+  player: {fileID: 2092155993}
 --- !u!4 &358205098
 Transform:
   m_ObjectHideFlags: 0
@@ -3002,6 +3004,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyFieldManager
   fieldManager: {fileID: 118279512}
   enemyHandManager: {fileID: 816938652}
+  effectManager: {fileID: 358205097}
 --- !u!4 &1109056115
 Transform:
   m_ObjectHideFlags: 0

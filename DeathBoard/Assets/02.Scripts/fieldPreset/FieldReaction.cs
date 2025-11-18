@@ -51,6 +51,8 @@ public class FieldReaction : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0], DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = null;
+                DeckManager.CardArr[stateScript.thiscard.CardId].Position[0] = -1;
+                DeckManager.CardArr[stateScript.thiscard.CardId].Position[1] = -1;
                 thiscards[0].SetActive(false);
                 thiscards[1].SetActive(false);
             }
