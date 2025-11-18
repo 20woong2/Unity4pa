@@ -155,6 +155,7 @@ MonoBehaviour:
   enemyFieldManager: {fileID: 1109056114}
   effectManager: {fileID: 358205097}
   fieldManager: {fileID: 118279512}
+  player: {fileID: 0}
   shoot: {fileID: 1697899325}
   scan: {fileID: 755031472}
 --- !u!4 &110871188
