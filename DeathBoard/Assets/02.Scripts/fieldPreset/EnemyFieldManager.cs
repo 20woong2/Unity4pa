@@ -46,6 +46,7 @@ public class EnemyFieldManager : MonoBehaviour
                     DeckManager.CardBrr[cardID-60].Position[1] = -1;
                     thiscards[0].SetActive(false);
                     thiscards[1].SetActive(false);
+                    yield return new WaitForSeconds(0.5f);
                 }
                 
             }

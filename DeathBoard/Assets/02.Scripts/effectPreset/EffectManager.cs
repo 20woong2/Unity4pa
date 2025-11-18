@@ -85,15 +85,20 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
+
+                
                 if (DeckManager.CardArr[cardID].Position[0] == 1)
                 {
-                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
-                    DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[0] = -1;
-                    DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[1] = -1;
-                    fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
-                    player.user.CP -= 10;
+                    if(fieldManager.CurrntField[0,DeckManager.CardArr[cardID].Position[1]] != null)
+                    {
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
+                        DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[0] = -1;
+                        DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[1] = -1;
+                        fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] = null;
+                        thiscards[0].SetActive(false);
+                        thiscards[1].SetActive(false);
+                        player.user.CP -= 10;
+                    }
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 21)
