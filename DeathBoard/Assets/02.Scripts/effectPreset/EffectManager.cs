@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EffectManager : MonoBehaviour
@@ -63,19 +65,40 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 11)
             {
-                
+                if (DeckManager.CardArr[cardID].Position[0] == 1)
+                {
+                    DeckManager.CardArr[cardID].ExHP -= 3;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 12)
             {
-                
+                if (DeckManager.CardArr[cardID].Position[0] == 0)
+                {
+                    DeckManager.CardArr[cardID].ExHP += 3;
+                }
+
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 13)
             {
-                
+                player.user.CP += 5;
+                DeckManager.CardArr[cardID].ExAP += 3;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
                 
+                if (DeckManager.CardArr[cardID].Position[0] == 1)
+                {
+                    if(fieldManager.CurrntField[0,DeckManager.CardArr[cardID].Position[1]] != null)
+                    {
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
+                        DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[0] = -1;
+                        DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[1] = -1;
+                        fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] = null;
+                        thiscards[0].SetActive(false);
+                        thiscards[1].SetActive(false);
+                        player.user.CP -= 10;
+                    }
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 21)
             {
@@ -99,7 +122,40 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 26)
             {
-                
+                List<int> CardList = new List<int>();
+                for(int i = 0; i < 4; i++)
+                {
+                    for(int j = 0; j < 7; j++){
+                        if(fieldManager.CurrntField[i, j] != null && fieldManager.CurrntField[i, j].Value != cardID)
+                        {
+                            CardList.Add(fieldManager.CurrntField[i, j].Value);
+                        }
+                    }
+                }
+                for(int i = 0; i < 3; i++)
+                {
+                    if (CardList != null && CardList.Count > 0)
+                    {
+                        int target = Random.Range(0, CardList.Count);
+                        int targetID = CardList[target];
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetID.ToString());
+                        if (targetID < 60)
+                        {
+                            fieldManager.CurrntField[DeckManager.CardArr[targetID].Position[0], DeckManager.CardArr[targetID].Position[1]] = null;
+                            DeckManager.CardArr[targetID].Position[0] = -1;
+                            DeckManager.CardArr[targetID].Position[1] = -1;
+                        }
+                        else
+                        {
+                            fieldManager.CurrntField[DeckManager.CardBrr[targetID - 60].Position[0], DeckManager.CardBrr[targetID - 60].Position[1]] = null;
+                            DeckManager.CardBrr[targetID - 60].Position[0] = -1;
+                            DeckManager.CardBrr[targetID - 60].Position[1] = -1;
+                        }
+                        thiscards[0].SetActive(false);
+                        thiscards[1].SetActive(false);
+                        CardList.Remove(targetID);
+                    }
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 27)
             {
@@ -111,7 +167,63 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 30)
             {
-                
+                for (int i = 0; i < 7; i++)
+                {
+                    if (fieldManager.CurrntField[0, i] != null) 
+                    { 
+                    int temp = fieldManager.CurrntField[0, i].Value;
+                    fieldManager.CurrntField[0, i] = fieldManager.CurrntField[1, i];
+                    fieldManager.CurrntField[1, i] = temp;
+                    }else if(fieldManager.CurrntField[1, i] != null)
+                    {
+                        fieldManager.CurrntField[0, i] = fieldManager.CurrntField[1, i];
+                        fieldManager.CurrntField[1, i] = null;
+                    }
+                    if (fieldManager.CurrntField[0, i] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[0, i].Value].Position[0] = 0;
+                        GameObject moveCard = GameObject.FindWithTag(fieldManager.CurrntField[0, i].ToString());
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[0, i].ToString());
+                        moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 2.00f, -1.275f);
+                        thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 2.00f - 0.001f, -1.275f);
+                    }
+                    if (fieldManager.CurrntField[1, i] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[1, i].Value].Position[0] = 1;
+                        GameObject moveCard = GameObject.FindWithTag(fieldManager.CurrntField[1, i].ToString());
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1, i].ToString());
+                        moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 2.00f, -1.275f + 0.625f);
+                        thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 2.00f - 0.001f, -1.275f + 0.625f);
+                    }
+
+                    if (fieldManager.CurrntField[2, i] != null)
+                    {
+                        int temp2 = fieldManager.CurrntField[2, i].Value;
+                        fieldManager.CurrntField[2, i] = fieldManager.CurrntField[3, i];
+                        fieldManager.CurrntField[3, i] = temp2;
+                    }
+                    else if (fieldManager.CurrntField[3, i] != null)
+                    {
+                        fieldManager.CurrntField[2, i] = fieldManager.CurrntField[3, i];
+                        fieldManager.CurrntField[3, i] = null;
+                    }
+                    if (fieldManager.CurrntField[2, i] != null)
+                    {
+                        DeckManager.CardBrr[fieldManager.CurrntField[2, i].Value - 60].Position[0] = 2;
+                        GameObject moveCard = GameObject.FindWithTag(fieldManager.CurrntField[2, i].ToString());
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, i].ToString());
+                        moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 2.00f, -1.275f + 0.625f*2);
+                        thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 2.00f - 0.001f, -1.275f + 0.625f * 2);
+                    }
+                    if (fieldManager.CurrntField[3, i] != null)
+                    {
+                        DeckManager.CardBrr[fieldManager.CurrntField[3, i].Value - 60].Position[0] = 3;
+                        GameObject moveCard = GameObject.FindWithTag(fieldManager.CurrntField[3, i].ToString());
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[3, i].ToString());
+                        moveCard.transform.position = new Vector3(3.95f + 0.425f * i, 2.00f, -1.275f + 0.625f * 3);
+                        thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 2.00f - 0.001f, -1.275f +  0.625f * 3);
+                    }
+                }
             }
         }
         else if(timing == 2)
@@ -153,14 +265,15 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardArr[cardID].AbilityId == 16)
             {
-                
+                player.user.CP += 10;
+                player.enemy.CP += 10;
             }
         }
         else if(timing == 4)
         {
             if(DeckManager.CardArr[cardID].AbilityId == 14)
             {
-                
+                DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].AP += 2;
             }
         }
     }

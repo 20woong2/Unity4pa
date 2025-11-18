@@ -2348,6 +2348,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PostProcess
       objectReference: {fileID: 0}
+    - target: {fileID: 6154058340877242191, guid: 7286cb17a45f8f24cae1b64d9ea01e9b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2404,6 +2408,10 @@ PrefabInstance:
     - target: {fileID: 9088545290326758858, guid: 90e95a7b0ccbae44fb4e9913f516c19b, type: 3}
       propertyPath: m_Name
       value: VHSFilter
+      objectReference: {fileID: 0}
+    - target: {fileID: 9088545290326758858, guid: 90e95a7b0ccbae44fb4e9913f516c19b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3804,6 +3812,51 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6a00950323519264bb29eb2dbf3d33fd, type: 3}
+--- !u!1 &1239749217
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1239749219}
+  - component: {fileID: 1239749218}
+  m_Layer: 0
+  m_Name: CardTextManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1239749218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239749217}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5270eadcdf0c3aa48a91efb7da7085ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CardTextManager
+  fieldManager: {fileID: 118279512}
+--- !u!4 &1239749219
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1239749217}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5.03896, y: 1.97341, z: -0.53686}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1250691275
 GameObject:
   m_ObjectHideFlags: 0
@@ -4535,6 +4588,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6199471171844015024, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1039182322}
+    - targetCorrespondingSourceObject: {fileID: 5320356467541608919, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8315442562664401049, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
 --- !u!1001 &1432141352
 PrefabInstance:
@@ -6098,3 +6157,4 @@ SceneRoots:
   - {fileID: 2092155994}
   - {fileID: 755031473}
   - {fileID: 63069139}
+  - {fileID: 1239749219}

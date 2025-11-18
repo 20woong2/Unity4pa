@@ -41,9 +41,13 @@ public class TurnManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[i,j] != null)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State++;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State += 1;
                     }
-                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State == 2)
+                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State == 1)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
+                    }
+                    else if(fieldManager.CurrntField[i,j] != null && DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State == 101)
                     {
                         effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
                     }

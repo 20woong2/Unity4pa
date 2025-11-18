@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class CardManager : MonoBehaviour
 {
     public GameObject cardPrefab;
@@ -74,8 +74,20 @@ public class CardManager : MonoBehaviour
             // 2. 미리보기 UI 생성 및 Canvas에 연결
             Transform canvasTransform = GameObject.Find("Canvas")?.transform;
             GameObject newPreview = Instantiate(previewCardUI, canvasTransform);
-
-
+            TextMeshPro[] textMeshes = spawnedCard.GetComponentsInChildren<TextMeshPro>();
+            textMeshes[0].text = (DeckManager.CardArr[cardID].HP + DeckManager.CardArr[cardID].ExHP).ToString();
+            textMeshes[1].text = (DeckManager.CardArr[cardID].AP + DeckManager.CardArr[cardID].ExAP).ToString();
+            foreach (Transform child in backCard.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            if(DeckManager.CardArr[cardID].HP <= 0)
+            {
+                foreach (Transform child in spawnedCard.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+            }
             // 3. HandManager에 카드 추가 및 NumOfHand 증가
             handManager.HandPlus(cardID);
 

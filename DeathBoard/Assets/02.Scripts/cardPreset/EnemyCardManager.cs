@@ -39,8 +39,17 @@ public class EnemyCardManager : MonoBehaviour
             spawnedCard.tag = cardID.ToString();
             backCard.tag = cardID.ToString();
             // 2. 미리보기 UI 생성 및 Canvas에 연결
-           
-
+            foreach (Transform child in backCard.transform)
+            {
+                GameObject.Destroy(child.gameObject);
+            }
+            if(DeckManager.CardBrr[cardID-60].HP <= 0)
+            {
+                foreach (Transform child in spawnedCard.transform)
+                {
+                    GameObject.Destroy(child.gameObject);
+                }
+            }
             // 3. HandManager에 카드 추가 및 NumOfHand 증가
             enemyhandmanager.HandPlus(cardID);
 
