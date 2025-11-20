@@ -36,7 +36,6 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
-
                 
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 21)
