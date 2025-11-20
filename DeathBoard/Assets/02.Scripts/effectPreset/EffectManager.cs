@@ -85,7 +85,6 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
-
                 
                 if (DeckManager.CardArr[cardID].Position[0] == 1)
                 {
