@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1423350401177564458}
   - component: {fileID: 2525622936380292743}
   - component: {fileID: 8277227028494304564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 9048423809946471762}
   - component: {fileID: 6435623841562154554}
   - component: {fileID: 3929547764669522945}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -127,7 +127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.962, y: -1.586}
+  m_AnchoredPosition: {x: -0.963, y: -1.586}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!33 &6435623841562154554
@@ -197,7 +197,7 @@ GameObject:
   - component: {fileID: 3929869561204955629}
   - component: {fileID: 949192286086991513}
   - component: {fileID: 1202300026749598920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HP_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5320356467541608919}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.004}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -378,7 +378,7 @@ GameObject:
   - component: {fileID: 2602184747609468416}
   - component: {fileID: 6350668812358689741}
   - component: {fileID: 6136189891143516047}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: HandCard_frefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -525,7 +525,7 @@ GameObject:
   - component: {fileID: 2841557094371970851}
   - component: {fileID: 268514434378245850}
   - component: {fileID: 5221772882665232831}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ATK_Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +540,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8315442562664401049}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.004}
+  m_LocalPosition: {x: 0, y: 0, z: -0.0012}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

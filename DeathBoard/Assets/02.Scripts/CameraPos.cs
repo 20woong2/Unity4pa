@@ -24,6 +24,7 @@ public class CameraPos : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
         pos1 = GameObject.FindWithTag("Pos1");
         pos2 = GameObject.FindWithTag("Pos2");
+        
 
 
         //첫 포지션은 포지션 1이겠지?

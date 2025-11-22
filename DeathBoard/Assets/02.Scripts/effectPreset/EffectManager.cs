@@ -5,7 +5,16 @@ using UnityEngine;
 public class EffectManager : MonoBehaviour
 {
     public FieldManager fieldManager;
+    public FieldReaction fieldReaction;
     public Player player;
+    public bool effectstart = false;
+    public int? effectCardID = null;
+    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    void Start()
+    {
+        effectstart = false;
+        effectCardID = null;
+    }
     public void EffectCast(int cardID , int timing)
     {
         if(timing == 1)
@@ -102,11 +111,13 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 21)
             {
-                
+                effectstart = true;
+                effectCardID = cardID;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 22)
             {
-                
+                effectstart = true;
+                effectCardID = cardID;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 23)
             {
@@ -277,6 +288,31 @@ public class EffectManager : MonoBehaviour
             }
         }
     }
+    public void ChooseEffect(int targetid, int cardid)
+    {
+        int effectnum = DeckManager.CardArr[cardid].AbilityId;
+        if(effectnum == 21 && targetid < 60)
+        {
+            Debug.Log("21카드 실행");
+
+            DeckManager.CardArr[targetid].ExAP += 2;
+            DeckManager.CardArr[targetid].ExHP += 2;
+            effectstart = false;
+            effectCardID = null;
+        }
+        else if(effectnum == 22 && targetid >= 60)
+        {
+            Debug.Log("22카드 실행");
+            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
+            fieldManager.CurrntField[DeckManager.CardBrr[targetid-60].Position[0], DeckManager.CardArr[targetid-60].Position[1]] = null;
+            DeckManager.CardBrr[targetid].Position[0] = -1;
+            DeckManager.CardBrr[targetid].Position[1] = -1;
+            thiscards[0].SetActive(false);
+            thiscards[1].SetActive(false);
+            effectstart = false;
+            effectCardID = null;
+        }
+    }
     public void EnemyEffectCast(int cardID , int timing)
     {
         if(timing == 1)
@@ -389,11 +425,7 @@ public class EffectManager : MonoBehaviour
 
         
     }
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
+    
 
     // Update is called once per frame
     void Update()
