@@ -30,7 +30,6 @@ public class FieldReaction : MonoBehaviour
             stateScript.thiscard.Position = (int[])fieldPosition.Clone();
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = fieldPosition;
             fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0], DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = stateScript.thiscard.CardId;
-
             if (cardManager != null)
             {
                 cardManager.PlayCard(setCard);
@@ -53,6 +52,8 @@ public class FieldReaction : MonoBehaviour
             {
                 yield return new WaitForSeconds(0.5f);
                 fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0], DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = null;
+                DeckManager.CardArr[stateScript.thiscard.CardId].Position[0] = -1;
+                DeckManager.CardArr[stateScript.thiscard.CardId].Position[1] = -1;
                 thiscards[0].SetActive(false);
                 thiscards[1].SetActive(false);
             }

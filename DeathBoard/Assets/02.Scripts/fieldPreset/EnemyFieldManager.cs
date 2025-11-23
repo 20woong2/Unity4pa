@@ -5,11 +5,12 @@ public class EnemyFieldManager : MonoBehaviour
 {
     public FieldManager fieldManager;
     public EnemyHandManager enemyHandManager;
-    public void EnemyFieldSet()
+    public EffectManager effectManager;
+    public IEnumerator EnemyFieldSet()
     {
         if(DeckManager.EnemyHandList.Count < 1)
         {
-            return;
+            yield break;
         }
         else
         {
@@ -18,7 +19,8 @@ public class EnemyFieldManager : MonoBehaviour
             {
                 
                 int space = findXY();
-                if (space == 0) return;
+                
+                if (space == 0) yield break;
                 int cardID = DeckManager.EnemyHandList[Random.Range(0, DeckManager.EnemyHandList.Count)];
                 DeckManager.EnemyHandList.Remove(cardID);
                 DeckManager.CardBrr[cardID - 60].Position[0] = space / 10;
@@ -32,7 +34,6 @@ public class EnemyFieldManager : MonoBehaviour
                 thiscards[1].transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f-0.001f, -1.275f + 0.625f * (space / 10));
                 thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
                 enemyHandManager.rePlaceCard();
-
                 effectManager.EnemyEffectCast(cardID, 1);
                 if (DeckManager.CardBrr[cardID-60].HP <= 0)
                 {
@@ -44,6 +45,7 @@ public class EnemyFieldManager : MonoBehaviour
                     thiscards[1].SetActive(false);
                     yield return new WaitForSeconds(0.5f);
                 }
+                
             }
                 
         }

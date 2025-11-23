@@ -35,6 +35,38 @@ public class TurnManager : MonoBehaviour
         turnend = false;
         if(currentturn == 1)//드로우턴
         {
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State += 1;
+                    }
+                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State == 1)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
+                    }
+                    else if(fieldManager.CurrntField[i,j] != null && DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].State == 101)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
+                    }
+                }
+            }
+            for(int i=2;i<4;i++)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State++;
+                    }
+                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State == 2)
+                    {
+                        effectManager.EnemyEffectCast(fieldManager.CurrntField[i,j].Value,2);
+                    }
+                }
+            }
             cardmanager.DrawHand();
             enemycardmanager.DrawHand();
             currentturn = 2;
@@ -46,7 +78,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 3)//적카드내려놓기
         {
-            enemyFieldManager.EnemyFieldSet();
+            StartCoroutine(enemyFieldManager.EnemyFieldSet());
             currentturn = 4;
             turnend = true;
         }
