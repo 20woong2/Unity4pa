@@ -111,13 +111,40 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 21)
             {
-                effectstart = true;
-                effectCardID = cardID;
+                bool cardexist = false;
+                for(int i=0;i<2;i++)
+                {
+                    for(int j=0; j<7;j++)
+                    {
+                        if(fieldManager.CurrntField[i,j] != null && fieldManager.CurrntField[i,j].Value != cardID)
+                        {
+                            cardexist = true;
+                        }
+                    }
+                }
+                if(cardexist == true)
+                {
+                    effectstart = true;
+                    effectCardID = cardID;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 22)
             {
-                effectstart = true;
-                effectCardID = cardID;
+                bool cardexist = false;
+                
+                for(int j=0; j<7;j++)
+                {
+                    if(fieldManager.CurrntField[2,j] != null)
+                    {
+                        cardexist = true;
+                    }
+                }
+                
+                if(cardexist == true)
+                {
+                    effectstart = true;
+                    effectCardID = cardID;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 23)
             {
