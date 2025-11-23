@@ -10,10 +10,11 @@ public class FieldReaction : MonoBehaviour
     public CardSelecter cardSelecter;
     public DeckManager deckmanager;
     public EffectManager effectManager;
+    
     void OnMouseDown()
     {
         readyCard = fieldManager.readyCard;
-        if (this.fieldPosition[0] < 2)
+        if (this.fieldPosition[0] < 2 && effectManager.effectstart == false)
         {
             StartCoroutine(SetCardOnField(readyCard));
         }
@@ -37,10 +38,10 @@ public class FieldReaction : MonoBehaviour
             fieldManager.cardReady = false;
             fieldManager.readyCard = null;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = (int[])fieldPosition.Clone();
-            setCard.transform.position = thisField.transform.position;
+            setCard.transform.position = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
             setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
             thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
-            reactionScript.originalPosition = thisField.transform.position;
+            reactionScript.originalPosition = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
             reactionScript.originalPosition.y = reactionScript.originalPosition.y - 0.001f;
             thiscards[1].transform.position = reactionScript.originalPosition;
             reactionScript.originalPosition.y = reactionScript.originalPosition.y + 0.001f;

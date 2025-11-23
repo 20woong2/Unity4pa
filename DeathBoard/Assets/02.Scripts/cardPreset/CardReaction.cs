@@ -15,6 +15,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     public FieldManager fieldManager;
     private GameObject thisCard;
     public CardSelecter cardSelecter;
+    public EffectManager effectManager;
     void Start()
     {
         originalScale = transform.localScale;
@@ -84,12 +85,20 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseDown()
     {
-        if (int.Parse(thisCard.tag) < 60)
+        Debug.Log("카드 클릭");
+        effectManager = FindAnyObjectByType<EffectManager>();
+        if (int.Parse(thisCard.tag) < 60 && effectManager.effectstart == false)
         {
             fieldManager = FindAnyObjectByType<FieldManager>();
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             fieldManager.SetCardReady(thisCard);
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+        }
+        
+        if(effectManager.effectstart == true && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+        {
+            Debug.Log("설치선택");
+            effectManager.ChooseEffect(fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]].Value , effectManager.effectCardID.Value);
         }
     }
     void OnMouseExit()
