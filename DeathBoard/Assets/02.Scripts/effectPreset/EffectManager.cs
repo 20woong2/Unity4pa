@@ -182,10 +182,11 @@ public class EffectManager : MonoBehaviour
                 {
                     if (fieldManager.CurrntField[0, i] != null) 
                     { 
-                    int temp = fieldManager.CurrntField[0, i].Value;
-                    fieldManager.CurrntField[0, i] = fieldManager.CurrntField[1, i];
-                    fieldManager.CurrntField[1, i] = temp;
-                    }else if(fieldManager.CurrntField[1, i] != null)
+                        int temp = fieldManager.CurrntField[0, i].Value;
+                        fieldManager.CurrntField[0, i] = fieldManager.CurrntField[1, i];
+                        fieldManager.CurrntField[1, i] = temp;
+                    }
+                    else if(fieldManager.CurrntField[1, i] != null)
                     {
                         fieldManager.CurrntField[0, i] = fieldManager.CurrntField[1, i];
                         fieldManager.CurrntField[1, i] = null;
@@ -304,9 +305,9 @@ public class EffectManager : MonoBehaviour
         {
             Debug.Log("22카드 실행");
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
-            fieldManager.CurrntField[DeckManager.CardBrr[targetid-60].Position[0], DeckManager.CardArr[targetid-60].Position[1]] = null;
-            DeckManager.CardBrr[targetid].Position[0] = -1;
-            DeckManager.CardBrr[targetid].Position[1] = -1;
+            fieldManager.CurrntField[DeckManager.CardBrr[targetid-60].Position[0], DeckManager.CardBrr[targetid-60].Position[1]] = null;
+            DeckManager.CardBrr[targetid-60].Position[0] = -1;
+            DeckManager.CardBrr[targetid-60].Position[1] = -1;
             thiscards[0].SetActive(false);
             thiscards[1].SetActive(false);
             effectstart = false;

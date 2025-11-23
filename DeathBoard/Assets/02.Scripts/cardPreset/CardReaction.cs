@@ -18,6 +18,9 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     public EffectManager effectManager;
     void Start()
     {
+        fieldManager = FindAnyObjectByType<FieldManager>();
+        cardSelecter = FindAnyObjectByType<CardSelecter>();
+        effectManager = FindAnyObjectByType<EffectManager>();
         originalScale = transform.localScale;
         originalPosition = transform.localPosition;  //기존의 크기, 위치 저장
         thisCard = this.gameObject;
@@ -56,15 +59,10 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
             Debug.LogWarning("Image 컴포넌트를 찾지 못했습니다.");
         }
     }
-    public void SetImg()
-    {
-
-
-    }
     void OnMouseEnter()
     {
         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(thisCard.tag);
-        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard)
+        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
         {
             // 크기 확대
             originalPosition = transform.localPosition;
@@ -86,25 +84,34 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     void OnMouseDown()
     {
         Debug.Log("카드 클릭");
-        effectManager = FindAnyObjectByType<EffectManager>();
-        if (int.Parse(thisCard.tag) < 60 && effectManager.effectstart == false)
+        if (int.Parse(thisCard.tag) < 60 && effectManager.effectstart == false && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
         {
-            fieldManager = FindAnyObjectByType<FieldManager>();
-            cardSelecter = FindAnyObjectByType<CardSelecter>();
             fieldManager.SetCardReady(thisCard);
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
         }
-        
-        if(effectManager.effectstart == true && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+        if(int.Parse(thisCard.tag) < 60)
         {
-            Debug.Log("설치선택");
-            effectManager.ChooseEffect(fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]].Value , effectManager.effectCardID.Value);
+            if(effectManager.effectstart == true && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+            {
+                Debug.Log("설치선택");
+                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+            }
         }
+        
+        else if(int.Parse(thisCard.tag) >= 60)
+        {
+            if(effectManager.effectstart == true && DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0],DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+            {
+                Debug.Log("설치선택");
+                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+            }
+        }
+        
     }
     void OnMouseExit()
     {
         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(thisCard.tag);
-        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard)
+        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
         {
             // 크기 복원
             transform.localScale = originalScale;

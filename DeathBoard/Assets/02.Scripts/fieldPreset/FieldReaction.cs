@@ -44,7 +44,7 @@ public class FieldReaction : MonoBehaviour
             reactionScript.originalPosition.y = reactionScript.originalPosition.y - 0.001f;
             thiscards[1].transform.position = reactionScript.originalPosition;
             reactionScript.originalPosition.y = reactionScript.originalPosition.y + 0.001f;
-            Destroy(setCard.GetComponent<CardReaction>());
+            
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
             effectManager.EffectCast(stateScript.thiscardID, 1);
