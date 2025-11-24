@@ -1161,6 +1161,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EffectManager
   fieldManager: {fileID: 118279512}
   fieldReaction: {fileID: 0}
+  handManager: {fileID: 1497590354}
+  cardManager: {fileID: 734864416}
   player: {fileID: 2092155993}
   effectstart: 0
 --- !u!4 &358205098

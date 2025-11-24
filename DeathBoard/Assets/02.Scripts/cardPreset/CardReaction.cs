@@ -96,6 +96,11 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
                 Debug.Log("설치선택");
                 effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
             }
+            else if(effectManager.effectstart == true && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value && DeckManager.CardArr[effectManager.effectCardID.Value].AbilityId == 25 && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
+            {
+                Debug.Log("덱선택");
+                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+            }
         }
         
         else if(int.Parse(thisCard.tag) >= 60)

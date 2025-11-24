@@ -6,6 +6,8 @@ public class EffectManager : MonoBehaviour
 {
     public FieldManager fieldManager;
     public FieldReaction fieldReaction;
+    public HandManager handManager;
+    public CardManager cardManager;
     public Player player;
     public bool effectstart = false;
     public int? effectCardID = null;
@@ -118,6 +120,7 @@ public class EffectManager : MonoBehaviour
                         if(fieldManager.CurrntField[i,j] != null && fieldManager.CurrntField[i,j].Value != cardID)
                         {
                             cardexist = true;
+                            break;
                         }
                     }
                 }
@@ -131,11 +134,12 @@ public class EffectManager : MonoBehaviour
             {
                 bool cardexist = false;
                 
-                for(int j=0; j<7;j++)
+                for(int i=0; i<7;i++)
                 {
-                    if(fieldManager.CurrntField[2,j] != null)
+                    if(fieldManager.CurrntField[2,i] != null)
                     {
                         cardexist = true;
+                        break;
                     }
                 }
                 
@@ -147,7 +151,21 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 23)
             {
-                
+                bool cardexist = false;
+                for(int i=1; i<7;i++)
+                {
+                    if(fieldManager.CurrntField[1,i] != null && fieldManager.CurrntField[0,i] == null)
+                    {
+                        cardexist = true;
+                        break;
+                    }
+                }
+
+                if(cardexist == true)
+                {
+                    effectstart = true;
+                    effectCardID = cardID;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 24)
             {
@@ -155,7 +173,8 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 25)
             {
-                
+                effectstart = true;
+                effectCardID = cardID;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 26)
             {
@@ -196,11 +215,43 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 27)
             {
-                
+                bool cardexist = false;
+                for(int i=0;i<2;i++)
+                {
+                    for(int j=0; j<7;j++)
+                    {
+                        if(fieldManager.CurrntField[i,j] != null && fieldManager.CurrntField[i,j].Value != cardID)
+                        {
+                            cardexist = true;
+                            break;
+                        }
+                    }
+                }
+                if(cardexist == true)
+                {
+                    effectstart = true;
+                    effectCardID = cardID;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 29)
             {
-                
+                bool cardexist = false;
+                for(int i=2;i<4;i++)
+                {
+                    for(int j=0; j<7;j++)
+                    {
+                        if(fieldManager.CurrntField[i,j] != null && fieldManager.CurrntField[i,j].Value != cardID)
+                        {
+                            cardexist = true;
+                            break;
+                        }
+                    }
+                }
+                if(cardexist == true)
+                {
+                    effectstart = true;
+                    effectCardID = cardID;
+                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 30)
             {
@@ -336,6 +387,57 @@ public class EffectManager : MonoBehaviour
             DeckManager.CardBrr[targetid-60].Position[1] = -1;
             thiscards[0].SetActive(false);
             thiscards[1].SetActive(false);
+            effectstart = false;
+            effectCardID = null;
+        }
+        else if(effectnum == 23 && targetid < 60)
+        {
+            if(fieldManager.CurrntField[1,DeckManager.CardArr[targetid].Position[1]] != null && fieldManager.CurrntField[0,DeckManager.CardArr[targetid].Position[1]] == null)
+            {
+                Debug.Log("23카드 실행");
+                fieldManager.CurrntField[1, DeckManager.CardArr[targetid].Position[1]] = null;
+                DeckManager.CardArr[targetid].Position[0] = 0;
+                fieldManager.CurrntField[0, DeckManager.CardArr[targetid].Position[1]] = targetid;
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
+                thiscards[0].transform.position = new Vector3(3.95f + 0.425f * DeckManager.CardArr[targetid].Position[1], 2.00f, -1.275f);
+                thiscards[1].transform.position = new Vector3(3.95f + 0.425f * DeckManager.CardArr[targetid].Position[1], 2.00f-0.001f, -1.275f);
+                effectstart = false;
+                effectCardID = null;
+            }
+        }
+        else if(effectnum == 25 && targetid < 60)
+        {
+            if(DeckManager.HandList.Contains(targetid))
+            {
+                Debug.Log("25카드 실행");
+                DeckManager.HandList.Remove(targetid);
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
+                thiscards[0].SetActive(false);
+                thiscards[1].SetActive(false);
+                handManager.rePlaceCard();
+                player.enemy.CP += 10;
+                effectstart = false;
+                effectCardID = null;
+            }
+        }
+        else if(effectnum == 27 && targetid < 60)
+        {
+            Debug.Log("27카드 실행");
+            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
+            fieldManager.CurrntField[DeckManager.CardArr[targetid].Position[0], DeckManager.CardArr[targetid].Position[1]] = null;
+            DeckManager.CardArr[targetid].Position[0] = -1;
+            DeckManager.CardArr[targetid].Position[1] = -1;
+            thiscards[0].SetActive(false);
+            thiscards[1].SetActive(false);
+            cardManager.DrawHand();
+            cardManager.DrawHand();
+            effectstart = false;
+            effectCardID = null;
+        }
+        else if(effectnum == 29 && targetid >= 60)
+        {
+            Debug.Log("29카드 실행");
+            DeckManager.CardBrr[targetid-60].ExAP -= 2;
             effectstart = false;
             effectCardID = null;
         }
