@@ -47,6 +47,8 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // Vector3.up = new Vector3(0, 1, 0)
         isHovered = true;
         transform.position += Vector3.up * hoverHeight;
+        transform.Find("Subtitle").gameObject.SetActive(true);
+        transform.Find("Spot Light").gameObject.SetActive(true);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -54,6 +56,8 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
         // Vector3.down = new Vector3(0, -1, 0)
         isHovered = true;
         transform.position += Vector3.down * hoverHeight;
+        transform.Find("Subtitle").gameObject.SetActive(false);
+        transform.Find("Spot Light").gameObject.SetActive(false);
     }
 
     public void OnPointerDown(PointerEventData eventData)
