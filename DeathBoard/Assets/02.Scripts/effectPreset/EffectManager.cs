@@ -94,7 +94,6 @@ public class EffectManager : MonoBehaviour
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
-                
                 if (DeckManager.CardArr[cardID].Position[0] == 1)
                 {
                     if(fieldManager.CurrntField[0,DeckManager.CardArr[cardID].Position[1]] != null)
