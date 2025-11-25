@@ -27,7 +27,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             if (fieldManager.CurrntField[2,i] != null)
             {
                 EnemyCardAttack(fieldManager.CurrntField[2,i]);
-                yield return new WaitForSeconds(0.5f); 
+                yield return new WaitForSeconds(0.5f);
             }
         }
         TurnManager.turnend = true;
