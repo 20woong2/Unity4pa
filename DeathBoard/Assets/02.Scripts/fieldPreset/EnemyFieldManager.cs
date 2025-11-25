@@ -35,17 +35,27 @@ public class EnemyFieldManager : MonoBehaviour
                 thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
                 enemyHandManager.rePlaceCard();
                 effectManager.EnemyEffectCast(cardID, 1);
-                if (DeckManager.CardBrr[cardID-60].HP <= 0)
+                for(int p=1;p>=0;p--)
                 {
-                    yield return new WaitForSeconds(0.5f);
-                    fieldManager.CurrntField[DeckManager.CardBrr[cardID-60].Position[0], DeckManager.CardBrr[cardID-60].Position[1]] = null;
-                    DeckManager.CardBrr[cardID-60].Position[0] = -1;
-                    DeckManager.CardBrr[cardID-60].Position[1] = -1;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
-                    yield return new WaitForSeconds(0.5f);
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
+                    }
                 }
-                
+                for(int p=1;p>=0;p--)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
             }
                 
         }

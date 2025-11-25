@@ -3,6 +3,7 @@ using System.Collections;
 public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호작용 만들어야 함
 {
     public FieldManager fieldManager;
+    public EffectManager effectManager;
   //  public FieldReaction attackCardField;
     //public FieldReaction deffenceCardField;
     //public CardStateManager attackCardState;
@@ -93,6 +94,27 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     //상대 직접 공격(공포 수치 상승)
                 }
             }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
+            }
         }
     }
     public void EnemyCardAttack(int? attackCardID)
@@ -129,6 +151,27 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 player.user.CP += (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP);
                 //상대 직접 공격(공포 수치 상승)
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
             }
         }
     }

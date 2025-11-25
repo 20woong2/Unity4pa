@@ -48,14 +48,26 @@ public class FieldReaction : MonoBehaviour
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
             effectManager.EffectCast(stateScript.thiscardID, 1);
-            if (DeckManager.CardArr[stateScript.thiscard.CardId].HP <= 0)
+            for(int i=1;i>=0;i--)
             {
-                yield return new WaitForSeconds(0.5f);
-                fieldManager.CurrntField[DeckManager.CardArr[stateScript.thiscard.CardId].Position[0], DeckManager.CardArr[stateScript.thiscard.CardId].Position[1]] = null;
-                DeckManager.CardArr[stateScript.thiscard.CardId].Position[0] = -1;
-                DeckManager.CardArr[stateScript.thiscard.CardId].Position[1] = -1;
-                thiscards[0].SetActive(false);
-                thiscards[1].SetActive(false);
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
             }
             //여기서 Effect Manager -> EffectAtSet 으로 접근
         }

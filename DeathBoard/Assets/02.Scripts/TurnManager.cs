@@ -67,6 +67,27 @@ public class TurnManager : MonoBehaviour
                     }
                 }
             }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
+            }
             cardmanager.DrawHand();
             enemycardmanager.DrawHand();
             currentturn = 2;
@@ -105,6 +126,27 @@ public class TurnManager : MonoBehaviour
                     }
                 }
             }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
+            }
             currentturn = 5;
             turnend = true;
         }
@@ -122,7 +164,6 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 7)//효과실행2
         {
-            
             for(int i=1;i>=0;i--)
             {
                 for(int j=0;j<7;j++)
