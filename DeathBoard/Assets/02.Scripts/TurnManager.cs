@@ -161,7 +161,7 @@ public class TurnManager : MonoBehaviour
             currentturn = 7;   
             StartCoroutine(movemanager.StartMoveTurn());
             
-            turnend = true;
+            turnend = false;
         }
         else if(currentturn == 7)//효과실행2
         {
