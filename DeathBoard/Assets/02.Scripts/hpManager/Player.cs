@@ -9,7 +9,6 @@ public class Player : MonoBehaviour
         public int CP; //공포게이지
         public int randomStack; //공포게이지 따른 확률
         public void attacked()
-
         {
             if (this.CP == 0)
             {

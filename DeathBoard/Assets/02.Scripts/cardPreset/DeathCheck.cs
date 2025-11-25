@@ -76,6 +76,17 @@ public class DeathCheck : MonoBehaviour
                                         }
                                     }
                                 }
+                                for(int p=2;p<4;p++)
+                                {
+                                    for(int q=0;q<7;q++)
+                                    {
+                                        if(fieldManager.CurrntField[p,q] != null)
+                                        {
+                                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                                        }
+                                    }
+                                }
                                 for(int p=1;p>=0;p--)
                                 {
                                     for(int q=0;q<7;q++)
@@ -83,6 +94,16 @@ public class DeathCheck : MonoBehaviour
                                         if(fieldManager.CurrntField[p,q] != null)
                                         {
                                             effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                                        }
+                                    }
+                                }
+                                for(int p=2;p<4;p++)
+                                {
+                                    for(int q=0;q<7;q++)
+                                    {
+                                        if(fieldManager.CurrntField[p,q] != null)
+                                        {
+                                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
                                         }
                                     }
                                 }
@@ -95,27 +116,48 @@ public class DeathCheck : MonoBehaviour
                                 fieldManager.CurrntField[i,j] = null;
                                 thiscards[0].SetActive(false);
                                 thiscards[1].SetActive(false);
-                                for(int p=1;p>=0;p--)
-                                {
-                                    for(int q=0;q<7;q++)
+                                    for(int p=1;p>=0;p--)
                                     {
-                                        if(fieldManager.CurrntField[p,q] != null)
+                                        for(int q=0;q<7;q++)
                                         {
-                                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
-                                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                                            if(fieldManager.CurrntField[p,q] != null)
+                                            {
+                                                DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                                                DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                                            }
                                         }
                                     }
-                                }
-                                for(int p=1;p>=0;p--)
-                                {
-                                    for(int q=0;q<7;q++)
+                                    for(int p=2;p<4;p++)
                                     {
-                                        if(fieldManager.CurrntField[p,q] != null)
+                                        for(int q=0;q<7;q++)
                                         {
-                                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                                            if(fieldManager.CurrntField[p,q] != null)
+                                            {
+                                                DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                                                DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                                            }
                                         }
                                     }
-                                }
+                                    for(int p=1;p>=0;p--)
+                                    {
+                                        for(int q=0;q<7;q++)
+                                        {
+                                            if(fieldManager.CurrntField[p,q] != null)
+                                            {
+                                                effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                                            }
+                                        }
+                                    }
+                                    for(int p=2;p<4;p++)
+                                    {
+                                        for(int q=0;q<7;q++)
+                                        {
+                                            if(fieldManager.CurrntField[p,q] != null)
+                                            {
+                                                effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
+                                            }
+                                        }
+                                    }
         }
         isWaiting = false;
     }

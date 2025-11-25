@@ -24,22 +24,43 @@ public class MoveManager : MonoBehaviour //
                 //(3.95f + 0.425f * j, 2.00f, -1.275f + 0.625f * i) 가 필드 오브젝트 좌표이고 여기서 j는 가로줄 i는 세로줄
                 for(int p=1;p>=0;p--)
                 {
-                    for(int j=0;j<7;j++)
+                    for(int q=0;q<7;q++)
                     {
-                        if(fieldManager.CurrntField[p,j] != null)
+                        if(fieldManager.CurrntField[p,q] != null)
                         {
-                            DeckManager.CardArr[fieldManager.CurrntField[p,j].Value].ExHP = 0;
-                            DeckManager.CardArr[fieldManager.CurrntField[p,j].Value].ExAP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
                         }
                     }
                 }
                 for(int p=1;p>=0;p--)
                 {
-                    for(int j=0;j<7;j++)
+                    for(int q=0;q<7;q++)
                     {
-                        if(fieldManager.CurrntField[p,j] != null)
+                        if(fieldManager.CurrntField[p,q] != null)
                         {
-                            effectManager.EffectCast(fieldManager.CurrntField[p,j].Value,5);
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
                         }
                     }
                 }
@@ -59,22 +80,43 @@ public class MoveManager : MonoBehaviour //
                 thiscards[1].transform.position = new Vector3(3.95f + 0.425f * i, 1.97f-0.001f, -1.275f + 0.625f*2); 
                 for(int p=1;p>=0;p--)
                 {
-                    for(int j=0;j<7;j++)
+                    for(int q=0;q<7;q++)
                     {
-                        if(fieldManager.CurrntField[p,j] != null)
+                        if(fieldManager.CurrntField[p,q] != null)
                         {
-                            DeckManager.CardArr[fieldManager.CurrntField[p,j].Value].ExHP = 0;
-                            DeckManager.CardArr[fieldManager.CurrntField[p,j].Value].ExAP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
                         }
                     }
                 }
                 for(int p=1;p>=0;p--)
                 {
-                    for(int j=0;j<7;j++)
+                    for(int q=0;q<7;q++)
                     {
-                        if(fieldManager.CurrntField[p,j] != null)
+                        if(fieldManager.CurrntField[p,q] != null)
                         {
-                            effectManager.EffectCast(fieldManager.CurrntField[p,j].Value,5);
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
                         }
                     }
                 }

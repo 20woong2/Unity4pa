@@ -192,9 +192,11 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 5)//공격단계
         {
+            Debug.Log(currentturn);
             TvChange("attack");
-            currentturn = 6; 
+            Debug.Log(currentturn);
             StartCoroutine(battlemanager.StartBattle());
+            currentturn = 6; 
             turnend = false;
         }
         else if(currentturn == 6)//뒷열카드전진

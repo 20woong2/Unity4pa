@@ -22,9 +22,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         {
             if (fieldManager.CurrntField[1,i] != null)
             {
-                
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1,i].Value.ToString());
-                
                 Vector3 targetPosition = new Vector3(thiscards[0].transform.position.x, thiscards[0].transform.position.y + 0.7f, thiscards[0].transform.position.z-0.5f);
                 Quaternion targetRotation = Quaternion.Euler(55f, 0f, 0f);
                 battleCameraMove.StartMoving(targetPosition, targetRotation);
@@ -37,13 +35,18 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         {
             if (fieldManager.CurrntField[2,i] != null)
             {
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2,i].Value.ToString());
+                Vector3 targetPosition = new Vector3(thiscards[0].transform.position.x, thiscards[0].transform.position.y + 0.7f, thiscards[0].transform.position.z+0.5f);
+                Quaternion targetRotation = Quaternion.Euler(55f, 180f, 0f);
+                battleCameraMove.StartMoving(targetPosition, targetRotation);
+                yield return new WaitForSeconds(1.5f); 
                 EnemyCardAttack(fieldManager.CurrntField[2,i]);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1.5f);
             }
         }
         pos1 = GameObject.FindWithTag("Pos1");
         battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2f);
         TurnManager.turnend = true;
     }
     public void MyCardAttack(int? attackCardID)
@@ -56,7 +59,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value-60].ExHP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
+                    DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].ExHP <= 0)
                     {
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].Position[0] = -1;
@@ -85,7 +88,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value-60].ExHP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
+                    DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].ExHP <= 0)
                     {
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].Position[0] = -1;
@@ -108,27 +111,48 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     //상대 직접 공격(공포 수치 상승)
                 }
             }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+            for(int p=1;p>=0;p--)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
                     }
                 }
-            }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+                for(int p=2;p<4;p++)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                        }
                     }
                 }
-            }
+                for(int p=1;p>=0;p--)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
         }
     }
     public void EnemyCardAttack(int? attackCardID)
@@ -137,7 +161,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
         {
             if (fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
             {
-                DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].ExHP -= (DeckManager.CardBrr[attackCardID.Value-60].AP + DeckManager.CardBrr[attackCardID.Value-60].ExAP);
+                DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].HP -= (DeckManager.CardBrr[attackCardID.Value-60].AP + DeckManager.CardBrr[attackCardID.Value-60].ExAP);
                 if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].HP + DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].ExHP <= 0)
                 {
                     
@@ -166,27 +190,48 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 player.user.CP += (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP);
                 //상대 직접 공격(공포 수치 상승)
             }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+            for(int p=1;p>=0;p--)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
                     }
                 }
-            }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+                for(int p=2;p<4;p++)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                        }
                     }
                 }
-            }
+                for(int p=1;p>=0;p--)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
         }
     }
 }

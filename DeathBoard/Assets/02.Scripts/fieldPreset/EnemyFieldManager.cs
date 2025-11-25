@@ -46,6 +46,17 @@ public class EnemyFieldManager : MonoBehaviour
                         }
                     }
                 }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                        }
+                    }
+                }
                 for(int p=1;p>=0;p--)
                 {
                     for(int q=0;q<7;q++)
@@ -53,6 +64,16 @@ public class EnemyFieldManager : MonoBehaviour
                         if(fieldManager.CurrntField[p,q] != null)
                         {
                             effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
                         }
                     }
                 }

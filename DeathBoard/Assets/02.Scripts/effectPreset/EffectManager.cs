@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using System.Collections;
 public class EffectManager : MonoBehaviour
 {
     public FieldManager fieldManager;
@@ -17,6 +17,7 @@ public class EffectManager : MonoBehaviour
         effectstart = false;
         effectCardID = null;
     }
+    
     public void EffectCast(int cardID , int timing)
     {
         if(timing == 1)
@@ -27,7 +28,7 @@ public class EffectManager : MonoBehaviour
                 {
                     DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].HP -= 2;
                     if(DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].ExHP + DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].HP <= 0)
-                    {
+                    {   
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value.ToString());
                         fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]] = null;
                         DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].Position[0] = -1;
@@ -393,6 +394,43 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardArr[fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0],DeckManager.CardArr[cardID].Position[1]-1].Value].ExAP -= 1;
                     DeckManager.CardArr[fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0],DeckManager.CardArr[cardID].Position[1]+1].Value].ExAP -= 1;
                     DeckManager.CardArr[cardID].ExHP += 2;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 7)
+            {
+                if(DeckManager.CardArr[cardID].Position[0] == 1 && fieldManager.CurrntField[2, DeckManager.CardArr[cardID].Position[1]] != null)
+                {
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[cardID].Position[1]].Value-60].ExAP += 1;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 15)
+            {
+                if(DeckManager.CardArr[cardID].Position[1] > 0 && DeckManager.CardArr[cardID].Position[1] < 6 && fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0],DeckManager.CardArr[cardID].Position[1]-1] != null && fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0],DeckManager.CardArr[cardID].Position[1]+1] != null)
+                {
+                    DeckManager.CardArr[cardID].ExHP += 1;
+                    DeckManager.CardArr[cardID].ExAP += 1;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 18)
+            {
+                if(DeckManager.CardArr[cardID].Position[0] == 1 && fieldManager.CurrntField[2, DeckManager.CardArr[cardID].Position[1]] != null)
+                {
+                    DeckManager.CardArr[cardID].ExHP += 2;
+                    DeckManager.CardArr[cardID].ExAP -= 2;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 19)
+            {
+                if(DeckManager.CardArr[cardID].Position[0] == 1 && fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] != null)
+                {
+                    DeckManager.CardArr[cardID].ExAP += 2;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 20)
+            {
+                if(DeckManager.CardArr[cardID].Position[0] == 0 && fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]] != null)
+                {
+                    DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]].Value].ExHP += 3;
                 }
             }
         }
