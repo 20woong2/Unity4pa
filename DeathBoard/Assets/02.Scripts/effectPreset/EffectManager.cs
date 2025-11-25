@@ -78,20 +78,20 @@ public class EffectManager : MonoBehaviour
             {
                 if (DeckManager.CardArr[cardID].Position[0] == 1)
                 {
-                    DeckManager.CardArr[cardID].ExHP -= 3;
+                    DeckManager.CardArr[cardID].HP -= 3;
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 12)
             {
                 if (DeckManager.CardArr[cardID].Position[0] == 0)
                 {
-                    DeckManager.CardArr[cardID].ExHP += 3;
+                    DeckManager.CardArr[cardID].HP += 3;
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 13)
             {
                 player.user.CP += 5;
-                DeckManager.CardArr[cardID].ExAP += 3;
+                DeckManager.CardArr[cardID].AP += 3;
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 17)
             {
@@ -241,8 +241,8 @@ public class EffectManager : MonoBehaviour
                 {
                     if(fieldManager.CurrntField[1,i] != null && fieldManager.CurrntField[1,i].Value != cardID && fieldManager.CurrntField[2,i] != null)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].ExAP -= 2;
-                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].ExHP += 2;
+                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].AP -= 2;
+                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].HP += 2;
                     }
                 }
             }
