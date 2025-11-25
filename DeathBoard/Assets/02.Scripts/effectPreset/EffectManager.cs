@@ -87,7 +87,6 @@ public class EffectManager : MonoBehaviour
                 {
                     DeckManager.CardArr[cardID].ExHP += 3;
                 }
-
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 13)
             {
@@ -152,12 +151,15 @@ public class EffectManager : MonoBehaviour
             else if(DeckManager.CardArr[cardID].AbilityId == 23)
             {
                 bool cardexist = false;
-                for(int i=1; i<7;i++)
+                for(int i=0; i<7;i++)
                 {
-                    if(fieldManager.CurrntField[1,i] != null && fieldManager.CurrntField[0,i] == null)
+                    if(fieldManager.CurrntField[1,i] != null && fieldManager.CurrntField[1,i].Value != cardID)
                     {
-                        cardexist = true;
-                        break;
+                        if(fieldManager.CurrntField[0,i].Value == cardID || fieldManager.CurrntField[0,i] == null)
+                        {
+                            cardexist = true;
+                            break;
+                        }
                     }
                 }
 
@@ -231,6 +233,17 @@ public class EffectManager : MonoBehaviour
                 {
                     effectstart = true;
                     effectCardID = cardID;
+                }
+            }
+            else if(DeckManager.CardArr[cardID].AbilityId == 28)
+            {
+                for(int i=0;i<7;i++)
+                {
+                    if(fieldManager.CurrntField[1,i] != null && fieldManager.CurrntField[1,i].Value != cardID && fieldManager.CurrntField[2,i] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].ExAP -= 2;
+                        DeckManager.CardArr[fieldManager.CurrntField[1,i].Value].ExHP += 2;
+                    }
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 29)
@@ -507,6 +520,10 @@ public class EffectManager : MonoBehaviour
                 
             }
             else if(DeckManager.CardBrr[cardID-60].AbilityId == 29)
+            {
+                
+            }
+            else if(DeckManager.CardBrr[cardID-60].AbilityId == 28)
             {
                 
             }
