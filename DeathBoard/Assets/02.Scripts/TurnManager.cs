@@ -15,11 +15,51 @@ public class TurnManager : MonoBehaviour
     public Player player;
     public Shoot shoot;
     public Scan scan;
+    public GameObject tvObj;
     //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->뒷열 카드 전진 단계, 7->카드 효과실행 단계2, 8->공격단계2, 9->뒷열 카드 전진 단계2, 10->총격 선택, 11->상대방 검사 선택)
+
+
+    private Transform TV_turn;
+    private Transform TV_summon;
+    private Transform TV_attack;
+    private Transform TV_bullet;
+
+    void TvChange(string name) {
+        TV_turn.localPosition = new Vector3(0f, 10f, 0f);
+        TV_summon.localPosition = new Vector3(0f, 10f, 0f);
+        TV_attack.localPosition = new Vector3(0f, 10f, 0f);
+        TV_bullet.localPosition = new Vector3(0f, 10f, 0f);
+        
+        switch (name) {
+            case "turn" :
+                TV_turn.localPosition = new Vector3(0f, 0f, 0f);
+                break;
+            case "summon" :
+                TV_summon.localPosition = new Vector3(0f, 0f, 0f);
+                break;
+            case "attack" :
+                TV_attack.localPosition = new Vector3(0f, 0f, 0f);
+                break;
+            case "bullet" :
+                 TV_bullet.localPosition = new Vector3(0f, 0f, 0f);
+                 break;
+        }
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        TV_turn = tvObj.transform.Find("TV_turn");
+        TV_summon = tvObj.transform.Find("TV_summon");
+        TV_attack = tvObj.transform.Find("TV_attack");
+        TV_bullet = tvObj.transform.Find("TV_bullet");
+        
+        TV_turn.localPosition = new Vector3(0f, 10f, 0f);
+        TV_summon.localPosition = new Vector3(0f, 10f, 0f);
+        TV_attack.localPosition = new Vector3(0f, 10f, 0f);
+        TV_bullet.localPosition = new Vector3(0f, 10f, 0f);
+
         for(int i=0;i<2;i++)
         {
             cardmanager.DrawHand();
@@ -95,7 +135,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 2)//카드내려놓기
         {
-            
+            TvChange("summon");
         }
         else if(currentturn == 3)//적카드내려놓기
         {
@@ -152,6 +192,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 5)//공격단계
         {
+            TvChange("attack");
             currentturn = 6; 
             StartCoroutine(battlemanager.StartBattle());
             turnend = false;
@@ -190,6 +231,7 @@ public class TurnManager : MonoBehaviour
         }
         else if (currentturn == 8)//공격단계2
         {
+            TvChange("attack");
             currentturn = 9;
             StartCoroutine(battlemanager.StartBattle());
             //battlemanager.StartBattle();
@@ -201,6 +243,7 @@ public class TurnManager : MonoBehaviour
         }
         else if (currentturn == 10)//총격선택
         {
+            TvChange("bullet");
             Debug.Log(currentturn);
         }
         else if(currentturn == 11)//상대총격선택
