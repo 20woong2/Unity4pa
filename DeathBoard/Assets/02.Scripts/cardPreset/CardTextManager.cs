@@ -40,13 +40,16 @@ public class CardTextManager : MonoBehaviour
                     {
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i, j].Value.ToString());
                         TextMeshPro[] textMeshes = thiscards[0].GetComponentsInChildren<TextMeshPro>();
-                        if(thiscards[0] != null && textMeshes[0] != null && textMeshes[1] != null)
+                        if(thiscards[0] != null)
                         {
-                            textMeshes[0].text = (DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExHP).ToString();
-                            textMeshes[1].text = (DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExAP).ToString();
-                            if(DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExAP <= 0)
+                            if(textMeshes != null && textMeshes.Length > 1)
                             {
-                                textMeshes[1].text = "0";
+                                textMeshes[0].text = (DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExHP).ToString();
+                                textMeshes[1].text = (DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExAP).ToString();
+                                if(DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].AP + DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].ExAP <= 0)
+                                {
+                                    textMeshes[1].text = "0";
+                                }
                             }
                         }
                     }

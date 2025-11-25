@@ -154,6 +154,7 @@ public class TurnManager : MonoBehaviour
         {
             currentturn = 6; 
             StartCoroutine(battlemanager.StartBattle());
+            turnend = false;
         }
         else if(currentturn == 6)//뒷열카드전진
         {

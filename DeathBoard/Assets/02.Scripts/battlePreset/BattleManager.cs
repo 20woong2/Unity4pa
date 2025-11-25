@@ -10,16 +10,27 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     //public CardStateManager deffenceCardState;
     public TurnManager turnmanager;
     public Player player;
-    bool end = true;
+    private GameObject pos1;
+    public CardSelecter cardselecter;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public IEnumerator StartBattle()
     {
+        GameObject mainCamera = Camera.main.gameObject; 
+        BattleCameraMove battleCameraMove =  mainCamera.GetComponent<BattleCameraMove>();
         for (int i = 0; i < 7; i++)
         {
             if (fieldManager.CurrntField[1,i] != null)
             {
+                
+                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1,i].Value.ToString());
+                
+                Vector3 targetPosition = new Vector3(thiscards[0].transform.position.x, thiscards[0].transform.position.y + 0.7f, thiscards[0].transform.position.z-0.5f);
+                Quaternion targetRotation = Quaternion.Euler(55f, 0f, 0f);
+                battleCameraMove.StartMoving(targetPosition, targetRotation);
+                yield return new WaitForSeconds(1.5f); 
                 MyCardAttack(fieldManager.CurrntField[1,i]);
-                yield return new WaitForSeconds(0.5f); 
+                yield return new WaitForSeconds(1.5f); 
             }
         }
         for (int i = 0; i < 7; i++)
@@ -30,6 +41,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 yield return new WaitForSeconds(0.5f);
             }
         }
+        pos1 = GameObject.FindWithTag("Pos1");
+        battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
+        yield return new WaitForSeconds(0.5f);
         TurnManager.turnend = true;
     }
     public void MyCardAttack(int? attackCardID)

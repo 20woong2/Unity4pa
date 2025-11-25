@@ -9,9 +9,9 @@ public class CameraPos : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
     private GameObject mainCamera;
 
     // 기본 상태 시 카메라 위치
-    private GameObject pos1;
+    public GameObject pos1;
     // 카드 선택 시 카메라 위치
-    private GameObject pos2;
+    public GameObject pos2;
 
     // 현재 카메라 포지션과 로테이션을 저장할 변수
     private Vector3 currentPos;
