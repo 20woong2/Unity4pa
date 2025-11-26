@@ -100,6 +100,10 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         thiscards[1].SetActive(false);
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
+                    else if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].AbilityId == 6 && DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].Position[0] != -1)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].State = 100;
+                    }
                 }
                 else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)
                 {
