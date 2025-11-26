@@ -37,16 +37,21 @@ public class FieldReaction : MonoBehaviour
             fieldManager.cardReady = false;
             fieldManager.readyCard = null;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = (int[])fieldPosition.Clone();
-            setCard.transform.position = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
-            setCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
-            thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
+
+
+            MoveCardSmooth moveCardSmooth1 = setCard.GetComponent<MoveCardSmooth>();
+            MoveCardSmooth moveCardSmooth2 = thiscards[1].GetComponent<MoveCardSmooth>();
+            Vector3 targetPosition1 = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
+            Vector3 targetPosition2 = new Vector3(thisField.transform.position.x, thisField.transform.position.y, thisField.transform.position.z);
+            Quaternion targetRotation1 = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
+            Quaternion targetRotation2 = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
+            moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
+            moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
             reactionScript.originalPosition = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
-            reactionScript.originalPosition.y = reactionScript.originalPosition.y - 0.001f;
-            thiscards[1].transform.position = reactionScript.originalPosition;
-            reactionScript.originalPosition.y = reactionScript.originalPosition.y + 0.001f;
             
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+            yield return new WaitForSeconds(1f); 
             effectManager.EffectCast(stateScript.thiscardID, 1);
             for(int i=1;i>=0;i--)
             {

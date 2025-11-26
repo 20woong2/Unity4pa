@@ -2724,6 +2724,8 @@ MonoBehaviour:
   fieldReaction: {fileID: 0}
   handManager: {fileID: 1497590354}
   cardManager: {fileID: 734864416}
+  enemyHandManager: {fileID: 0}
+  enemyCardManager: {fileID: 0}
   player: {fileID: 2092155993}
   effectstart: 0
 --- !u!4 &358205098
@@ -6429,6 +6431,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CardStateManager
   thiscardID: 0
+--- !u!114 &1039182327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1039182316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bd8ff410fc12a444aa3bd74cb7fea19, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::MoveCardSmooth
+  targetPosition: {x: 0, y: 0, z: 0}
+  targetRotation: {x: 0, y: 0, z: 0, w: 0}
+  smoothTime: 0.2
+  rotationSmoothTime: 0.2
 --- !u!1 &1040638123
 GameObject:
   m_ObjectHideFlags: 0
@@ -9680,6 +9698,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6199471171844015024, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1039182322}
+    - targetCorrespondingSourceObject: {fileID: 6199471171844015024, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1039182327}
   m_SourcePrefab: {fileID: 100100000, guid: 0c419e73751a4ec429f3a70c92b97a7b, type: 3}
 --- !u!1001 &1402717488
 PrefabInstance:
@@ -13305,8 +13326,8 @@ SceneRoots:
   - {fileID: 118279513}
   - {fileID: 110871188}
   - {fileID: 1436801551}
-  - {fileID: 816938653}
   - {fileID: 1109056115}
+  - {fileID: 816938653}
   - {fileID: 604515103}
   - {fileID: 669354153}
   - {fileID: 358205098}

@@ -94,7 +94,6 @@ public class CardManager : MonoBehaviour
             // 4. 스크립트 접근 및 정보 설정
             CardReaction reactionScript = spawnedCard.GetComponent<CardReaction>();
             CardStateManager stateScript = spawnedCard.GetComponent<CardStateManager>();
-
             reactionScript.SetPreview(newPreview, cardID);
             stateScript.SetState(cardID, spawnedCard);
             stateScript.SetBackCard(backCard, cardID);

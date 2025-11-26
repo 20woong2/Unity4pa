@@ -193,17 +193,17 @@ public class TurnManager : MonoBehaviour
         {
             Debug.Log(currentturn);
             TvChange("attack");
-            Debug.Log(currentturn);
             StartCoroutine(battlemanager.StartBattle());
             currentturn = 6; 
             turnend = false;
         }
         else if(currentturn == 6)//뒷열카드전진
         {
-            currentturn = 7;   
+               
             StartCoroutine(movemanager.StartMoveTurn());
+            currentturn = 7;
+            turnend = false;
             
-            turnend = true;
         }
         else if(currentturn == 7)//효과실행2
         {
@@ -227,20 +227,43 @@ public class TurnManager : MonoBehaviour
                     }
                 }
             }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
+                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                    }
+                }
+            }
+            for(int i=1;i>=0;i--)
+            {
+                for(int j=0;j<7;j++)
+                {
+                    if(fieldManager.CurrntField[i,j] != null)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                    }
+                }
+            }
             currentturn = 8;
             turnend = true;
         }
         else if (currentturn == 8)//공격단계2
         {
+            Debug.Log(currentturn);
             TvChange("attack");
-            currentturn = 9;
             StartCoroutine(battlemanager.StartBattle());
-            //battlemanager.StartBattle();
+            currentturn = 9;
+            turnend = false;
         }
         else if (currentturn == 9)//뒷열전진2
         {
-            currentturn = 10;
             StartCoroutine(movemanager.StartMoveTurn());
+            currentturn = 10;
+            turnend = false;
         }
         else if (currentturn == 10)//총격선택
         {

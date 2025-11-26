@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public class BattleCameraMove : MonoBehaviour
+public class MoveCardSmooth : MonoBehaviour
 {
     public Vector3 targetPosition;          // 이동할 목표 위치
     public Quaternion targetRotation;       // 회전 목표값
-    public float smoothTime = 0.2f;
+    public float smoothTime = 1f;
     public float rotationSmoothTime = 0.2f;
 
     private Vector3 velocity = Vector3.zero;
