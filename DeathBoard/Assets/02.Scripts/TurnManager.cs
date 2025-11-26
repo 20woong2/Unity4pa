@@ -140,8 +140,7 @@ public class TurnManager : MonoBehaviour
         else if(currentturn == 3)//적카드내려놓기
         {
             StartCoroutine(enemyFieldManager.EnemyFieldSet());
-            currentturn = 4;
-            turnend = true;
+            
         }
         else if(currentturn == 4)//카드효과실행
         {

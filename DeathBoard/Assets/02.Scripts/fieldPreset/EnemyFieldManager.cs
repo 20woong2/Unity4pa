@@ -6,14 +6,23 @@ public class EnemyFieldManager : MonoBehaviour
     public FieldManager fieldManager;
     public EnemyHandManager enemyHandManager;
     public EffectManager effectManager;
+    private GameObject pos1;
     public IEnumerator EnemyFieldSet()
     {
+        
         if(DeckManager.EnemyHandList.Count < 1)
         {
             yield break;
         }
         else
         {
+            GameObject mainCamera = Camera.main.gameObject; 
+            BattleCameraMove battleCameraMove =  mainCamera.GetComponent<BattleCameraMove>();
+            pos1 = GameObject.FindWithTag("Pos1");
+            Vector3 targetPosition = new Vector3(pos1.transform.position.x, pos1.transform.position.y + 0.5f, pos1.transform.position.z+2.6f);
+            Quaternion targetRotation = Quaternion.Euler(75f, 0f, 0f);
+            battleCameraMove.StartMoving(targetPosition, targetRotation);
+            yield return new WaitForSeconds(1.5f);
             int setCount = Random.Range(1, DeckManager.EnemyHandList.Count);
             for (int i = 0; i < setCount; i++)
             {
@@ -77,8 +86,12 @@ public class EnemyFieldManager : MonoBehaviour
                         }
                     }
                 }
+                yield return new WaitForSeconds(1.5f); 
             }
-                
+            battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
+            yield return new WaitForSeconds(2f); 
+            TurnManager.currentturn = 4;
+            TurnManager.turnend = true;
         }
     }
     int findXY()
