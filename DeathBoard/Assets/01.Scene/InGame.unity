@@ -2724,8 +2724,8 @@ MonoBehaviour:
   fieldReaction: {fileID: 0}
   handManager: {fileID: 1497590354}
   cardManager: {fileID: 734864416}
-  enemyHandManager: {fileID: 0}
-  enemyCardManager: {fileID: 0}
+  enemyHandManager: {fileID: 816938652}
+  enemyCardManager: {fileID: 1436801550}
   player: {fileID: 2092155993}
   effectstart: 0
 --- !u!4 &358205098

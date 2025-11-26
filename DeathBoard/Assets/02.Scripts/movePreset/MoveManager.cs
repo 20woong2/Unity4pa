@@ -87,8 +87,8 @@ public class MoveManager : MonoBehaviour //
                 MoveCardSmooth moveCardSmooth2 = thiscards[1].GetComponent<MoveCardSmooth>();
                 Vector3 targetPosition1 = new Vector3(3.95f + 0.425f * i, 1.97f, -1.275f + 0.625f*2); 
                 Vector3 targetPosition2 = new Vector3(3.95f + 0.425f * i, 1.97f-0.001f, -1.275f + 0.625f*2); 
-                Quaternion targetRotation1 = Quaternion.Euler(90f, 0f, -180f);
-                Quaternion targetRotation2 = Quaternion.Euler(-90f, 0f, -180f);
+                Quaternion targetRotation1 = Quaternion.Euler(90f, -180f, 0f);
+                Quaternion targetRotation2 = Quaternion.Euler(-90f, 0f, 0f); 
                 moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                 moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
                 for(int p=1;p>=0;p--)

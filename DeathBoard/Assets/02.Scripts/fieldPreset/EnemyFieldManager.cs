@@ -38,10 +38,18 @@ public class EnemyFieldManager : MonoBehaviour
                 
                 GameObject thisCard = GameObject.FindWithTag(cardID.ToString());
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(cardID.ToString());
-                thisCard.transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f, -1.275f + 0.625f * (space / 10));
-                thisCard.transform.rotation = Quaternion.Euler(90f, transform.eulerAngles.y, 180f);
-                thiscards[1].transform.position = new Vector3(3.95f + 0.425f * (space % 10), 1.97f-0.001f, -1.275f + 0.625f * (space / 10));
-                thiscards[1].transform.rotation = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
+
+                MoveCardSmooth moveCardSmooth1 = thisCard.GetComponent<MoveCardSmooth>();
+                MoveCardSmooth moveCardSmooth2 = thiscards[1].GetComponent<MoveCardSmooth>();
+                Vector3 targetPosition1 = new Vector3(3.95f + 0.425f * (space % 10), 2f, -1.275f + 0.625f * (space / 10));
+                Vector3 targetPosition2 = new Vector3(3.95f + 0.425f * (space % 10), 2f-0.001f, -1.275f + 0.625f * (space / 10));
+                Quaternion targetRotation1 = Quaternion.Euler(90f, -180f, 0f);
+                Quaternion targetRotation2 = Quaternion.Euler(-90f, 0f, 0f); 
+                moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
+                moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
+
+
+                
                 enemyHandManager.rePlaceCard();
                 effectManager.EnemyEffectCast(cardID, 1);
                 for(int p=1;p>=0;p--)
