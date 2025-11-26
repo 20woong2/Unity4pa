@@ -760,7 +760,7 @@ public class EffectManager : MonoBehaviour
                 if (targetList.Count > 0)
                 {
                     int target = Random.Range(0, targetList.Count);
-                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.CardBrr[fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value - 60].ToString());
+                    GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value.ToString());
 
                     DeckManager.CardBrr[fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value - 60].Position[0] = -1;
                     DeckManager.CardBrr[fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value - 60].Position[1] = -1;
