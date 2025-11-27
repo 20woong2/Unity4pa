@@ -124,8 +124,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8f0b42571eb1c742a25ef72d9735c09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FieldReaction
-  haveCardNow: 0
   fieldManager: {fileID: 0}
   fieldPosition: 
   readyCard: {fileID: 0}
   cardManager: {fileID: 0}
+  cardSelecter: {fileID: 0}
+  deckmanager: {fileID: 0}
+  effectManager: {fileID: 0}
