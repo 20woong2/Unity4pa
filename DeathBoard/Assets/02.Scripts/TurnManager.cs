@@ -105,6 +105,10 @@ public class TurnManager : MonoBehaviour
                     {
                         effectManager.EnemyEffectCast(fieldManager.CurrntField[i,j].Value,2);
                     }
+                    else if(fieldManager.CurrntField[i,j] != null && DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State == 101)
+                    {
+                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
+                    }
                 }
             }
             for(int i=1;i>=0;i--)

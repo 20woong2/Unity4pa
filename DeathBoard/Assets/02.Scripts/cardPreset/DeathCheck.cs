@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using Unity.VisualScripting;
 public class DeathCheck : MonoBehaviour
 {
     public FieldManager fieldManager;
@@ -63,8 +64,19 @@ public class DeathCheck : MonoBehaviour
                                 DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].Position[0] = -1;
                                 DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].Position[1] = -1;
                                 fieldManager.CurrntField[i,j] = null;
-                                thiscards[0].SetActive(false);
-                                thiscards[1].SetActive(false);
+                                foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                                 for(int p=1;p>=0;p--)
                                 {
                                     for(int q=0;q<7;q++)
@@ -114,8 +126,19 @@ public class DeathCheck : MonoBehaviour
             DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].Position[0] = -1;
                                 DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].Position[1] = -1;
                                 fieldManager.CurrntField[i,j] = null;
-                                thiscards[0].SetActive(false);
-                                thiscards[1].SetActive(false);
+                                foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                                     for(int p=1;p>=0;p--)
                                     {
                                         for(int q=0;q<7;q++)

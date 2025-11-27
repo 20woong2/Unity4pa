@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 public class EffectManager : MonoBehaviour
 {
@@ -36,8 +37,19 @@ public class EffectManager : MonoBehaviour
                         fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]] = null;
                         DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].Position[0] = -1;
                         DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardArr[cardID].Position[1]].Value-60].Position[1] = -1;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     }
                 }
             }
@@ -70,8 +82,19 @@ public class EffectManager : MonoBehaviour
                     fieldManager.CurrntField[DeckManager.CardBrr[BigID-60].Position[0], DeckManager.CardBrr[BigID-60].Position[1]] = null;
                     DeckManager.CardBrr[BigID-60].Position[0] = -1;
                     DeckManager.CardBrr[BigID-60].Position[1] = -1;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 10)
@@ -107,8 +130,19 @@ public class EffectManager : MonoBehaviour
                         DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[0] = -1;
                         DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].Position[1] = -1;
                         fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] = null;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                         player.user.CP -= 10;
                     }
                 }
@@ -221,8 +255,19 @@ public class EffectManager : MonoBehaviour
                             DeckManager.CardBrr[targetID - 60].Position[0] = -1;
                             DeckManager.CardBrr[targetID - 60].Position[1] = -1;
                         }
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                         CardList.Remove(targetID);
                     }
                 }
@@ -355,8 +400,19 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]].Value].Position[0] = -1;
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]].Value].Position[1] = -1;
                     fieldManager.CurrntField[1, DeckManager.CardArr[cardID].Position[1]] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     DeckManager.CardArr[cardID].AP += 2;
                 }
             }
@@ -368,8 +424,19 @@ public class EffectManager : MonoBehaviour
                 fieldManager.CurrntField[DeckManager.CardArr[cardID].Position[0], DeckManager.CardArr[cardID].Position[1]] = null;
                 DeckManager.CardArr[cardID].Position[0] = -1;
                 DeckManager.CardArr[cardID].Position[1] = -1;
-                thiscards[0].SetActive(false);
-                thiscards[1].SetActive(false);
+                foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 6 && DeckManager.CardArr[cardID].State == 101)
             {
@@ -463,8 +530,19 @@ public class EffectManager : MonoBehaviour
             fieldManager.CurrntField[DeckManager.CardBrr[targetid-60].Position[0], DeckManager.CardBrr[targetid-60].Position[1]] = null;
             DeckManager.CardBrr[targetid-60].Position[0] = -1;
             DeckManager.CardBrr[targetid-60].Position[1] = -1;
-            thiscards[0].SetActive(false);
-            thiscards[1].SetActive(false);
+            foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
             effectstart = false;
             effectCardID = null;
         }
@@ -490,8 +568,19 @@ public class EffectManager : MonoBehaviour
                 Debug.Log("25카드 실행");
                 DeckManager.HandList.Remove(targetid);
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
-                thiscards[0].SetActive(false);
-                thiscards[1].SetActive(false);
+                foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                 handManager.rePlaceCard();
                 player.enemy.CP += 10;
                 effectstart = false;
@@ -505,8 +594,19 @@ public class EffectManager : MonoBehaviour
             fieldManager.CurrntField[DeckManager.CardArr[targetid].Position[0], DeckManager.CardArr[targetid].Position[1]] = null;
             DeckManager.CardArr[targetid].Position[0] = -1;
             DeckManager.CardArr[targetid].Position[1] = -1;
-            thiscards[0].SetActive(false);
-            thiscards[1].SetActive(false);
+            foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
             cardManager.DrawHand();
             cardManager.DrawHand();
             effectstart = false;
@@ -535,8 +635,19 @@ public class EffectManager : MonoBehaviour
                         fieldManager.CurrntField[0, DeckManager.CardBrr[cardID - 60].Position[1]] = null;
                         DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardBrr[cardID - 60].Position[1]].Value - 60].Position[0] = -1;
                         DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardBrr[cardID - 60].Position[1]].Value - 60].Position[1] = -1;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     }
                 }
             }
@@ -569,8 +680,19 @@ public class EffectManager : MonoBehaviour
                     fieldManager.CurrntField[DeckManager.CardArr[BigID].Position[0], DeckManager.CardArr[BigID].Position[1]] = null;
                     DeckManager.CardArr[BigID].Position[0] = -1;
                     DeckManager.CardArr[BigID].Position[1] = -1;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                 }
             }
             else if (DeckManager.CardBrr[cardID - 60].AbilityId == 10)
@@ -606,8 +728,19 @@ public class EffectManager : MonoBehaviour
                         DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[0] = -1;
                         DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[1] = -1;
                         fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]] = null;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                         player.enemy.CP -= 10;
                     }
                 }
@@ -654,8 +787,19 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardArr[fieldManager.CurrntField[1, targetList[target]].Value].Position[0] = -1;
                     DeckManager.CardArr[fieldManager.CurrntField[1, targetList[target]].Value].Position[1] = -1;
                     fieldManager.CurrntField[1, targetList[target]] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                 }
                 else
                 {
@@ -696,8 +840,19 @@ public class EffectManager : MonoBehaviour
                 {
                     int target = Random.Range(0, DeckManager.EnemyHandList.Count);
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(DeckManager.EnemyHandList[target].ToString());
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     DeckManager.EnemyHandList.RemoveAt(target);
                     enemyHandManager.rePlaceCard();
                 }
@@ -738,8 +893,19 @@ public class EffectManager : MonoBehaviour
                             DeckManager.CardBrr[targetID - 60].Position[0] = -1;
                             DeckManager.CardBrr[targetID - 60].Position[1] = -1;
                         }
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                         CardList.Remove(targetID);
                     }
                 }
@@ -765,8 +931,19 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardBrr[fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value - 60].Position[0] = -1;
                     DeckManager.CardBrr[fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10].Value - 60].Position[1] = -1;
                     fieldManager.CurrntField[targetList[target] / 10, targetList[target] % 10] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     enemyCardManager.DrawHand();
                     enemyCardManager.DrawHand();
                 }
@@ -878,8 +1055,19 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardBrr[fieldManager.CurrntField[1, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[0] = -1;
                     DeckManager.CardBrr[fieldManager.CurrntField[1, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[1] = -1;
                     fieldManager.CurrntField[2, DeckManager.CardBrr[cardID - 60].Position[1]] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
                     DeckManager.CardBrr[cardID - 60].AP += 2;
                 }
             }
@@ -889,8 +1077,19 @@ public class EffectManager : MonoBehaviour
                 fieldManager.CurrntField[DeckManager.CardBrr[cardID - 60].Position[0], DeckManager.CardBrr[cardID - 60].Position[1]] = null;
                 DeckManager.CardBrr[cardID - 60].Position[0] = -1;
                 DeckManager.CardBrr[cardID - 60].Position[1] = -1;
-                thiscards[0].SetActive(false);
-                thiscards[1].SetActive(false);
+                foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                                {
+                                    FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                                    if (fader != null)
+                                    {
+                                        fader.StartFadeOut();
+                                    }
+                                    else
+                                    {
+                                        Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                        card.SetActive(false);
+                                    }
+                                }
             }
         }
         else if(timing == 3)
