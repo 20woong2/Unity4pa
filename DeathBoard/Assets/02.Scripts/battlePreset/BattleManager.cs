@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections;
+using Unity.VisualScripting;
 public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호작용 만들어야 함
 {
     public FieldManager fieldManager;
@@ -69,8 +70,19 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value.ToString());
                         fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach(GameObject card in thiscards) // thiscards[0]~[1]
+                        {
+                            FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                            if (fader != null)
+                            {
+                                fader.StartFadeOut();
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                card.SetActive(false);
+                            }
+                        }
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
                     else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value - 60].Position[0] != -1)
@@ -103,8 +115,19 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value.ToString());
                         fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
-                        thiscards[0].SetActive(false);
-                        thiscards[1].SetActive(false);
+                        foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                        {
+                            FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                            if (fader != null)
+                            {
+                                fader.StartFadeOut();
+                            }
+                            else
+                            {
+                                Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                                card.SetActive(false);
+                            }
+                        }
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
                     else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value - 60].Position[0] != -1)
@@ -183,8 +206,19 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
 
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value.ToString());
                     fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]] = null;
-                    thiscards[0].SetActive(false);
-                    thiscards[1].SetActive(false);
+                    foreach (GameObject card in thiscards) // thiscards[0]~[1]
+                    {
+                        FadeOut fader = card.gameObject.GetComponent<FadeOut>();
+                        if (fader != null)
+                        {
+                            fader.StartFadeOut();
+                        }
+                        else
+                        {
+                            Debug.LogWarning($"{gameObject.name} : fader가 발견되지 않습니다. 페이드 효과가 적용되지 않고 즉시 사라집니다.", fader);
+                            card.SetActive(false);
+                        }
+                    }
 
                 }
                 else if(DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].AbilityId == 6 && DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[0] != -1)
