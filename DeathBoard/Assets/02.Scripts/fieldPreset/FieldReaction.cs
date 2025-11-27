@@ -41,13 +41,13 @@ public class FieldReaction : MonoBehaviour
 
             MoveCardSmooth moveCardSmooth1 = setCard.GetComponent<MoveCardSmooth>();
             MoveCardSmooth moveCardSmooth2 = thiscards[1].GetComponent<MoveCardSmooth>();
-            Vector3 targetPosition1 = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
+            Vector3 targetPosition1 = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.001f, thisField.transform.position.z);
             Vector3 targetPosition2 = new Vector3(thisField.transform.position.x, thisField.transform.position.y, thisField.transform.position.z);
             Quaternion targetRotation1 = Quaternion.Euler(90f, transform.eulerAngles.y, transform.eulerAngles.z);
             Quaternion targetRotation2 = Quaternion.Euler(270f, transform.eulerAngles.y, 180f);
             moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
             moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-            reactionScript.originalPosition = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.01f, thisField.transform.position.z);
+            reactionScript.originalPosition = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.001f, thisField.transform.position.z);
             
             cardSelecter = FindAnyObjectByType<CardSelecter>();
             StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());

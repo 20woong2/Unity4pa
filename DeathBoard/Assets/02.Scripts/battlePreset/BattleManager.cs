@@ -52,6 +52,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     public void MyCardAttack(int? attackCardID)
     {
         
+        Debug.Log("내카드 공격 실행");
         if(DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP > 0)
         {
             //왼쪽 위 적 기물 공격
@@ -59,6 +60,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
                 {
+                    Debug.Log("왼 공격 실행");
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].ExHP <= 0)
                     {
@@ -70,6 +72,10 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         thiscards[0].SetActive(false);
                         thiscards[1].SetActive(false);
                         //카드 파괴, 필드에서 내리는 함수 작성
+                    }
+                    else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value - 60].Position[0] != -1)
+                    {
+                        DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].State = 100;
                     }
                 }
                 else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null)
@@ -88,6 +94,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)                                                                                 //상대 공격 줄에 카드 있다면 공격
                 {
+                    Debug.Log("오른 공격 실행");
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].ExHP <= 0)
                     {
@@ -100,9 +107,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         thiscards[1].SetActive(false);
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
-                    else if (DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].AbilityId == 6 && DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].Position[0] != -1)
+                    else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value - 60].Position[0] != -1)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value - 60].Position[1]].Value].State = 100;
+                        DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].State = 100;
                     }
                 }
                 else if(fieldManager.CurrntField[3,DeckManager.CardArr[attackCardID.Value].Position[1]+1] != null)
