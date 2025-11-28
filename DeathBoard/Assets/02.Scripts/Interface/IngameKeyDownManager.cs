@@ -14,6 +14,13 @@ public class EscMenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(TurnManager.currentturn == 2 || TurnManager.currentturn == 10)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
+            }
+        }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (!isActived)
@@ -26,13 +33,6 @@ public class EscMenuManager : MonoBehaviour
                 GameObject.Find("Canvas").transform.Find("Esc Screen").gameObject.SetActive(false);
                 isActived = false;
             }
-
-            
-        }
-
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
         }
     }
 }
