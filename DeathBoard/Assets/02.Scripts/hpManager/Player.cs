@@ -39,6 +39,10 @@ public class Player : MonoBehaviour
             if (attacked <= this.randomStack)
             {
                 this.HP--;
+                Debug.Log("공격 성공  남은 체력 : " + this.HP);
+            }
+            else{
+                Debug.Log("공격 실패  남은 체력 : " + this.HP);
             }
         }
         PlayerStruct(int HP, int CP, int randomStack)

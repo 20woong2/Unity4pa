@@ -195,7 +195,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 5)//공격단계
         {
-            Debug.Log(currentturn);
+            
             TvChange("attack");
             StartCoroutine(battlemanager.StartBattle());
             currentturn = 6; 
@@ -257,7 +257,7 @@ public class TurnManager : MonoBehaviour
         }
         else if (currentturn == 8)//공격단계2
         {
-            Debug.Log(currentturn);
+            
             TvChange("attack");
             StartCoroutine(battlemanager.StartBattle());
             currentturn = 9;
@@ -272,7 +272,7 @@ public class TurnManager : MonoBehaviour
         else if (currentturn == 10)//총격선택
         {
             TvChange("bullet");
-            Debug.Log(currentturn);
+            
         }
         else if(currentturn == 11)//상대총격선택
         {

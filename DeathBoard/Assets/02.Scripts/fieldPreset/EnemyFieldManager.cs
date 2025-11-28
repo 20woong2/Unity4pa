@@ -132,7 +132,7 @@ public class EnemyFieldManager : MonoBehaviour
         }
         for(int i = 0; i< 7; i++)
         {
-            if(fieldManager.CurrntField[1, i] != null)
+            if(fieldManager.CurrntField[1, i] != null && fieldManager.CurrntField[2, i] == null)
             {
                 RandX.Add(i);
             }

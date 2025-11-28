@@ -69,7 +69,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].Position[1] = -1;
                         
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value.ToString());
-                        fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
+                        
                         foreach(GameObject card in thiscards) // thiscards[0]~[1]
                         {
                             FadeOut fader = card.gameObject.GetComponent<FadeOut>();
@@ -83,6 +83,8 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                                 card.SetActive(false);
                             }
                         }
+                        effectManager.EffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value,4);
+                        fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
                     else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value - 60].Position[0] != -1)
@@ -98,6 +100,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 {
                     player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     //상대 직접 공격(공포 수치 상승)
+                    Debug.Log("아군 직접공격 : " + (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP) + " 공포게이지 : " + player.enemy.CP);
                 }
             }
 
@@ -114,7 +117,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].Position[1] = -1;
                         
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value.ToString());
-                        fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
+                        
                         foreach (GameObject card in thiscards) // thiscards[0]~[1]
                         {
                             FadeOut fader = card.gameObject.GetComponent<FadeOut>();
@@ -128,6 +131,8 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                                 card.SetActive(false);
                             }
                         }
+                        effectManager.EffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value,4);
+                        fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
                     else if (DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value - 60].Position[0] != -1)
@@ -143,6 +148,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 {
                     player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     //상대 직접 공격(공포 수치 상승)
+                    Debug.Log("아군 직접공격 : " + (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP) + " 공포게이지 : " + player.enemy.CP);
                 }
             }
             for(int p=1;p>=0;p--)
@@ -200,12 +206,12 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 {
                     
                     //카드 파괴, 필드에서 내리는 함수 작성
+                    
+
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[0] = -1;
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[1] = -1;
-
-
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value.ToString());
-                    fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]] = null;
+                    
                     foreach (GameObject card in thiscards) // thiscards[0]~[1]
                     {
                         FadeOut fader = card.gameObject.GetComponent<FadeOut>();
@@ -219,7 +225,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                             card.SetActive(false);
                         }
                     }
-
+                    effectManager.EffectCast(fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value,4);
+                    fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]] = null;
+                    
                 }
                 else if(DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].AbilityId == 6 && DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[0] != -1)
                 {
@@ -234,6 +242,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
             {
                 player.user.CP += (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP);
                 //상대 직접 공격(공포 수치 상승)
+                Debug.Log("상대 직접공격 : " + (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP) + " 공포게이지 : " + player.user.CP);
             }
             for(int p=1;p>=0;p--)
                 {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-using Unity.VisualScripting;
 using static UnityEngine.GraphicsBuffer;
 public class EffectManager : MonoBehaviour
 {

@@ -5,9 +5,34 @@ public class MoveManager : MonoBehaviour //
     public FieldManager fieldManager;
     public TurnManager turnmanager;
     public EffectManager effectManager;
+    private GameObject pos1;
+    private GameObject pos2;
+    public bool moveexist = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public IEnumerator StartMoveTurn()
     {
+        GameObject mainCamera = Camera.main.gameObject; 
+        BattleCameraMove battleCameraMove =  mainCamera.GetComponent<BattleCameraMove>();
+        for(int i = 0;i<7;i++)
+        {
+            if(fieldManager.CurrntField[0, i] != null && fieldManager.CurrntField[1, i] == null)
+            {
+                moveexist = true;
+                
+            }
+            if(fieldManager.CurrntField[3, i] != null && fieldManager.CurrntField[2, i] == null)
+            {
+                moveexist = true;
+                
+            }
+        }
+        if(moveexist == true)
+        {
+            
+            pos2 = GameObject.FindWithTag("Pos2");
+            battleCameraMove.StartMoving(pos2.transform.position, pos2.transform.rotation);
+            yield return new WaitForSeconds(1f); 
+        }
         for (int i = 0; i < 7; i++)
         {
             if (fieldManager.CurrntField[0, i] != null && fieldManager.CurrntField[1, i] == null)
@@ -137,7 +162,14 @@ public class MoveManager : MonoBehaviour //
             }
             
         }
-        yield return new WaitForSeconds(1f); 
+        if(moveexist == true)
+        {
+            pos1 = GameObject.FindWithTag("Pos1");
+            battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
+            moveexist = false;
+        }
+        
+        yield return new WaitForSeconds(1.5f);
         TurnManager.turnend = true;
     }
 }
