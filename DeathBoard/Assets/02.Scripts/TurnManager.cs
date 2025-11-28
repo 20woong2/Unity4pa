@@ -101,37 +101,58 @@ public class TurnManager : MonoBehaviour
                     {
                         DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State++;
                     }
-                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State == 2)
+                    if(fieldManager.CurrntField[i,j] != null && DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State == 1)
                     {
                         effectManager.EnemyEffectCast(fieldManager.CurrntField[i,j].Value,2);
                     }
                     else if(fieldManager.CurrntField[i,j] != null && DeckManager.CardBrr[fieldManager.CurrntField[i,j].Value-60].State == 101)
                     {
-                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,2);
+                        effectManager.EnemyEffectCast(fieldManager.CurrntField[i,j].Value,2);
                     }
                 }
             }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+            for(int p=1;p>=0;p--)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExHP = 0;
-                        DeckManager.CardArr[fieldManager.CurrntField[i,j].Value].ExAP = 0;
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExHP = 0;
+                            DeckManager.CardArr[fieldManager.CurrntField[p,q].Value].ExAP = 0;
+                        }
                     }
                 }
-            }
-            for(int i=1;i>=0;i--)
-            {
-                for(int j=0;j<7;j++)
+                for(int p=2;p<4;p++)
                 {
-                    if(fieldManager.CurrntField[i,j] != null)
+                    for(int q=0;q<7;q++)
                     {
-                        effectManager.EffectCast(fieldManager.CurrntField[i,j].Value,5);
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExHP = 0;
+                            DeckManager.CardBrr[fieldManager.CurrntField[p,q].Value-60].ExAP = 0;
+                        }
                     }
                 }
-            }
+                for(int p=1;p>=0;p--)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
+                for(int p=2;p<4;p++)
+                {
+                    for(int q=0;q<7;q++)
+                    {
+                        if(fieldManager.CurrntField[p,q] != null)
+                        {
+                            effectManager.EnemyEffectCast(fieldManager.CurrntField[p,q].Value,5);
+                        }
+                    }
+                }
             cardmanager.DrawHand();
             enemycardmanager.DrawHand();
             currentturn = 2;

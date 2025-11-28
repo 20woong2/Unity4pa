@@ -94,7 +94,7 @@ public class EnemyFieldManager : MonoBehaviour
                         }
                     }
                 }
-                yield return new WaitForSeconds(1.5f); 
+                yield return new WaitForSeconds(2f); 
             }
             battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
             yield return new WaitForSeconds(2f); 

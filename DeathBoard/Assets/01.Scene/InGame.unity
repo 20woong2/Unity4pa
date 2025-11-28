@@ -3491,6 +3491,7 @@ MonoBehaviour:
   cardManager: {fileID: 734864416}
   enemyHandManager: {fileID: 816938652}
   enemyCardManager: {fileID: 1436801550}
+  battleManager: {fileID: 604515102}
   player: {fileID: 2092155993}
   effectstart: 0
 --- !u!4 &358205098
@@ -4541,6 +4542,7 @@ MonoBehaviour:
   turnmanager: {fileID: 110871187}
   player: {fileID: 2092155993}
   cardselecter: {fileID: 0}
+  DestroyPosition: -1
 --- !u!4 &604515103
 Transform:
   m_ObjectHideFlags: 0
@@ -4878,6 +4880,7 @@ MonoBehaviour:
   fieldManager: {fileID: 118279512}
   turnmanager: {fileID: 110871187}
   effectManager: {fileID: 358205097}
+  moveexist: 0
 --- !u!4 &669354153
 Transform:
   m_ObjectHideFlags: 0

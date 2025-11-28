@@ -11,6 +11,7 @@ public class EffectManager : MonoBehaviour
     public CardManager cardManager;
     public EnemyHandManager enemyHandManager;
     public EnemyCardManager enemyCardManager;
+    public BattleManager battleManager;
     public Player player;
     public bool effectstart = false;
     public int? effectCardID = null;
@@ -454,11 +455,12 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardArr[cardID].AbilityId == 14)
             {
-                if (fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] != null)
+                if (fieldManager.CurrntField[0, battleManager.DestroyPosition] != null)
                 {
-                    DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].AP += 2;
+                    DeckManager.CardArr[fieldManager.CurrntField[0, battleManager.DestroyPosition].Value].AP += 2;
                 }
             }
+            battleManager.DestroyPosition = -1;
         }
         else if(timing == 5)
         {
@@ -811,7 +813,7 @@ public class EffectManager : MonoBehaviour
 
                 for (int j = 0; j < 7; j++)
                 {
-                    if (fieldManager.CurrntField[2, j] != null && fieldManager.CurrntField[3, j] == null)
+                    if (fieldManager.CurrntField[2, j] != null && fieldManager.CurrntField[3, j] == null && fieldManager.CurrntField[2, j].Value != cardID)
                     {
                         targetList.Add(j);
                     }
@@ -854,6 +856,7 @@ public class EffectManager : MonoBehaviour
                                 }
                     DeckManager.EnemyHandList.RemoveAt(target);
                     enemyHandManager.rePlaceCard();
+                    player.user.CP += 10;
                 }
                 else
                 {
@@ -1103,11 +1106,12 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardBrr[cardID-60].AbilityId == 14)
             {
-                if (fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]] != null)
+                if (fieldManager.CurrntField[3, battleManager.DestroyPosition] != null)
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value].AP += 2;
+                    DeckManager.CardBrr[fieldManager.CurrntField[3, battleManager.DestroyPosition].Value].AP += 2;
                 }
             }
+            battleManager.DestroyPosition = -1;
         }
         else if(timing == 5)
         {

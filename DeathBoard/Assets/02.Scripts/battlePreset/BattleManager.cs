@@ -13,6 +13,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     public Player player;
     private GameObject pos1;
     public CardSelecter cardselecter;
+    public int DestroyPosition = -1; 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public IEnumerator StartBattle()
@@ -65,6 +66,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].ExHP <= 0)
                     {
+                        DestroyPosition = DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].Position[1];
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].Position[0] = -1;
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].Position[1] = -1;
                         
@@ -83,7 +85,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                                 card.SetActive(false);
                             }
                         }
-                        effectManager.EffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value,4);
+                        effectManager.EnemyEffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value,4);
                         fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1] = null;
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
@@ -113,6 +115,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     if(DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].HP + DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].ExHP <= 0)
                     {
+                        DestroyPosition = DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].Position[1];
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].Position[0] = -1;
                         DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value-60].Position[1] = -1;
                         
@@ -131,7 +134,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                                 card.SetActive(false);
                             }
                         }
-                        effectManager.EffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value,4);
+                        effectManager.EnemyEffectCast(fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1].Value,4);
                         fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] + 1] = null;
                         //카드 파괴, 필드에서 내리는 함수 작성
                     }
@@ -207,7 +210,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     
                     //카드 파괴, 필드에서 내리는 함수 작성
                     
-
+                    DestroyPosition = DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[1];
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[0] = -1;
                     DeckManager.CardArr[fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].Position[1] = -1;
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value.ToString());
@@ -225,6 +228,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                             card.SetActive(false);
                         }
                     }
+
                     effectManager.EffectCast(fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value,4);
                     fieldManager.CurrntField[1, DeckManager.CardBrr[attackCardID.Value-60].Position[1]] = null;
                     
