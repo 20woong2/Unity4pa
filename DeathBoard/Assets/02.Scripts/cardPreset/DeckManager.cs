@@ -283,27 +283,27 @@ public class DeckManager : MonoBehaviour
         CardArr[17].Position[1] = -1;
         CardArr[17].EffectTiming = 1;
 
-        CardArr[18].HP = 4;
-        CardArr[18].AP = 1;
+        CardArr[18].HP = 5;
+        CardArr[18].AP = 2;
         CardArr[18].ExHP = 0;
         CardArr[18].ExAP = 0;
         CardArr[18].State = 0;
         CardArr[18].CardId = 18;
-        CardArr[18].AbilityId = 10;
-        CardArr[18].ImgPath = "Cardimg10";
+        CardArr[18].AbilityId = 11;
+        CardArr[18].ImgPath = "Cardimg11";
         CardArr[18].Context = "";
         CardArr[18].Position[0] = -1;
         CardArr[18].Position[1] = -1;
         CardArr[18].EffectTiming = 1;
 
-        CardArr[19].HP = 4;
-        CardArr[19].AP = 1;
+        CardArr[19].HP = 5;
+        CardArr[19].AP = 2;
         CardArr[19].ExHP = 0;
         CardArr[19].ExAP = 0;
         CardArr[19].State = 0;
         CardArr[19].CardId = 19;
-        CardArr[19].AbilityId = 10;
-        CardArr[19].ImgPath = "Cardimg10";
+        CardArr[19].AbilityId = 11;
+        CardArr[19].ImgPath = "Cardimg11";
         CardArr[19].Context = "";
         CardArr[19].Position[0] = -1;
         CardArr[19].Position[1] = -1;
@@ -647,27 +647,27 @@ public class DeckManager : MonoBehaviour
         CardArr[45].Position[1] = -1;
         CardArr[45].EffectTiming = 1;
 
-        CardArr[46].HP = 0;
-        CardArr[46].AP = 0;
+        CardArr[46].HP = 1;
+        CardArr[46].AP = 2;
         CardArr[46].ExHP = 0;
         CardArr[46].ExAP = 0;
         CardArr[46].State = 0;
         CardArr[46].CardId = 46;
-        CardArr[46].AbilityId = 24;
-        CardArr[46].ImgPath = "Cardimg24";
+        CardArr[46].AbilityId = 12;
+        CardArr[46].ImgPath = "Cardimg12";
         CardArr[46].Context = "";
         CardArr[46].Position[0] = -1;
         CardArr[46].Position[1] = -1;
         CardArr[46].EffectTiming = 1;
 
-        CardArr[47].HP = 0;
-        CardArr[47].AP = 0;
+        CardArr[47].HP = 1;
+        CardArr[47].AP = 2;
         CardArr[47].ExHP = 0;
         CardArr[47].ExAP = 0;
         CardArr[47].State = 0;
         CardArr[47].CardId = 47;
-        CardArr[47].AbilityId = 24;
-        CardArr[47].ImgPath = "Cardimg24";
+        CardArr[47].AbilityId = 12;
+        CardArr[47].ImgPath = "Cardimg12";
         CardArr[47].Context = "";
         CardArr[47].Position[0] = -1;
         CardArr[47].Position[1] = -1;
@@ -829,7 +829,7 @@ public class DeckManager : MonoBehaviour
         CardArr[59].Position[1] = -1;
         CardArr[59].EffectTiming = 1;
         //적 덱 기본정보
-        CardBrr[0].HP = 5;
+        CardBrr[0].HP = 7;
         CardBrr[0].AP = 1;
         CardBrr[0].ExHP = 0;
         CardBrr[0].ExAP = 0;
@@ -842,7 +842,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[0].Position[1] = -1;
         CardBrr[0].EffectTiming = 0;
 
-        CardBrr[1].HP = 5;
+        CardBrr[1].HP = 7;
         CardBrr[1].AP = 1;
         CardBrr[1].ExHP = 0;
         CardBrr[1].ExAP = 0;
@@ -855,7 +855,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[1].Position[1] = -1;
         CardBrr[1].EffectTiming = 0;
 
-        CardBrr[2].HP = 1;
+        CardBrr[2].HP = 3;
         CardBrr[2].AP = 2;
         CardBrr[2].ExHP = 0;
         CardBrr[2].ExAP = 0;
@@ -868,7 +868,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[2].Position[1] = -1;
         CardBrr[2].EffectTiming = 0;
 
-        CardBrr[3].HP = 1;
+        CardBrr[3].HP = 3;
         CardBrr[3].AP = 2;
         CardBrr[3].ExHP = 0;
         CardBrr[3].ExAP = 0;
@@ -881,7 +881,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[3].Position[1] = -1;
         CardBrr[3].EffectTiming = 0;
 
-        CardBrr[4].HP = 2;
+        CardBrr[4].HP = 5;
         CardBrr[4].AP = 1;
         CardBrr[4].ExHP = 0;
         CardBrr[4].ExAP = 0;
@@ -894,7 +894,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[4].Position[1] = -1;
         CardBrr[4].EffectTiming = 0;
 
-        CardBrr[5].HP = 2;
+        CardBrr[5].HP = 5;
         CardBrr[5].AP = 1;
         CardBrr[5].ExHP = 0;
         CardBrr[5].ExAP = 0;
@@ -907,7 +907,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[5].Position[1] = -1;
         CardBrr[5].EffectTiming = 0;
 
-        CardBrr[6].HP = 2;
+        CardBrr[6].HP = 4;
         CardBrr[6].AP = 2;
         CardBrr[6].ExHP = 0;
         CardBrr[6].ExAP = 0;
@@ -920,7 +920,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[6].Position[1] = -1;
         CardBrr[6].EffectTiming = 0;
 
-        CardBrr[7].HP = 2;
+        CardBrr[7].HP = 4;
         CardBrr[7].AP = 2;
         CardBrr[7].ExHP = 0;
         CardBrr[7].ExAP = 0;
@@ -933,7 +933,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[7].Position[1] = -1;
         CardBrr[7].EffectTiming = 0;
 
-        CardBrr[8].HP = 2;
+        CardBrr[8].HP = 4;
         CardBrr[8].AP = 3;
         CardBrr[8].ExHP = 0;
         CardBrr[8].ExAP = 0;
@@ -946,7 +946,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[8].Position[1] = -1;
         CardBrr[8].EffectTiming = 0;
 
-        CardBrr[9].HP = 2;
+        CardBrr[9].HP = 4;
         CardBrr[9].AP = 3;
         CardBrr[9].ExHP = 0;
         CardBrr[9].ExAP = 0;
@@ -959,7 +959,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[9].Position[1] = -1;
         CardBrr[9].EffectTiming = 0;
 
-        CardBrr[10].HP = 3;
+        CardBrr[10].HP = 5;
         CardBrr[10].AP = 1;
         CardBrr[10].ExHP = 0;
         CardBrr[10].ExAP = 0;
@@ -972,7 +972,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[10].Position[1] = -1;
         CardBrr[10].EffectTiming = 0;
 
-        CardBrr[11].HP = 3;
+        CardBrr[11].HP = 5;
         CardBrr[11].AP = 1;
         CardBrr[11].ExHP = 0;
         CardBrr[11].ExAP = 0;
@@ -985,7 +985,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[11].Position[1] = -1;
         CardBrr[11].EffectTiming = 0;
 
-        CardBrr[12].HP = 5;
+        CardBrr[12].HP = 7;
         CardBrr[12].AP = 4;
         CardBrr[12].ExHP = 0;
         CardBrr[12].ExAP = 0;
@@ -998,7 +998,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[12].Position[1] = -1;
         CardBrr[12].EffectTiming = 0;
 
-        CardBrr[13].HP = 5;
+        CardBrr[13].HP = 7;
         CardBrr[13].AP = 4;
         CardBrr[13].ExHP = 0;
         CardBrr[13].ExAP = 0;
@@ -1011,7 +1011,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[13].Position[1] = -1;
         CardBrr[13].EffectTiming = 0;
 
-        CardBrr[14].HP = 3;
+        CardBrr[14].HP = 5;
         CardBrr[14].AP = 4;
         CardBrr[14].ExHP = 0;
         CardBrr[14].ExAP = 0;
@@ -1024,7 +1024,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[14].Position[1] = -1;
         CardBrr[14].EffectTiming = 0;
 
-        CardBrr[15].HP = 3;
+        CardBrr[15].HP = 5;
         CardBrr[15].AP = 4;
         CardBrr[15].ExHP = 0;
         CardBrr[15].ExAP = 0;
@@ -1037,7 +1037,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[15].Position[1] = -1;
         CardBrr[15].EffectTiming = 0;
 
-        CardBrr[16].HP = 1;
+        CardBrr[16].HP = 3;
         CardBrr[16].AP = 3;
         CardBrr[16].ExHP = 0;
         CardBrr[16].ExAP = 0;
@@ -1050,7 +1050,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[16].Position[1] = -1;
         CardBrr[16].EffectTiming = 0;
 
-        CardBrr[17].HP = 1;
+        CardBrr[17].HP = 3;
         CardBrr[17].AP = 3;
         CardBrr[17].ExHP = 0;
         CardBrr[17].ExAP = 0;
@@ -1063,33 +1063,33 @@ public class DeckManager : MonoBehaviour
         CardBrr[17].Position[1] = -1;
         CardBrr[17].EffectTiming = 0;
 
-        CardBrr[18].HP = 4;
-        CardBrr[18].AP = 1;
+        CardBrr[18].HP = 7;
+        CardBrr[18].AP = 2;
         CardBrr[18].ExHP = 0;
         CardBrr[18].ExAP = 0;
         CardBrr[18].State = 0;
         CardBrr[18].CardId = 78;
-        CardBrr[18].AbilityId = 10;
-        CardBrr[18].ImgPath = "Cardimg10";
+        CardBrr[18].AbilityId = 11;
+        CardBrr[18].ImgPath = "Cardimg11";
         CardBrr[18].Context = "";
         CardBrr[18].Position[0] = -1;
         CardBrr[18].Position[1] = -1;
         CardBrr[18].EffectTiming = 0;
 
-        CardBrr[19].HP = 4;
-        CardBrr[19].AP = 1;
+        CardBrr[19].HP = 7;
+        CardBrr[19].AP = 2;
         CardBrr[19].ExHP = 0;
         CardBrr[19].ExAP = 0;
         CardBrr[19].State = 0;
         CardBrr[19].CardId = 79;
-        CardBrr[19].AbilityId = 10;
-        CardBrr[19].ImgPath = "Cardimg10";
+        CardBrr[19].AbilityId = 11;
+        CardBrr[19].ImgPath = "Cardimg11";
         CardBrr[19].Context = "";
         CardBrr[19].Position[0] = -1;
         CardBrr[19].Position[1] = -1;
         CardBrr[19].EffectTiming = 0;
 
-        CardBrr[20].HP = 5;
+        CardBrr[20].HP = 7;
         CardBrr[20].AP = 2;
         CardBrr[20].ExHP = 0;
         CardBrr[20].ExAP = 0;
@@ -1102,7 +1102,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[20].Position[1] = -1;
         CardBrr[20].EffectTiming = 0;
 
-        CardBrr[21].HP = 5;
+        CardBrr[21].HP = 7;
         CardBrr[21].AP = 2;
         CardBrr[21].ExHP = 0;
         CardBrr[21].ExAP = 0;
@@ -1115,7 +1115,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[21].Position[1] = -1;
         CardBrr[21].EffectTiming = 0;
 
-        CardBrr[22].HP = 1;
+        CardBrr[22].HP = 3;
         CardBrr[22].AP = 2;
         CardBrr[22].ExHP = 0;
         CardBrr[22].ExAP = 0;
@@ -1128,7 +1128,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[22].Position[1] = -1;
         CardBrr[22].EffectTiming = 0;
 
-        CardBrr[23].HP = 1;
+        CardBrr[23].HP = 3;
         CardBrr[23].AP = 2;
         CardBrr[23].ExHP = 0;
         CardBrr[23].ExAP = 0;
@@ -1141,7 +1141,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[23].Position[1] = -1;
         CardBrr[23].EffectTiming = 0;
 
-        CardBrr[24].HP = 4;
+        CardBrr[24].HP = 6;
         CardBrr[24].AP = 2;
         CardBrr[24].ExHP = 0;
         CardBrr[24].ExAP = 0;
@@ -1154,7 +1154,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[24].Position[1] = -1;
         CardBrr[24].EffectTiming = 0;
 
-        CardBrr[25].HP = 4;
+        CardBrr[25].HP = 6;
         CardBrr[25].AP = 2;
         CardBrr[25].ExHP = 0;
         CardBrr[25].ExAP = 0;
@@ -1167,7 +1167,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[25].Position[1] = -1;
         CardBrr[25].EffectTiming = 0;
 
-        CardBrr[26].HP = 1;
+        CardBrr[26].HP = 3;
         CardBrr[26].AP = 3;
         CardBrr[26].ExHP = 0;
         CardBrr[26].ExAP = 0;
@@ -1180,7 +1180,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[26].Position[1] = -1;
         CardBrr[26].EffectTiming = 0;
 
-        CardBrr[27].HP = 1;
+        CardBrr[27].HP = 3;
         CardBrr[27].AP = 3;
         CardBrr[27].ExHP = 0;
         CardBrr[27].ExAP = 0;
@@ -1193,7 +1193,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[27].Position[1] = -1;
         CardBrr[27].EffectTiming = 0;
 
-        CardBrr[28].HP = 3;
+        CardBrr[28].HP = 5;
         CardBrr[28].AP = 3;
         CardBrr[28].ExHP = 0;
         CardBrr[28].ExAP = 0;
@@ -1206,7 +1206,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[28].Position[1] = -1;
         CardBrr[28].EffectTiming = 0;
 
-        CardBrr[29].HP = 3;
+        CardBrr[29].HP = 5;
         CardBrr[29].AP = 3;
         CardBrr[29].ExHP = 0;
         CardBrr[29].ExAP = 0;
@@ -1219,7 +1219,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[29].Position[1] = -1;
         CardBrr[29].EffectTiming = 0;
 
-        CardBrr[30].HP = 1;
+        CardBrr[30].HP = 3;
         CardBrr[30].AP = 1;
         CardBrr[30].ExHP = 0;
         CardBrr[30].ExAP = 0;
@@ -1232,7 +1232,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[30].Position[1] = -1;
         CardBrr[30].EffectTiming = 0;
 
-        CardBrr[31].HP = 1;
+        CardBrr[31].HP = 3;
         CardBrr[31].AP = 1;
         CardBrr[31].ExHP = 0;
         CardBrr[31].ExAP = 0;
@@ -1245,7 +1245,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[31].Position[1] = -1;
         CardBrr[31].EffectTiming = 0;
 
-        CardBrr[32].HP = 1;
+        CardBrr[32].HP = 3;
         CardBrr[32].AP = 2;
         CardBrr[32].ExHP = 0;
         CardBrr[32].ExAP = 0;
@@ -1258,7 +1258,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[32].Position[1] = -1;
         CardBrr[32].EffectTiming = 0;
 
-        CardBrr[33].HP = 1;
+        CardBrr[33].HP = 3;
         CardBrr[33].AP = 2;
         CardBrr[33].ExHP = 0;
         CardBrr[33].ExAP = 0;
@@ -1271,7 +1271,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[33].Position[1] = -1;
         CardBrr[33].EffectTiming = 0;
 
-        CardBrr[34].HP = 2;
+        CardBrr[34].HP = 4;
         CardBrr[34].AP = 4;
         CardBrr[34].ExHP = 0;
         CardBrr[34].ExAP = 0;
@@ -1284,7 +1284,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[34].Position[1] = -1;
         CardBrr[34].EffectTiming = 0;
 
-        CardBrr[35].HP = 2;
+        CardBrr[35].HP = 4;
         CardBrr[35].AP = 4;
         CardBrr[35].ExHP = 0;
         CardBrr[35].ExAP = 0;
@@ -1297,7 +1297,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[35].Position[1] = -1;
         CardBrr[35].EffectTiming = 0;
 
-        CardBrr[36].HP = 5;
+        CardBrr[36].HP = 7;
         CardBrr[36].AP = 2;
         CardBrr[36].ExHP = 0;
         CardBrr[36].ExAP = 0;
@@ -1310,7 +1310,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[36].Position[1] = -1;
         CardBrr[36].EffectTiming = 0;
 
-        CardBrr[37].HP = 5;
+        CardBrr[37].HP = 7;
         CardBrr[37].AP = 2;
         CardBrr[37].ExHP = 0;
         CardBrr[37].ExAP = 0;
@@ -1323,7 +1323,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[37].Position[1] = -1;
         CardBrr[37].EffectTiming = 0;
 
-        CardBrr[38].HP = 3;
+        CardBrr[38].HP = 5;
         CardBrr[38].AP = 1;
         CardBrr[38].ExHP = 0;
         CardBrr[38].ExAP = 0;
@@ -1336,7 +1336,7 @@ public class DeckManager : MonoBehaviour
         CardBrr[38].Position[1] = -1;
         CardBrr[38].EffectTiming = 0;
 
-        CardBrr[39].HP = 3;
+        CardBrr[39].HP = 5;
         CardBrr[39].AP = 1;
         CardBrr[39].ExHP = 0;
         CardBrr[39].ExAP = 0;
@@ -1427,27 +1427,27 @@ public class DeckManager : MonoBehaviour
         CardBrr[45].Position[1] = -1;
         CardBrr[45].EffectTiming = 0;
 
-        CardBrr[46].HP = 0;
-        CardBrr[46].AP = 0;
+        CardBrr[46].HP = 3;
+        CardBrr[46].AP = 2;
         CardBrr[46].ExHP = 0;
         CardBrr[46].ExAP = 0;
         CardBrr[46].State = 0;
         CardBrr[46].CardId = 106;
-        CardBrr[46].AbilityId = 24;
-        CardBrr[46].ImgPath = "Cardimg24";
+        CardBrr[46].AbilityId = 12;
+        CardBrr[46].ImgPath = "Cardimg12";
         CardBrr[46].Context = "";
         CardBrr[46].Position[0] = -1;
         CardBrr[46].Position[1] = -1;
         CardBrr[46].EffectTiming = 0;
 
-        CardBrr[47].HP = 0;
-        CardBrr[47].AP = 0;
+        CardBrr[47].HP = 3;
+        CardBrr[47].AP = 2;
         CardBrr[47].ExHP = 0;
         CardBrr[47].ExAP = 0;
         CardBrr[47].State = 0;
         CardBrr[47].CardId = 107;
-        CardBrr[47].AbilityId = 24;
-        CardBrr[47].ImgPath = "Cardimg24";
+        CardBrr[47].AbilityId = 12;
+        CardBrr[47].ImgPath = "Cardimg12";
         CardBrr[47].Context = "";
         CardBrr[47].Position[0] = -1;
         CardBrr[47].Position[1] = -1;

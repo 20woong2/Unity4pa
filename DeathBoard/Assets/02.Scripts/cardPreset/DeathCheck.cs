@@ -24,8 +24,6 @@ public class DeathCheck : MonoBehaviour
                 {
                     if(i<=1)
                     {
-                        
-                        
                             if(DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].HP + DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].ExHP <= 0)
                             {
                                 if (!isWaiting)
