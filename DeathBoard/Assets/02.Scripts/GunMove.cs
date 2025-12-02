@@ -5,12 +5,21 @@ public class GunMove : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Vector3 targetPosition;          // 이동할 목표 위치
     public Quaternion targetRotation;       // 회전 목표값
-    public float smoothTime = 0.2f;
-    public float rotationSmoothTime = 0.2f;
-
+    public float smoothTime = 3f;
+    public float rotationSmoothTime = 3f;
+    public Vector3 originPosition;
+    public Quaternion originRotation;
     private Vector3 velocity = Vector3.zero;
     private float rotationVelocity;         // 회전 속도(스무딩용)
     private bool shouldMove = false;
+    private ParticleSystem muzzleFlash;
+
+    void Start()
+    {
+        GameObject thisGun = GameObject.Find("Gun");
+        originPosition = thisGun.transform.position;
+        originRotation = thisGun.transform.rotation;
+    }
 
     void LateUpdate()
     {

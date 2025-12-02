@@ -297,9 +297,8 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 11)//상대총격선택
         {
-            scan.scanAttack();
-            currentturn = 1;
-            turnend = true;
+            StartCoroutine(scan.scanAttack());
+            
         }
     }
     void Update()
