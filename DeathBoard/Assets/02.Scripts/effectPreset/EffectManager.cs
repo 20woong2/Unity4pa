@@ -726,8 +726,8 @@ public class EffectManager : MonoBehaviour
                     if (fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]] != null)
                     {
                         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value.ToString());
-                        DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[0] = -1;
-                        DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value].Position[1] = -1;
+                        DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value-60].Position[0] = -1;
+                        DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]].Value-60].Position[1] = -1;
                         fieldManager.CurrntField[3, DeckManager.CardBrr[cardID - 60].Position[1]] = null;
                         foreach (GameObject card in thiscards) // thiscards[0]~[1]
                                 {

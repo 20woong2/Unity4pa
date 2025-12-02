@@ -6,6 +6,9 @@ public class Scan : MonoBehaviour
     public Player player;
     private ParticleSystem muzzleFx;
     public ScreenFlash screenFlash; 
+    public AudioSource reloadSource;   // cocking-a-revolver-... 클립 연결
+    public AudioSource shotSource;  // single-pistol-gunshot-... 클립 연결
+    public AudioSource nobullet;   
     private int originHP = -1;
     private int afterHP = -1;
     public IEnumerator scanAttack()
@@ -23,12 +26,16 @@ public class Scan : MonoBehaviour
                 Quaternion originRotation = Gunmove.originRotation;
                 originHP = player.user.HP;
                 Gunmove.StartMoving(targetPosition,targetRotation);
-                yield return new WaitForSeconds(2.5f);
+                yield return new WaitForSeconds(0.7f);
+                reloadSource.Play();
+                yield return new WaitForSeconds(1.8f);
                 player.user.attacked();
-                yield return new WaitForSeconds(0.2f);
+                yield return new WaitForSeconds(0.5f);
                 afterHP = player.user.HP;
                 if(originHP != -1 && originHP > afterHP)
                 {
+                    shotSource.Play();
+                    yield return new WaitForSeconds(0.2f);
                     Transform t = thisGun.transform.Find("Particle System");
                     if (t != null)
                     {
@@ -40,6 +47,10 @@ public class Scan : MonoBehaviour
                     }
                     
                     screenFlash.DoFlash();
+                }
+                else 
+                {
+                    nobullet.Play();
                 }
                 Debug.Log("after: " + player.enemy.CP);
                 Debug.Log("now HP: " + player.enemy.HP);

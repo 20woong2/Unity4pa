@@ -6,6 +6,9 @@ public class Shoot : MonoBehaviour
     public TurnManager turnManager;
     private ParticleSystem muzzleFx;
     public ScreenFlash screenFlash; 
+    public AudioSource reloadSource;   // cocking-a-revolver-... 클립 연결
+    public AudioSource shotSource;  // single-pistol-gunshot-... 클립 연결
+    public AudioSource nobullet;   
     public bool Dofire = false;
     private int originHP = -1;
     private int afterHP = -1;
@@ -27,13 +30,17 @@ public class Shoot : MonoBehaviour
         Quaternion originRotation = Gunmove.originRotation;
         originHP = player.enemy.HP;
         Gunmove.StartMoving(targetPosition,targetRotation);
-        yield return new WaitForSeconds(2.5f);
+        yield return new WaitForSeconds(0.7f);
+        reloadSource.Play();
+        yield return new WaitForSeconds(1.8f);
         Debug.Log("before: " + player.enemy.CP);
         player.enemy.attacked();
-        yield return new WaitForSeconds(0.2f);
+        yield return new WaitForSeconds(0.5f);
         afterHP = player.enemy.HP;
-        if(originHP != -1 && originHP > afterHP)
-        {
+        //if(originHP != -1 && originHP > afterHP)
+        //{
+            shotSource.Play();
+            yield return new WaitForSeconds(0.2f);
             Transform t = thisGun.transform.Find("Particle System");
             if (t != null)
             {
@@ -47,7 +54,11 @@ public class Shoot : MonoBehaviour
             
             screenFlash.DoFlash();
             
-        }
+        //}
+        //else 
+        //{
+            nobullet.Play();
+        //}
         Debug.Log("after: " + player.enemy.CP);
         Debug.Log("now HP: " + player.enemy.HP);
         yield return new WaitForSeconds(2f);
