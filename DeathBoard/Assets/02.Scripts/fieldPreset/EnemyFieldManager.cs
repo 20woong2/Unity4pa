@@ -112,10 +112,10 @@ public class EnemyFieldManager : MonoBehaviour
             if (fieldManager.CurrntField[3, i] == null) check4 = 1;
             if (fieldManager.CurrntField[2, i] == null) check3 = 1;
         }
-        if (check4 == 0 && check3 == 0) return 0;
+        if(check4 == 0 && check3 == 0) return 0;
         if(check4 == 1 && check3 == 0) setPlace += 30;
-        if (check3 == 1 && check4 == 0) setPlace += 20;
-        if (check3 == 1 && check4 == 1) setPlace = Random.Range(2, 4) * 10;
+        if(check3 == 1 && check4 == 0) setPlace += 20;
+        if(check3 == 1 && check4 == 1) setPlace = Random.Range(2, 4) * 10;
         for(int i = 0;i < 7; i++)
         {
             if (fieldManager.CurrntField[(setPlace/10), i] == null)
@@ -123,16 +123,17 @@ public class EnemyFieldManager : MonoBehaviour
                 RandX.Add(i);
             }
         }
-        if(fieldManager.CurrntField[2, 0] == null){
+        if(fieldManager.CurrntField[setPlace/10, 0] == null)
+        {
             RandX.Add(0);
         }
-        if (fieldManager.CurrntField[2, 6] == null)
+        if (fieldManager.CurrntField[setPlace/10, 6] == null)
         {
             RandX.Add(6);
         }
         for(int i = 0; i< 7; i++)
         {
-            if(fieldManager.CurrntField[1, i] != null && fieldManager.CurrntField[2, i] == null)
+            if(fieldManager.CurrntField[1, i] != null && fieldManager.CurrntField[setPlace/10, i] == null)
             {
                 RandX.Add(i);
             }
