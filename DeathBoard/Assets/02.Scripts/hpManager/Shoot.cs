@@ -9,6 +9,7 @@ public class Shoot : MonoBehaviour
     public AudioSource reloadSource;   // cocking-a-revolver-... 클립 연결
     public AudioSource shotSource;  // single-pistol-gunshot-... 클립 연결
     public AudioSource nobullet;   
+    public bool shooting = false;
     public bool Dofire = false;
     private int originHP = -1;
     private int afterHP = -1;
@@ -16,6 +17,7 @@ public class Shoot : MonoBehaviour
     {
        if(TurnManager.currentturn == 10)
         {
+            shooting = true;
             TurnManager.currentturn = 11;
             StartCoroutine(Gunmoving());
         }
@@ -64,7 +66,7 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Gunmove.StartMoving(originPosition,originRotation);
         yield return new WaitForSeconds(2f);
-        
+        shooting = false;
         TurnManager.turnend = true;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
