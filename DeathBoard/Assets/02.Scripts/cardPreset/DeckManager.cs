@@ -15,8 +15,10 @@ public class DeckManager : MonoBehaviour
 
     void Start()
     {
+        Debug.Log("카드 초기화");
         DeckList.Clear();
-
+        HandList.Clear();
+        EnemyHandList.Clear();
         List<int> tempList = new List<int>();
         //아군 덱 섞기
         // 0부터 59까지 숫자를 임시 리스트에 추가

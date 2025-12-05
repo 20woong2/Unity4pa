@@ -50,6 +50,9 @@ public class TurnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentturn = 1;
+        turnend = false;
+        Debug.Log("게임시작");
         TV_turn = tvObj.transform.Find("TV_turn");
         TV_summon = tvObj.transform.Find("TV_summon");
         TV_attack = tvObj.transform.Find("TV_attack");

@@ -39,8 +39,12 @@ public class EnemyHandManager : MonoBehaviour
                 PosZ - (0.001f * i)
             );
             Vector3 position = targetPosition;
-            thisCard.transform.position = position;
-            thiscards[1].transform.position = new Vector3(position.x, position.y, position.z - 0.001f);
+            if(thisCard != null)
+            {
+                thisCard.transform.position = position;
+                thiscards[1].transform.position = new Vector3(position.x, position.y, position.z - 0.001f);
+            }
+            
 
         }
     }
