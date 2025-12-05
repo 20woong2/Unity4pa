@@ -3,8 +3,7 @@ using UnityEngine.EventSystems;
 
 public class GuideSelecter : MonoBehaviour, IPointerDownHandler
 {
-    
-
+    public TurnManager turnManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -18,6 +17,7 @@ public class GuideSelecter : MonoBehaviour, IPointerDownHandler
     }
     public void OnPointerDown(PointerEventData eventData)
     {
+        turnManager.HelpOn = true;
         GameObject.Find("Canvas").transform.Find("Illustrated Guide Screen").gameObject.SetActive(true);
     }
 }

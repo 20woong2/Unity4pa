@@ -16,6 +16,7 @@ public class TurnManager : MonoBehaviour
     public Shoot shoot;
     public Scan scan;
     public GameObject tvObj;
+    public bool HelpOn = false;
     //현재 턴(1->카드 드로우 단계, 2->카드 내려놓기 단계, 3->적카드 내려놓기 단계, 4->카드 효과실행 단계, 5->공격단계,6->뒷열 카드 전진 단계, 7->카드 효과실행 단계2, 8->공격단계2, 9->뒷열 카드 전진 단계2, 10->총격 선택, 11->상대방 검사 선택)
 
 
@@ -24,6 +25,10 @@ public class TurnManager : MonoBehaviour
     private Transform TV_attack;
     private Transform TV_bullet;
 
+    public void HelpCancel()
+    {
+        HelpOn = false;
+    }
     void TvChange(string name) {
         TV_turn.localPosition = new Vector3(0f, 10f, 0f);
         TV_summon.localPosition = new Vector3(0f, 10f, 0f);
@@ -50,6 +55,7 @@ public class TurnManager : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        HelpOn = false;
         currentturn = 1;
         turnend = false;
         Debug.Log("게임시작");

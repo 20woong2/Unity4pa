@@ -16,11 +16,13 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     private GameObject thisCard;
     public CardSelecter cardSelecter;
     public EffectManager effectManager;
+    public TurnManager turnManager;
     void Start()
     {
         fieldManager = FindAnyObjectByType<FieldManager>();
         cardSelecter = FindAnyObjectByType<CardSelecter>();
         effectManager = FindAnyObjectByType<EffectManager>();
+        turnManager = FindAnyObjectByType<TurnManager>();
         originalScale = transform.localScale;
         originalPosition = transform.localPosition;  //기존의 크기, 위치 저장
         thisCard = this.gameObject;
@@ -62,7 +64,7 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     void OnMouseEnter()
     {
         GameObject[] thiscards = GameObject.FindGameObjectsWithTag(thisCard.tag);
-        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
+        if (int.Parse(thisCard.tag) < 60 && thiscards[0] == thisCard && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1 && turnManager.HelpOn == false)
         {
             // 크기 확대
             originalPosition = transform.localPosition;
@@ -83,35 +85,37 @@ public class CardReaction : MonoBehaviour //카드와 마우스 간의 상호작
     }
     void OnMouseDown()
     {
-        Debug.Log("카드 클릭");
-        if (int.Parse(thisCard.tag) < 60 && effectManager.effectstart == false && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
+        if(turnManager.HelpOn == false)
         {
-            fieldManager.SetCardReady(thisCard);
-            StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
-        }
-        if(int.Parse(thisCard.tag) < 60)
-        {
-            if(effectManager.effectstart == true && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+            Debug.Log("카드 클릭");
+            if (int.Parse(thisCard.tag) < 60 && effectManager.effectstart == false && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
             {
-                Debug.Log("설치선택");
-                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+                fieldManager.SetCardReady(thisCard);
+                StartCoroutine(cardSelecter.CameraSmoothMoveRoutine());
             }
-            else if(effectManager.effectstart == true && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value && DeckManager.CardArr[effectManager.effectCardID.Value].AbilityId == 25 && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
+            if(int.Parse(thisCard.tag) < 60)
             {
-                Debug.Log("덱선택");
-                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+                if(effectManager.effectstart == true && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0],DeckManager.CardArr[int.Parse(thisCard.tag)].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+                {
+                    Debug.Log("설치선택");
+                    effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+                }
+                else if(effectManager.effectstart == true && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value && DeckManager.CardArr[effectManager.effectCardID.Value].AbilityId == 25 && DeckManager.CardArr[int.Parse(thisCard.tag)].Position[0] == -1)
+                {
+                    Debug.Log("덱선택");
+                    effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+                }
+            }
+            
+            else if(int.Parse(thisCard.tag) >= 60)
+            {
+                if(effectManager.effectstart == true && DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0],DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
+                {
+                    Debug.Log("설치선택");
+                    effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
+                }
             }
         }
-        
-        else if(int.Parse(thisCard.tag) >= 60)
-        {
-            if(effectManager.effectstart == true && DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0] != -1 && fieldManager.CurrntField[DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[0],DeckManager.CardBrr[int.Parse(thisCard.tag)-60].Position[1]] != null && effectManager.effectCardID != null && int.Parse(thisCard.tag) != effectManager.effectCardID.Value)
-            {
-                Debug.Log("설치선택");
-                effectManager.ChooseEffect(int.Parse(thisCard.tag) , effectManager.effectCardID.Value);
-            }
-        }
-        
     }
     void OnMouseExit()
     {

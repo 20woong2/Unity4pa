@@ -29,6 +29,7 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     // Hover, pressed state�� ������ ����
     private bool isHovered = false;
     private bool isPressed = false;
+    
 
     void Start()
     {
