@@ -46,7 +46,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -91,7 +91,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -139,7 +139,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -264,7 +264,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -409,7 +409,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -433,7 +433,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -517,7 +517,7 @@ public class EffectManager : MonoBehaviour
         int effectnum = DeckManager.CardArr[cardid].AbilityId;
         if(effectnum == 21 && targetid < 60)
         {
-            Debug.Log("21Ä«µå ½ÇÇà");
+            Debug.Log("21Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 
             DeckManager.CardArr[targetid].AP += 2;
             DeckManager.CardArr[targetid].HP += 2;
@@ -526,7 +526,7 @@ public class EffectManager : MonoBehaviour
         }
         else if(effectnum == 22 && targetid >= 60)
         {
-            Debug.Log("22Ä«µå ½ÇÇà");
+            Debug.Log("22Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
             fieldManager.CurrntField[DeckManager.CardBrr[targetid-60].Position[0], DeckManager.CardBrr[targetid-60].Position[1]] = null;
             DeckManager.CardBrr[targetid-60].Position[0] = -1;
@@ -540,7 +540,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -551,7 +551,7 @@ public class EffectManager : MonoBehaviour
         {
             if(fieldManager.CurrntField[1,DeckManager.CardArr[targetid].Position[1]] != null && fieldManager.CurrntField[0,DeckManager.CardArr[targetid].Position[1]] == null)
             {
-                Debug.Log("23Ä«µå ½ÇÇà");
+                Debug.Log("23Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
                 fieldManager.CurrntField[1, DeckManager.CardArr[targetid].Position[1]] = null;
                 DeckManager.CardArr[targetid].Position[0] = 0;
                 fieldManager.CurrntField[0, DeckManager.CardArr[targetid].Position[1]] = targetid;
@@ -566,7 +566,7 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.HandList.Contains(targetid))
             {
-                Debug.Log("25Ä«µå ½ÇÇà");
+                Debug.Log("25Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
                 DeckManager.HandList.Remove(targetid);
                 GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
                 foreach (GameObject card in thiscards) // thiscards[0]~[1]
@@ -578,7 +578,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -590,7 +590,7 @@ public class EffectManager : MonoBehaviour
         }
         else if(effectnum == 27 && targetid < 60)
         {
-            Debug.Log("27Ä«µå ½ÇÇà");
+            Debug.Log("27Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             GameObject[] thiscards = GameObject.FindGameObjectsWithTag(targetid.ToString());
             fieldManager.CurrntField[DeckManager.CardArr[targetid].Position[0], DeckManager.CardArr[targetid].Position[1]] = null;
             DeckManager.CardArr[targetid].Position[0] = -1;
@@ -604,7 +604,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -615,7 +615,7 @@ public class EffectManager : MonoBehaviour
         }
         else if(effectnum == 29 && targetid >= 60)
         {
-            Debug.Log("29Ä«µå ½ÇÇà");
+            Debug.Log("29Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
             DeckManager.CardBrr[targetid-60].AP -= 2;
             effectstart = false;
             effectCardID = null;
@@ -645,7 +645,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -690,7 +690,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -738,7 +738,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -797,7 +797,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -824,7 +824,7 @@ public class EffectManager : MonoBehaviour
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, targetList[target]].Value.ToString());
                     DeckManager.CardBrr[fieldManager.CurrntField[2, targetList[target]].Value - 60].Position[0] = 3;
                     fieldManager.CurrntField[2, targetList[target]] = null;
-                    //Ä«µå ¹°¸®Àû ÀÌµ¿ ÄÚµå Ãß°¡
+                    //Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½Úµï¿½ ï¿½ß°ï¿½
                 }
                 else
                 {
@@ -850,7 +850,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -904,7 +904,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -942,7 +942,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -1066,7 +1066,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -1088,7 +1088,7 @@ public class EffectManager : MonoBehaviour
                                     }
                                     else
                                     {
-                                        Debug.LogWarning($"{gameObject.name} : fader°¡ ¹ß°ßµÇÁö ¾Ê½À´Ï´Ù. ÆäÀÌµå È¿°ú°¡ Àû¿ëµÇÁö ¾Ê°í Áï½Ã »ç¶óÁý´Ï´Ù.", fader);
+                                        Debug.LogWarning($"{gameObject.name} : faderï¿½ï¿½ ï¿½ß°ßµï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½Ìµï¿½ È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½.", fader);
                                         card.SetActive(false);
                                     }
                                 }
@@ -1108,7 +1108,7 @@ public class EffectManager : MonoBehaviour
             {
                 if (fieldManager.CurrntField[3, battleManager.DestroyPosition] != null)
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[3, battleManager.DestroyPosition].Value].AP += 2;
+                    DeckManager.CardBrr[fieldManager.CurrntField[3, battleManager.DestroyPosition].Value - 60].AP += 2;
                 }
             }
             battleManager.DestroyPosition = -1;

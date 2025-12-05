@@ -6,8 +6,8 @@ public class Player : MonoBehaviour
     public struct PlayerStruct
     {
         public int HP; //hp
-        public int CP; //°øÆ÷°ÔÀÌÁö
-        public int randomStack; //°øÆ÷°ÔÀÌÁö µû¸¥ È®·ü
+        public int CP; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        public int randomStack; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½
         public void attacked()
         {
             if (this.CP == 0)
@@ -39,10 +39,10 @@ public class Player : MonoBehaviour
             if (attacked <= this.randomStack)
             {
                 this.HP--;
-                Debug.Log("°ø°İ ¼º°ø  ³²Àº Ã¼·Â : " + this.HP);
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ : " + this.HP);
             }
             else{
-                Debug.Log("°ø°İ ½ÇÆĞ  ³²Àº Ã¼·Â : " + this.HP);
+                Debug.Log("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½  ï¿½ï¿½ï¿½ï¿½ Ã¼ï¿½ï¿½ : " + this.HP);
             }
         }
         PlayerStruct(int HP, int CP, int randomStack)
