@@ -39,8 +39,8 @@ public class Shoot : MonoBehaviour
         player.enemy.attacked();
         yield return new WaitForSeconds(0.5f);
         afterHP = player.enemy.HP;
-        //if(originHP != -1 && originHP > afterHP)
-        //{
+        if(originHP != -1 && originHP > afterHP)
+        {
             shotSource.Play();
             yield return new WaitForSeconds(0.2f);
             Transform t = thisGun.transform.Find("Particle System");
@@ -56,11 +56,11 @@ public class Shoot : MonoBehaviour
             
             screenFlash.DoFlash();
             
-        //}
-        //else 
-        //{
+        }
+        else 
+        {
             nobullet.Play();
-        //}
+        }
         Debug.Log("after: " + player.enemy.CP);
         Debug.Log("now HP: " + player.enemy.HP);
         yield return new WaitForSeconds(2f);
