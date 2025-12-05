@@ -384,14 +384,14 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 Debug.Log("상대 직접공격 : " + (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP) + " 공포게이지 : " + player.user.CP);
 
                 targetPosition1 = Origin1; 
-                    targetPosition2 = Origin2;
+                targetPosition2 = Origin2;
 
-                    moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
-                    moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
-                    targetPosition = new Vector3(thiscards[0].transform.position.x, thiscards[0].transform.position.y + 0.7f, thiscards[0].transform.position.z+0.5f);
-                    targetRotation = Quaternion.Euler(55f, 180f, 0f);
-                    battleCameraMove.StartMoving(targetPosition, targetRotation);
+                moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
+                moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
+                yield return new WaitForSeconds(0.5f);
+                targetPosition = new Vector3(thiscards[0].transform.position.x, thiscards[0].transform.position.y + 0.7f, thiscards[0].transform.position.z+0.5f);
+                targetRotation = Quaternion.Euler(55f, 180f, 0f);
+                battleCameraMove.StartMoving(targetPosition, targetRotation);
             }
             for(int p=1;p>=0;p--)
                 {

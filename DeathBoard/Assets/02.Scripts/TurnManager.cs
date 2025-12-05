@@ -69,7 +69,7 @@ public class TurnManager : MonoBehaviour
         TV_attack.localPosition = new Vector3(0f, 10f, 0f);
         TV_bullet.localPosition = new Vector3(0f, 10f, 0f);
 
-        for(int i=0;i<2;i++)
+        for(int i=0;i<4;i++)
         {
             cardmanager.DrawHand();
             enemycardmanager.DrawHand();
