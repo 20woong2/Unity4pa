@@ -168,7 +168,7 @@ public class MoveManager : MonoBehaviour //
             battleCameraMove.StartMoving(pos1.transform.position, pos1.transform.rotation);
             moveexist = false;
         }
-        
+        Debug.Log("턴엔드");
         yield return new WaitForSeconds(1.5f);
         TurnManager.turnend = true;
     }

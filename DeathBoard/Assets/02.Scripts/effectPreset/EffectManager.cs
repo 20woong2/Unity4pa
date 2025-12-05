@@ -823,8 +823,9 @@ public class EffectManager : MonoBehaviour
                     int target = Random.Range(0, targetList.Count);
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[2, targetList[target]].Value.ToString());
                     DeckManager.CardBrr[fieldManager.CurrntField[2, targetList[target]].Value - 60].Position[0] = 3;
+                    fieldManager.CurrntField[3, targetList[target]] = fieldManager.CurrntField[2, targetList[target]];
                     fieldManager.CurrntField[2, targetList[target]] = null;
-                    thiscards[0].transform.position = new Vector3(3.95f + 0.425f * targetList[target], 2.00f - 0.001f, 0.6f);
+                    thiscards[0].transform.position = new Vector3(3.95f + 0.425f * targetList[target], 2.00f, 0.6f);
                     thiscards[1].transform.position = new Vector3(3.95f + 0.425f * targetList[target], 2.00f - 0.001f, 0.6f);
                     //ī�� ������ �̵� �ڵ� �߰�
                 }

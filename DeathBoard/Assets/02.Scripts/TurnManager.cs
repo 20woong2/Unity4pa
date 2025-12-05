@@ -178,7 +178,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 4)//카드효과실행
         {
-            
+            Debug.Log("효과턴");
             for(int i=1;i>=0;i--)
             {
                 for(int j=0;j<7;j++)
@@ -225,7 +225,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 5)//공격단계
         {
-            
+            Debug.Log("공격격턴1");
             TvChange("attack");
             StartCoroutine(battlemanager.StartBattle());
             currentturn = 6; 
@@ -233,7 +233,7 @@ public class TurnManager : MonoBehaviour
         }
         else if(currentturn == 6)//뒷열카드전진
         {
-               
+            Debug.Log("전진턴1");   
             StartCoroutine(movemanager.StartMoveTurn());
             currentturn = 7;
             turnend = false;

@@ -58,7 +58,9 @@ public class DeathCheck : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         if(i<=1)
         {
-            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i, j].Value.ToString());
+                                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i, j].Value.ToString());
+            
+                                effectManager.EffectCast(fieldManager.CurrntField[i, j].Value,4);
                                 DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].Position[0] = -1;
                                 DeckManager.CardArr[fieldManager.CurrntField[i, j].Value].Position[1] = -1;
                                 fieldManager.CurrntField[i,j] = null;
@@ -75,6 +77,7 @@ public class DeathCheck : MonoBehaviour
                                         card.SetActive(false);
                                     }
                                 }
+                                
                                 for(int p=1;p>=0;p--)
                                 {
                                     for(int q=0;q<7;q++)
@@ -120,8 +123,9 @@ public class DeathCheck : MonoBehaviour
         }
         else if(i>1)
         {
-            GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i, j].Value.ToString());
-            DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].Position[0] = -1;
+                                GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i, j].Value.ToString());
+                                effectManager.EnemyEffectCast(fieldManager.CurrntField[i, j].Value,4);
+                                DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].Position[0] = -1;
                                 DeckManager.CardBrr[fieldManager.CurrntField[i, j].Value-60].Position[1] = -1;
                                 fieldManager.CurrntField[i,j] = null;
                                 foreach (GameObject card in thiscards) // thiscards[0]~[1]
@@ -137,6 +141,7 @@ public class DeathCheck : MonoBehaviour
                                         card.SetActive(false);
                                     }
                                 }
+                                
                                     for(int p=1;p>=0;p--)
                                     {
                                         for(int q=0;q<7;q++)
