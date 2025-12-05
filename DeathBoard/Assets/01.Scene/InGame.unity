@@ -2357,26 +2357,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 100010, guid: 3eac9019b1b6d9b45babfad0a433e676, type: 3}
   m_PrefabInstance: {fileID: 282490453}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &245310210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 245310207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d0e698d13b0ac44d843ac823b698c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Shoot
-  player: {fileID: 2092155993}
-  turnManager: {fileID: 110871187}
-  screenFlash: {fileID: 0}
-  reloadSource: {fileID: 0}
-  shotSource: {fileID: 0}
-  nobullet: {fileID: 0}
-  shooting: 0
-  Dofire: 0
 --- !u!65 &245310211
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2975,9 +2955,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 100010, guid: 3eac9019b1b6d9b45babfad0a433e676, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 245310210}
     - targetCorrespondingSourceObject: {fileID: 100010, guid: 3eac9019b1b6d9b45babfad0a433e676, type: 3}
       insertIndex: -1
       addedObject: {fileID: 245310211}
