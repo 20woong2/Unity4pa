@@ -1640,7 +1640,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: m_IsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.size
@@ -1854,7 +1854,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: m_IsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: m_Interactable
@@ -1874,7 +1874,7 @@ PrefabInstance:
       objectReference: {fileID: 7442277475572312036}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickVHSOn
+      value: OnClickFullScreenOn
       objectReference: {fileID: 0}
     - target: {fileID: 9094730833356023197, guid: 302be2022150c9a4aaf450395bb63aa8, type: 3}
       propertyPath: onValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -1984,7 +1984,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2217966356174025712, guid: 770b1f01391af094a867e834b91e4284, type: 3}
       propertyPath: m_IsOn
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2217966356174025712, guid: 770b1f01391af094a867e834b91e4284, type: 3}
       propertyPath: m_Group

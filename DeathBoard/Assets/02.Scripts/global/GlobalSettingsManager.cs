@@ -18,8 +18,8 @@ public class GlobalSettingsManager : MonoBehaviour
     public bool usePostProcessing;
     public bool useVHSFilter;
 
-    [Header("테스트용")]
-    public bool debugResetOnPlay = false; // 이거 체크하고 시작하면 저장된 거 다 날라감
+    [Header("개발자 옵션")]
+    public bool forceResetSaveData = false;  // 게임 시작 시 무조건 저장된 데이터를 싹 지우고 기본값으로 시작합니다.
 
     private void Awake()
     {
@@ -30,7 +30,7 @@ public class GlobalSettingsManager : MonoBehaviour
             DontDestroyOnLoad(gameObject); // 씬 넘어가도 파괴되지 말아라
 
             // 테스트할 때 데이터 꼬이면 초기화하려고 만든 거
-            if (debugResetOnPlay)
+            if (forceResetSaveData)
             {
                 PlayerPrefs.DeleteAll();
                 print("데이터 리셋 완료");
@@ -80,7 +80,20 @@ public class GlobalSettingsManager : MonoBehaviour
 
     public void ApplyGraphicsSettings()
     {
-        Screen.fullScreen = isFullScreen;
+
+        if (isFullScreen)
+        {
+            // 현재 모니터의 최대 해상도로 '전체화면 창모드(Borderless)' 설정
+            // (FullScreenWindow 모드가 Alt-Tab 전환도 빠르고 오류가 적음)
+            Resolution maxRes = Screen.currentResolution;
+            Screen.SetResolution(maxRes.width, maxRes.height, FullScreenMode.FullScreenWindow);
+        }
+        else
+        {
+            // 창모드로 전환 시 특정 사이즈로 강제 변경
+            // 이렇게 해상도를 정해야 창모드로 확실하게 변함
+            Screen.SetResolution(1600, 900, FullScreenMode.Windowed);
+        }
 
         // 효과 오브젝트 찾기 (꺼져있으면 못 찾으니까 함수 따로 만듦)
         GameObject postProcessObj = FindObj("PostProcess");

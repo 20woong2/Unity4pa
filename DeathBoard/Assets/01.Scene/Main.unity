@@ -2834,7 +2834,7 @@ MonoBehaviour:
   globalVolume: 1
   usePostProcessing: 1
   useVHSFilter: 1
-  debugResetOnPlay: 1
+  forceResetSaveData: 1
 --- !u!1 &802239419
 GameObject:
   m_ObjectHideFlags: 0
