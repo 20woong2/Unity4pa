@@ -4,6 +4,7 @@ public class Scan : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public Player player;
+    public GameEndManager gameEndManager;
     private ParticleSystem muzzleFx;
     public ScreenFlash screenFlash; 
     public AudioSource reloadSource;   // cocking-a-revolver-... 클립 연결
@@ -60,6 +61,15 @@ public class Scan : MonoBehaviour
                 if(player.user.HP<=0)
                 {
                     //적 승리
+                    if (gameEndManager != null)
+                    {
+                        gameEndManager.EnemyWin();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("gameEndManager가 연결되지 않았습니다.");
+                    }
+                    Debug.Log("적 승리!");
                 }
                 yield return new WaitForSeconds(2f);
             }

@@ -13,6 +13,7 @@ public class EffectManager : MonoBehaviour
     public EnemyCardManager enemyCardManager;
     public BattleManager battleManager;
     public Player player;
+    public GameEndManager gameEndManager;
     public bool effectstart = false;
     public int? effectCardID = null;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -59,7 +60,16 @@ public class EffectManager : MonoBehaviour
                 player.enemy.CP = 50;
                 if(player.user.HP<=0)
                 {
-                    //적승리
+                    //적 승리
+                    if (gameEndManager != null)
+                    {
+                        gameEndManager.EnemyWin();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("gameEndManager가 연결되지 않았습니다.");
+                    }
+                    Debug.Log("적 승리!");
                 }
             }
             else if(DeckManager.CardArr[cardID].AbilityId == 9)
@@ -661,7 +671,16 @@ public class EffectManager : MonoBehaviour
                 player.user.CP = 50;
                 if(player.user.HP<=0)
                 {
-                    //적 승리
+                    //플레이어 승리
+                    if (gameEndManager != null)
+                    {
+                        gameEndManager.PlayerWin();
+                    }
+                    else
+                    {
+                        Debug.LogWarning("gameEndManager가 연결되지 않았습니다.");
+                    }
+                    Debug.Log("플레이어 승리!");
                 }
             }
             else if (DeckManager.CardBrr[cardID - 60].AbilityId == 9)

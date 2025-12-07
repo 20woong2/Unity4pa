@@ -3,6 +3,7 @@ using System.Collections;
 public class Shoot : MonoBehaviour
 {
     public Player player;
+    public GameEndManager gameEndManager;
     public TurnManager turnManager;
     private ParticleSystem muzzleFx;
     public ScreenFlash screenFlash; 
@@ -69,7 +70,16 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(2f);
         if(player.enemy.HP<=0)
         {
-            //유저승리
+            //플레이어 승리
+            if (gameEndManager != null)
+            {
+                gameEndManager.PlayerWin();
+            }
+            else
+            {
+                Debug.LogWarning("gameEndManager가 연결되지 않았습니다.");
+            }
+            Debug.Log("플레이어 승리!");
         }
         shooting = false;
         TurnManager.turnend = true;
