@@ -459,12 +459,11 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardArr[cardID].AbilityId == 14)
             {
-                if (fieldManager.CurrntField[0, battleManager.DestroyPosition] != null)
+                if (fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]] != null)
                 {
-                    DeckManager.CardArr[fieldManager.CurrntField[0, battleManager.DestroyPosition].Value].AP += 2;
+                    DeckManager.CardArr[fieldManager.CurrntField[0, DeckManager.CardArr[cardID].Position[1]].Value].AP += 2;
                 }
             }
-            battleManager.DestroyPosition = -1;
         }
         else if(timing == 5)
         {
@@ -1122,7 +1121,6 @@ public class EffectManager : MonoBehaviour
                     DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID-60].Position[1]].Value - 60].AP += 2;
                 }
             }
-            battleManager.DestroyPosition = -1;
         }
         else if(timing == 5)
         {

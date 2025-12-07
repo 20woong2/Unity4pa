@@ -13,7 +13,6 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     public Player player;
     private GameObject pos1;
     public CardSelecter cardselecter;
-    public int DestroyPosition = -1; 
     public bool battleexist = false;
     public AudioSource attacksound; 
     void Start()

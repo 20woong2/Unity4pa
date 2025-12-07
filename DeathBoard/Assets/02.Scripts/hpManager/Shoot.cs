@@ -56,10 +56,10 @@ public class Shoot : MonoBehaviour
             Debug.Log("before screenFlash");
             
             screenFlash.DoFlash();
-            
         }
         else 
         {
+            player.user.CP += 10;
             nobullet.Play();
         }
         Debug.Log("after: " + player.enemy.CP);

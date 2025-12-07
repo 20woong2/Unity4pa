@@ -50,6 +50,7 @@ public class Scan : MonoBehaviour
                 }
                 else 
                 {
+                    player.enemy.CP += 10;
                     nobullet.Play();
                 }
                 Debug.Log("after: " + player.enemy.CP);
