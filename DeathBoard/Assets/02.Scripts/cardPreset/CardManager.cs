@@ -18,6 +18,7 @@ public class CardManager : MonoBehaviour
     void Update()
     {
         // 예시: R 키를 누를 때마다 카드를 생성합니다.
+        /*
         if (Input.GetKeyDown(KeyCode.R) && DeckManager.HandList.Count < 7)
         {
             int cardID;
@@ -25,6 +26,7 @@ public class CardManager : MonoBehaviour
             if (cardID >= 0) AddCard(cardID); //받아온 카드를 패에 추가
             else Debug.Log("덱 빔");
         }
+        */
     }
     public void DrawHand()
     {
