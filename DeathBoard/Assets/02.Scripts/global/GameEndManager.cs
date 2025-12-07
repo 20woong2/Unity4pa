@@ -1,13 +1,14 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 
 public class GameEndManager : MonoBehaviour
 {
-    [Header("°ÔÀÓ ¿À¹ö È­¸é (ÆĞ¹è)")]
+    [Header("UI ì—°ê²°")]
     public GameObject gameOverScreen;
-    [Header("°ÔÀÓ Å¬¸®¾î È­¸é (½Â¸®)")]
-    public GameObject gameClearScreen; // »õ·Î Ãß°¡µÈ ºÎºĞ!
+    public GameObject gameClearScreen;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [Header("raycast block ì„¤ì •")]
+    public bool blockMouseInput = true; // ê²Œì„ ì˜¤ë²„ ë° í´ë¦¬ì–´ í™”ë©´ì—ì„œ í´ë¦­ ë§‰ì„ì§€ ì—¬ë¶€
+
     public void EnemyWin()
     {
         if (gameOverScreen != null)
@@ -16,7 +17,7 @@ public class GameEndManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("¿¬°áµÈ gameOverScreen¸¦ Ã£À» ¼ö ¾øÀ½. inspector¸¦ È®ÀÎÇØ º¸¼¼¿ä.");
+            Debug.LogWarning("ì—°ê²°ëœ gameOverScreenë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŒ. inspectorë¥¼ í™•ì¸í•´ ë³´ì„¸ìš”.");
         }
 
     }
@@ -29,7 +30,7 @@ public class GameEndManager : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("gameClearScreenÀÌ ¿¬°áµÇÁö ¾Ê¾Ò½À´Ï´Ù! Inspector¿¡¼­ ¿¬°áÇØÁÖ¼¼¿ä.");
+            Debug.LogWarning("gameClearScreenì´ ì—°ê²°ë˜ì§€ ì•Šì•˜ìŠµë‹ˆë‹¤! Inspectorì—ì„œ ì—°ê²°í•´ì£¼ì„¸ìš”.");
         }
     }
 }

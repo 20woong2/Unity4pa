@@ -1,34 +1,34 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class SettingsUI : MonoBehaviour
 {
     public Slider volumeSlider;
 
-    // UI ÄÑÁú ¶§ ½ÇÇàµÊ
+    // UI ì¼œì§ˆ ë•Œ ì‹¤í–‰ë¨
     private void OnEnable()
     {
         if (GlobalSettingsManager.Instance == null) return;
 
-        // ¼³Á¤Ã¢ Ä×À» ¶§ ½½¶óÀÌ´õ À§Ä¡°¡ ÀÌ»óÇÏ¸é ¾È µÇ´Ï±î ÇöÀç º¼·ıÀ¸·Î ¸ÂÃçÁÜ
+        // ì„¤ì •ì°½ ì¼°ì„ ë•Œ ìŠ¬ë¼ì´ë” ìœ„ì¹˜ê°€ ì´ìƒí•˜ë©´ ì•ˆ ë˜ë‹ˆê¹Œ í˜„ì¬ ë³¼ë¥¨ìœ¼ë¡œ ë§ì¶°ì¤Œ
         if (volumeSlider != null)
             volumeSlider.value = GlobalSettingsManager.Instance.globalVolume;
     }
 
-    // --- UI ÀÌº¥Æ® ¿¬°á ºÎºĞ ---
+    // UI ì´ë²¤íŠ¸ ì—°ê²°
 
-    // ½½¶óÀÌ´õ ¿òÁ÷ÀÏ ¶§¸¶´Ù È£Ãâ (Dynamic float ¿¬°á ÇÊ¼ö!)
+    // ìŠ¬ë¼ì´ë” ì›€ì§ì¼ ë•Œë§ˆë‹¤ í˜¸ì¶œ (ìŠ¬ë¼ì´ë”ì˜ ê°’ì„ ì‹¤ì‹œê°„ìœ¼ë¡œ ë„˜ê²¨ì£¼ê¸° ìœ„í•´ Dynamic float ì—°ê²° í•„ìˆ˜)
     public void OnVolumeChanged(float value)
     {
-        // print("º¼·ı Á¶Àı Áß: " + value); 
+        // print("ë³¼ë¥¨ ì¡°ì ˆ ì¤‘: " + value); 
         if (GlobalSettingsManager.Instance != null)
         {
             GlobalSettingsManager.Instance.SetVolume(value);
         }
     }
 
-    // --- ÀüÃ¼È­¸é ¹öÆ° ---
-    // È­»ìÇ¥ ÇÔ¼ö(=>) ½á¼­ ÇÑ ÁÙ·Î ÁÙÀÓ. ±â´ÉÀº ¶È°°À½.
+    // ì „ì²´í™”ë©´ ë²„íŠ¼
+    // í™”ì‚´í‘œ í•¨ìˆ˜(=>) ì¨ì„œ í•œ ì¤„ë¡œ ì¤„ì„. ê¸°ëŠ¥ì€ ë˜‘ê°™ìŒ.
 
     public void OnClickFullScreenOn() => SetFullScreen(true);
     public void OnClickFullScreenOff() => SetFullScreen(false);
@@ -42,7 +42,7 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
-    // --- ÈÄÃ³¸®(PostProcess) ¹öÆ° ---
+    // í›„ì²˜ë¦¬ íš¨ê³¼(PostProcess) ë²„íŠ¼
 
     public void OnClickPostProcessOn() => SetPostProcess(true);
     public void OnClickPostProcessOff() => SetPostProcess(false);
@@ -56,7 +56,7 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
-    // --- VHS ÇÊÅÍ ¹öÆ° ---
+    // VHS í•„í„°(VHSFilter) ë²„íŠ¼
 
     public void OnClickVHSOn() => SetVHS(true);
     public void OnClickVHSOff() => SetVHS(false);
@@ -70,18 +70,18 @@ public class SettingsUI : MonoBehaviour
         }
     }
 
-    // --- ÀúÀå ¹öÆ° ´­·¶À» ¶§ ---
+    // ì €ì¥ ë²„íŠ¼ ëˆŒë €ì„ ë•Œ
     public void OnApplyButtonClicked()
     {
         if (GlobalSettingsManager.Instance != null)
         {
-            // ÀúÀåÇÏ±â Àü¿¡ ½½¶óÀÌ´õ °ª ÇÑ¹ø ´õ È®½ÇÇÏ°Ô ³Ö¾îÁÜ (º¸Çè)
+            // ì €ì¥í•˜ê¸° ì „ì— ìŠ¬ë¼ì´ë” ê°’ í•œë²ˆ ë” í™•ì‹¤í•˜ê²Œ ë„£ì–´ì¤Œ
             if (volumeSlider != null)
                 GlobalSettingsManager.Instance.SetVolume(volumeSlider.value);
 
             GlobalSettingsManager.Instance.SaveSettings();
         }
 
-        gameObject.SetActive(false); // ¼³Á¤Ã¢ ´İ±â
+        gameObject.SetActive(false); // ì„¤ì •ì°½ ë‹«ê¸°
     }
 }

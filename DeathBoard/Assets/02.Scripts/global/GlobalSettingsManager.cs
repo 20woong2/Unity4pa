@@ -93,10 +93,10 @@ public class GlobalSettingsManager : MonoBehaviour
         // print("그래픽 설정 적용됨");
     }
 
-    // 비활성화된(꺼진) 오브젝트도 억지로 찾아내는 함수
+    // 비활성화된(꺼진) 오브젝트도 찾아내는 함수
     GameObject FindObj(string name)
     {
-        // 1. 켜져 있는 놈이면 바로 리턴
+        // 1. 켜져 있는 놈이면 바로 return
         GameObject activeObj = GameObject.Find(name);
         if (activeObj != null) return activeObj;
 
@@ -113,7 +113,7 @@ public class GlobalSettingsManager : MonoBehaviour
             Transform result = root.transform.Find(name);
             if (result != null) return result.gameObject;
         }
-        return null; // 그래도 없으면 없는 거임
+        return null; 
     }
 
     public void SetVolume(float volume)
@@ -137,7 +137,7 @@ public class GlobalSettingsManager : MonoBehaviour
         ApplyGraphicsSettings();
         SetVolume(globalVolume);
 
-        print("설정 저장했음");
+        print("설정 저장");
     }
 
     // 불러오기
@@ -153,13 +153,13 @@ public class GlobalSettingsManager : MonoBehaviour
         ApplyGraphicsSettings();
     }
 
-    // 인스펙터에서 우클릭해서 초기화할 수 있게 만듦
+    // 인스펙터에서 우클릭해서 초기화할 수 있게
     [ContextMenu("데이터 초기화")]
     public void ResetAllData()
     {
         PlayerPrefs.DeleteAll();
         PlayerPrefs.Save();
-        print("초기화 완료. 기본값으로 돌아감.");
+        print("초기화 완료. 기본값으로 돌아감");
 
         isFullScreen = defaultFullScreen;
         globalVolume = defaultVolume;

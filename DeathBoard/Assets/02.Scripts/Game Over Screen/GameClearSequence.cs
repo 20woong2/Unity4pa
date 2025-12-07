@@ -42,7 +42,7 @@ public class GameClearSequence : MonoBehaviour
         // 1. 첫 번째 대사
         dialogueManager.ShowMessage(text1);
         yield return WaitTyping(text1); // 다 써질 때까지 대기
-        yield return new WaitForSecondsRealtime(2.0f); // 2초 멍때리기
+        yield return new WaitForSecondsRealtime(2.0f); // 2초 대기
 
         // 2. 두 번째 대사 (반전 암시)
         dialogueManager.ShowMessage(text2);
@@ -70,14 +70,14 @@ public class GameClearSequence : MonoBehaviour
     }
 
     // 텍스트 길이에 맞춰서 기다려주는 함수
-    IEnumerator WaitTyping(string msg)
+    IEnumerator WaitTyping(string message)
     {
         // DialogueManager의 속도랑 비슷하게 계산 (글자수 * 속도 + 여유시간)
-        float duration = msg.Length * dialogueManager.typingSpeed + 1.0f;
+        float duration = message.Length * dialogueManager.typingSpeed + 1.0f;
         yield return new WaitForSecondsRealtime(duration);
     }
 
-    // 화면을 천천히 검게 만드는 함수
+    // 화면을 천천히 어둡게 만드는 함수
     IEnumerator FadeInBlackScreen()
     {
         if (fadeBlackImage == null) yield break;
@@ -101,7 +101,7 @@ public class GameClearSequence : MonoBehaviour
         fadeBlackImage.color = startColor;
     }
 
-    // 텍스트나 화면을 미친듯이 흔드는 함수 (어지러움 효과)
+    // 스크린을 흔드는 함수 (어지러움 효과)
     IEnumerator ShakeEffect(float duration)
     {
         if (shakeTarget == null) yield break;
@@ -112,12 +112,12 @@ public class GameClearSequence : MonoBehaviour
         while (timer < duration)
         {
             timer += Time.unscaledDeltaTime;
-            // 랜덤한 위치로 막 흔듦
+            // 랜덤한 위치로 shake
             shakeTarget.localPosition = originalPos + (Vector3)Random.insideUnitCircle * shakeIntensity;
             yield return null;
         }
 
-        // 흔들림 끝난 후 원위치
+        // 흔들림 끝난 후 제자리로
         shakeTarget.localPosition = originalPos;
     }
 }
