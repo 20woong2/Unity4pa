@@ -1109,9 +1109,9 @@ public class EffectManager : MonoBehaviour
         {
             if(DeckManager.CardBrr[cardID-60].AbilityId == 14)
             {
-                if (fieldManager.CurrntField[3, battleManager.DestroyPosition] != null)
+                if (fieldManager.CurrntField[3, DeckManager.CardBrr[cardID-60].Position[1]] != null)
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[3, battleManager.DestroyPosition].Value - 60].AP += 2;
+                    DeckManager.CardBrr[fieldManager.CurrntField[3, DeckManager.CardBrr[cardID-60].Position[1]].Value - 60].AP += 2;
                 }
             }
             battleManager.DestroyPosition = -1;

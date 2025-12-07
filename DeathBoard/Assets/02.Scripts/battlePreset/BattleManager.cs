@@ -15,7 +15,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
     public CardSelecter cardselecter;
     public int DestroyPosition = -1; 
     public bool battleexist = false;
-
+    public AudioSource attacksound; 
     void Start()
     {
         battleexist = false;
@@ -120,7 +120,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     targetPosition2 = new Vector3(thiscards[1].transform.position.x-0.3f, thiscards[1].transform.position.y, thiscards[1].transform.position.z + 0.2f);
                     moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                     moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     
                     if (fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]-1] != null && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value-60].AbilityId == 6 && DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardArr[attackCardID.Value].Position[1] - 1].Value - 60].Position[0] != -1)
@@ -164,7 +166,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     targetPosition2 = new Vector3(thiscards[1].transform.position.x, thiscards[1].transform.position.y, thiscards[1].transform.position.z + 1.5f);
                     moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                     moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
                     player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     //상대 직접 공격(공포 수치 상승)
                     Debug.Log("아군 직접공격 : " + (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP) + " 공포게이지 : " + player.enemy.CP);
@@ -205,7 +209,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     targetPosition2 = new Vector3(thiscards[1].transform.position.x+0.3f, thiscards[1].transform.position.y, thiscards[1].transform.position.z + 0.2f);
                     moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                     moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
                     DeckManager.CardBrr[fieldManager.CurrntField[2,DeckManager.CardArr[attackCardID.Value].Position[1]+1].Value-60].HP -= (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     
                     
@@ -249,7 +255,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     targetPosition2 = new Vector3(thiscards[1].transform.position.x, thiscards[1].transform.position.y, thiscards[1].transform.position.z + 1.5f);
                     moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                     moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
                     player.enemy.CP += (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP);
                     //상대 직접 공격(공포 수치 상승)
                     Debug.Log("아군 직접공격 : " + (DeckManager.CardArr[attackCardID.Value].AP + DeckManager.CardArr[attackCardID.Value].ExAP) + " 공포게이지 : " + player.enemy.CP);
@@ -335,7 +343,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 targetPosition2 = new Vector3(thiscards[1].transform.position.x, thiscards[1].transform.position.y, thiscards[1].transform.position.z - 0.2f);
                 moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                 moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
 
 
                 DeckManager.CardArr[fieldManager.CurrntField[1,DeckManager.CardBrr[attackCardID.Value-60].Position[1]].Value].HP -= (DeckManager.CardBrr[attackCardID.Value-60].AP + DeckManager.CardBrr[attackCardID.Value-60].ExAP);
@@ -378,7 +388,9 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                     targetPosition2 = new Vector3(thiscards[1].transform.position.x, thiscards[1].transform.position.y, thiscards[1].transform.position.z - 1.5f);
                     moveCardSmooth1.StartMoving(targetPosition1,targetRotation1);
                     moveCardSmooth2.StartMoving(targetPosition2,targetRotation2);
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(0.1f);
+                    attacksound.Play();
+                    yield return new WaitForSeconds(0.4f);
                 player.user.CP += (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP);
                 //상대 직접 공격(공포 수치 상승)
                 Debug.Log("상대 직접공격 : " + (DeckManager.CardBrr[attackCardID.Value - 60].AP + DeckManager.CardBrr[attackCardID.Value - 60].ExAP) + " 공포게이지 : " + player.user.CP);

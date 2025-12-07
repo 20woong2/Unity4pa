@@ -38,7 +38,6 @@ public class FieldReaction : MonoBehaviour
             fieldManager.readyCard = null;
             DeckManager.CardArr[stateScript.thiscard.CardId].Position = (int[])fieldPosition.Clone();
 
-
             MoveCardSmooth moveCardSmooth1 = setCard.GetComponent<MoveCardSmooth>();
             MoveCardSmooth moveCardSmooth2 = thiscards[1].GetComponent<MoveCardSmooth>();
             Vector3 targetPosition1 = new Vector3(thisField.transform.position.x, thisField.transform.position.y + 0.001f, thisField.transform.position.z);

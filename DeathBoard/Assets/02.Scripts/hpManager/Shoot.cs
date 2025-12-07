@@ -33,6 +33,7 @@ public class Shoot : MonoBehaviour
         originHP = player.enemy.HP;
         Gunmove.StartMoving(targetPosition,targetRotation);
         yield return new WaitForSeconds(0.7f);
+        if(reloadSource != null)
         reloadSource.Play();
         yield return new WaitForSeconds(1.8f);
         Debug.Log("before: " + player.enemy.CP);

@@ -84,6 +84,19 @@ public class TurnManager : MonoBehaviour
         turnend = false;
         if(currentturn == 1)//드로우턴
         {
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 7; j++)
+                {
+                    if (fieldManager.CurrntField[i,j] != null)
+                    {
+                        GameObject[] thiscards = GameObject.FindGameObjectsWithTag(fieldManager.CurrntField[i,j].Value.ToString());
+                        thiscards[0].transform.position = new Vector3(3.95f + 0.425f * j, 2.001f, -1.275f + 0.625f * i);
+                        thiscards[1].transform.position = new Vector3(3.95f + 0.425f * j, 2.00f, -1.275f + 0.625f * i);                       
+                    }
+                }
+            }
+            
             for(int i=1;i>=0;i--)
             {
                 for(int j=0;j<7;j++)
