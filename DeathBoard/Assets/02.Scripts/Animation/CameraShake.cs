@@ -25,6 +25,10 @@ public class CameraShake : MonoBehaviour
     // intense: 강렬한
     private float intenseShakeTimer = 0f;
 
+    // 현재 흔들고 있는지 확인용
+    private bool isShaking = false;
+    private Coroutine shakeCoroutine;
+
 
     void Start()
     {
@@ -33,7 +37,7 @@ public class CameraShake : MonoBehaviour
         // 기본 흔들림 속도로 시작
         currentMagnitude = continuousMagnitude;
         // 기본 흔들림을 위한 코루틴 시작
-        StartCoroutine(Shake());
+        StartShake();
     }
 
 
@@ -56,6 +60,35 @@ public class CameraShake : MonoBehaviour
         }
     }
 
+    public void StopShake()
+    {
+        if (shakeCoroutine != null)
+        {
+            StopCoroutine(shakeCoroutine);
+        }
+
+        isShaking = false;
+
+        // (선택사항) 멈출 때 딱 정중앙으로 돌아오게 하려면 아래 주석 해제
+        // transform.position = initPosition; 
+    }
+
+    // [핵심 2] 외부에서 다시 흔들기 시작하는 함수
+    public void StartShake()
+    {
+        // 이미 흔들리고 있으면 중복 실행 방지
+        if (isShaking) return;
+
+        // [중요] 다시 시작할 때는 '현재 위치'를 새로운 기준점으로 잡음
+        // 이렇게 해야 카메라를 다른 곳으로 옮긴 뒤에도 거기서부터 흔들림
+        initPosition = transform.position;
+        currentMagnitude = continuousMagnitude;
+        isShaking = true;
+
+        shakeCoroutine = StartCoroutine(ShakeLoop());
+    }
+
+
 
     // 외부에서 호출하는 함수 (GameDirector)
     // 특정 동작이 수행되면(SPACE) 흔들림의 강도를 바꿔준다. 흔들리는 시간, 강도를 받아온다.
@@ -68,11 +101,10 @@ public class CameraShake : MonoBehaviour
         intenseShakeTimer = duration;      
     }
 
-
     // Coroutine은 Update가 아닌 함수에서도 코드를 반복적으로 사용할 수 있게 한다.
     // Coroutine은 또한 매 프레임을 반환하는 Update보다 효율적일 수 있다.
     // IEnumerator: Corutine의 반환형
-    IEnumerator Shake()
+    IEnumerator ShakeLoop()
     {
         // 3. while (true) -> 계속 실행하게
         while (true)

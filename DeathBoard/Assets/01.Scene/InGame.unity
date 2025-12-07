@@ -3507,7 +3507,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameEndManager
   gameOverScreen: {fileID: 1750708421}
   gameClearScreen: {fileID: 5397848335880188242}
-  blockMouseInput: 1
 --- !u!4 &336900653
 Transform:
   m_ObjectHideFlags: 0
@@ -23554,6 +23553,75 @@ Light:
   m_LightUnit: 1
   m_LuxAtDistance: 1
   m_EnableSpotReflector: 1
+--- !u!1001 &2037291675
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.183
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.063
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.132
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f538b43326a16c645924153a80034a14, type: 3}
+      propertyPath: m_Name
+      value: mesh
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f538b43326a16c645924153a80034a14, type: 3}
 --- !u!1001 &2040249783
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24528,13 +24596,17 @@ PrefabInstance:
       propertyPath: shakeTarget
       value: 
       objectReference: {fileID: 1155247855}
+    - target: {fileID: 427190034494589121, guid: 99d6be2a589eb664b812e6e826c50da3, type: 3}
+      propertyPath: turnManager
+      value: 
+      objectReference: {fileID: 110871187}
     - target: {fileID: 3089513190318786449, guid: 99d6be2a589eb664b812e6e826c50da3, type: 3}
       propertyPath: m_Name
       value: Game Clear Screen
       objectReference: {fileID: 0}
     - target: {fileID: 3089513190318786449, guid: 99d6be2a589eb664b812e6e826c50da3, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9173888373462066028, guid: 99d6be2a589eb664b812e6e826c50da3, type: 3}
       propertyPath: m_Pivot.x
@@ -24755,3 +24827,4 @@ SceneRoots:
   - {fileID: 1866613397}
   - {fileID: 470659850}
   - {fileID: 158782447}
+  - {fileID: 2037291675}

@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.UI; // 페이드 효과용 이미지를 제어하기 위해
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class GameClearSequence : MonoBehaviour
 {
     [Header("필수 연결")]
     [Tooltip("기존에 쓰던 다이얼로그 매니저를 연결하세요")]
     public DialogueManager dialogueManager;
+    public TurnManager turnManager;
 
     [Tooltip("화면을 덮을 검은색 패널 (Image 컴포넌트)")]
     public Image fadeBlackImage;
@@ -34,6 +36,7 @@ public class GameClearSequence : MonoBehaviour
             fadeBlackImage.color = c;
         }
 
+        turnManager.HelpOn = true;
         StartCoroutine(PlayEndingFlow());
     }
 
@@ -44,7 +47,7 @@ public class GameClearSequence : MonoBehaviour
         yield return WaitTyping(text1); // 다 써질 때까지 대기
         yield return new WaitForSecondsRealtime(2.0f); // 2초 대기
 
-        // 2. 두 번째 대사 (반전 암시)
+        // 2. 두 번째 대사
         dialogueManager.ShowMessage(text2);
         yield return WaitTyping(text2);
         yield return new WaitForSecondsRealtime(2.0f);
@@ -52,7 +55,7 @@ public class GameClearSequence : MonoBehaviour
         // 3. 검은 화면 페이드인 시작 (코루틴 병렬 실행)
         StartCoroutine(FadeInBlackScreen());
 
-        // 동시에 세 번째 대사 (당황)
+        // 동시에 세 번째 대사
         dialogueManager.ShowMessage(text3);
 
         // 4. 어지러움 효과 시작 (텍스트나 화면 흔들기)
@@ -61,12 +64,14 @@ public class GameClearSequence : MonoBehaviour
         yield return WaitTyping(text3);
         yield return new WaitForSecondsRealtime(2.0f);
 
-        // 5. 마지막 대사 (진실)
+        // 5. 마지막 대사
         dialogueManager.ShowMessage(text4);
         yield return WaitTyping(text4);
 
-        // 이후 로직 (메인으로 이동하거나 게임 종료 등)은 여기에 추가 가능
-        Debug.Log("엔딩 시퀀스 종료");
+        yield return new WaitForSecondsRealtime(1.0f);
+
+        // 이후 로직
+        SceneManager.LoadScene("Game Clear");
     }
 
     // 텍스트 길이에 맞춰서 기다려주는 함수
