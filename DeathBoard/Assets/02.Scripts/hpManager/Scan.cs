@@ -56,6 +56,10 @@ public class Scan : MonoBehaviour
                 Debug.Log("now HP: " + player.enemy.HP);
                 yield return new WaitForSeconds(2f);
                 Gunmove.StartMoving(originPosition,originRotation);
+                if(player.user.HP<=0)
+                {
+                    //Àû ½Â¸®
+                }
                 yield return new WaitForSeconds(2f);
             }
             TurnManager.currentturn = 1;

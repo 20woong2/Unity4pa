@@ -329,13 +329,5 @@ public class TurnManager : MonoBehaviour
         {
             NextTurn();
         }
-        if(player.user.HP<=0)
-        {
-            //유저승리
-        }
-        else if(player.enemy.HP<=0)
-        {
-            //적 승리
-        }
     }
 }

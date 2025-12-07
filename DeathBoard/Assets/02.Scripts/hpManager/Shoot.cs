@@ -67,6 +67,10 @@ public class Shoot : MonoBehaviour
         yield return new WaitForSeconds(2f);
         Gunmove.StartMoving(originPosition,originRotation);
         yield return new WaitForSeconds(2f);
+        if(player.enemy.HP<=0)
+        {
+            //À¯Àú½Â¸®
+        }
         shooting = false;
         TurnManager.turnend = true;
     }
