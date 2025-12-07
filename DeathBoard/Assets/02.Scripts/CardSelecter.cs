@@ -21,7 +21,7 @@ public class CardSelecter : MonoBehaviour, IPointerDownHandler
     private GameObject pos2;
 
     // Hover, pressed state�� ������ ����
-    private bool isHovered = false;
+    
     private bool isPressed = false;
 
     void Start()

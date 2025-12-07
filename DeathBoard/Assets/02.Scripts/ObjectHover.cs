@@ -27,8 +27,6 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     private GameObject pos2;
 
     // Hover, pressed state�� ������ ����
-    private bool isHovered = false;
-    private bool isPressed = false;
     
 
     void Start()
@@ -46,7 +44,6 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerEnter(PointerEventData eventData)
     {
         // Vector3.up = new Vector3(0, 1, 0)
-        isHovered = true;
         transform.position += Vector3.up * hoverHeight;
         //transform.Find("Subtitle").gameObject.SetActive(true);
         //transform.Find("Spot Light").gameObject.SetActive(true);
@@ -55,7 +52,6 @@ public class ObjectHover : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
     public void OnPointerExit(PointerEventData eventData)
     {
         // Vector3.down = new Vector3(0, -1, 0)
-        isHovered = true;
         transform.position += Vector3.down * hoverHeight;
         //transform.Find("Subtitle").gameObject.SetActive(false);
         //transform.Find("Spot Light").gameObject.SetActive(false);

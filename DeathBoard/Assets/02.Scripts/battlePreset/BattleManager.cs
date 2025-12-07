@@ -141,7 +141,7 @@ public class BattleManager : MonoBehaviour //공격 받고 hp 0 됐을때 상호
                 }
                 else
                 {
-                Debug.Log("아군 직접공격 : ");
+                    Debug.Log("아군 직접공격 : ");
                     GameObject[] thiscards = GameObject.FindGameObjectsWithTag(attackCardID.Value.ToString());
                     Vector3 Origin1 = thiscards[0].transform.position;
                     Vector3 Origin2 = thiscards[1].transform.position;

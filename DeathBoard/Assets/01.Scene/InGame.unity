@@ -2374,7 +2374,7 @@ BoxCollider:
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 3
   m_Size: {x: 0.30955315, y: 0.1665798, z: 0.04593395}
   m_Center: {x: 0.000000029802322, y: -0.0000048756483, z: -0.0011432674}
@@ -14547,7 +14547,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1282646689}
-  - component: {fileID: 1282646688}
   - component: {fileID: 1282646687}
   - component: {fileID: 1282646686}
   - component: {fileID: 1282646685}
@@ -14556,6 +14555,7 @@ GameObject:
   - component: {fileID: 1282646693}
   - component: {fileID: 1282646692}
   - component: {fileID: 1282646694}
+  - component: {fileID: 1282646695}
   m_Layer: 0
   m_Name: Gun
   m_TagString: Untagged
@@ -14680,7 +14680,7 @@ CapsuleCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.04
-  m_Height: 0.3
+  m_Height: 0.2
   m_Direction: 2
   m_Center: {x: 0, y: 0.045, z: 0}
 --- !u!136 &1282646687
@@ -14706,20 +14706,6 @@ CapsuleCollider:
   m_Height: 0.17
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: -0.12}
---- !u!114 &1282646688
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1282646684}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99b8fa76a25100d42a15f3b87bdae249, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::GunSelecter
-  hoverHeight: 0.1
-  clickSound: {fileID: 8300000, guid: 25f64010000acf4439ab90ad72f77ed1, type: 3}
 --- !u!4 &1282646689
 Transform:
   m_ObjectHideFlags: 0
@@ -15068,6 +15054,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1282646695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282646684}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd5040c32564af7488108806cd68cc77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::GunHover
+  hoverHeight: 0.1
+  clickSound: {fileID: 0}
 --- !u!1 &1285395089
 GameObject:
   m_ObjectHideFlags: 0
