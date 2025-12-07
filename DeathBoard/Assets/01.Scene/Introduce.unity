@@ -1077,6 +1077,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42dbb8c11a0aea14490ed51694447806, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::introDirector
+  spaceBarDelay: 2
   nextSceneName: InGame
   videoPlayer: {fileID: 106751964}
   videoClips:
@@ -1113,7 +1114,7 @@ GameObject:
   - component: {fileID: 1369508940}
   - component: {fileID: 1369508939}
   m_Layer: 0
-  m_Name: VHSFilter
+  m_Name: VHSFilter11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
