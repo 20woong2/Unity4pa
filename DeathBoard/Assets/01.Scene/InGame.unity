@@ -5512,6 +5512,7 @@ MonoBehaviour:
   deckmanager: {fileID: 1302919351}
   newCard: {fileID: 0}
   previewCardUI: {fileID: 1545070142532860387, guid: 6b1e1f10920231a4386bfb4c26bf7523, type: 3}
+  player: {fileID: 0}
 --- !u!4 &734864417
 Transform:
   m_ObjectHideFlags: 0
@@ -20938,6 +20939,7 @@ MonoBehaviour:
   deckmanager: {fileID: 1302919351}
   enemyhandmanager: {fileID: 816938652}
   newCard: {fileID: 0}
+  player: {fileID: 0}
 --- !u!4 &1436801551
 Transform:
   m_ObjectHideFlags: 0
@@ -23076,6 +23078,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EscMenuManager
   cardSelecter: {fileID: 0}
+  turnManager: {fileID: 110871187}
 --- !u!4 &1890843223
 Transform:
   m_ObjectHideFlags: 0

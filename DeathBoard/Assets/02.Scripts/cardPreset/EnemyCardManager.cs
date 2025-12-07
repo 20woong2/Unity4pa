@@ -7,6 +7,7 @@ public class EnemyCardManager : MonoBehaviour
     public EnemyHandManager enemyhandmanager;
     // 이 필드는 현재 AddCard 메서드에서 로컬 변수로 덮어쓰기 되므로 사용되지 않습니다.
     public GameObject newCard;
+    public Player player;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -20,12 +21,16 @@ public class EnemyCardManager : MonoBehaviour
     }
     public void DrawHand()
     {
-        if(DeckManager.EnemyHandList.Count < 7)
+        if(DeckManager.EnemyDeckList.Count > 0 && DeckManager.EnemyHandList.Count < 7)
         {
             int cardID;
             cardID = deckmanager.EnemyDrawCard();
             if (cardID >= 0) AddCard(cardID); //받아온 카드를 패에 추가
             else Debug.Log("덱 빔");
+        }
+        else if(DeckManager.EnemyDeckList.Count <= 0)
+        {
+            player.user.CP += 10;
         }
     }
     public void AddCard(int cardID)

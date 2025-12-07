@@ -4,7 +4,7 @@ public class EscMenuManager : MonoBehaviour
 {
     private bool isActived = false;
     public CardSelecter cardSelecter;
-
+    public TurnManager turnManager;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,11 +27,13 @@ public class EscMenuManager : MonoBehaviour
             {
                 GameObject.Find("Canvas").transform.Find("Esc Screen").gameObject.SetActive(true);
                 isActived = true;
+                turnManager.HelpOn = true;
             }
             else
             {
                 GameObject.Find("Canvas").transform.Find("Esc Screen").gameObject.SetActive(false);
                 isActived = false;
+                turnManager.HelpOn = false;
             }
         }
     }

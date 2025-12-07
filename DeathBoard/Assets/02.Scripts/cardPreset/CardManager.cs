@@ -9,7 +9,7 @@ public class CardManager : MonoBehaviour
     // 이 필드는 현재 AddCard 메서드에서 로컬 변수로 덮어쓰기 되므로 사용되지 않습니다.
     public GameObject newCard;
     public GameObject previewCardUI;
-
+    public Player player;
     void Start()
     {
         // 초기화 로직
@@ -30,12 +30,16 @@ public class CardManager : MonoBehaviour
     }
     public void DrawHand()
     {
-        if (DeckManager.HandList.Count < 7)
+        if (DeckManager.DeckList.Count > 0 && DeckManager.HandList.Count < 7)
         {
             int cardID;
             cardID = deckmanager.DrawCard();
             if (cardID >= 0) AddCard(cardID); //받아온 카드를 패에 추가
             else Debug.Log("덱 빔");
+        }
+        else if(DeckManager.DeckList.Count <= 0)
+        {
+            player.enemy.CP += 10;
         }
     }
 
