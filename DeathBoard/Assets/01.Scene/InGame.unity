@@ -14908,7 +14908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Shoot
   player: {fileID: 2092155993}
-  gameEndManager: {fileID: 0}
+  gameEndManager: {fileID: 336900652}
   turnManager: {fileID: 110871187}
   screenFlash: {fileID: 1369243579}
   reloadSource: {fileID: 1282646693}

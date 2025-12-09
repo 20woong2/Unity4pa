@@ -1190,7 +1190,7 @@ public class EffectManager : MonoBehaviour
             {
                 if (DeckManager.CardBrr[cardID - 60].Position[0] == 3 && fieldManager.CurrntField[2, DeckManager.CardBrr[cardID - 60].Position[1]] != null)
                 {
-                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardBrr[cardID - 60].Position[1]].Value].ExHP += 3;
+                    DeckManager.CardBrr[fieldManager.CurrntField[2, DeckManager.CardBrr[cardID - 60].Position[1]].Value-60].ExHP += 3;
                 }
             }
         }

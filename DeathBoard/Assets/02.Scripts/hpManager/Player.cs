@@ -56,10 +56,10 @@ public class Player : MonoBehaviour
     public PlayerStruct enemy;
     void Start()
     {
-        user.HP = 5;
+        user.HP = 1;
         user.CP = 0;
         user.randomStack = 0;
-        enemy.HP = 5;
+        enemy.HP = 1;
         enemy.CP = 0;
         enemy.randomStack = 0;
     }
